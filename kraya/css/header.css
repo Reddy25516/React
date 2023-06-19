@@ -1,0 +1,162 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    background-color: black;
+}
+.header{
+    width: 100%;
+    background-color:black;
+    padding: 0px 4%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    margin: 0px;
+    opacity: 0.9;
+}
+
+.header .title>span{
+    font-size:1.9rem;
+    color: white;
+}
+
+.search {
+    position: relative;
+}
+
+.search input{
+    padding-left: 1.3rem;
+    height: 1.9rem;
+}
+
+.header .search-icon {
+    position:absolute;
+    cursor: pointer;
+    right: 1.5rem;
+    top:2px;
+    font-size: 1.1rem;
+    border: none;
+    background-color: white;
+}
+
+.header-icons{
+    display: flex;
+    justify-content: center;
+}
+
+header .icon1{
+    color: white;
+    font-size: 1.7rem;
+}
+.icon2{
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    height: 1.2rem;
+    color: white;
+    width: 1rem;
+    background-color: red;
+}
+
+
+.fa-user{
+    color: white;
+    font-size: 1.5rem;
+}
+header .login{
+    padding-top: 0.8rem;
+}
+.login p{
+    color: white;
+    margin-top: 1px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+}
+
+.hambar{
+    font-size: 1.6rem;
+    color: white;
+    background-color: black;
+    padding-left: 3rem;
+    display: none;
+    order: 1;
+    display: flex;
+    justify-content: end;
+}
+
+header .active-link{
+    color:white !important;
+    font-weight: bold;
+}
+
+/* nav bar styling */
+
+
+nav ul{
+    margin: 0 auto;
+}
+
+.blue{
+    color: blue;
+}
+
+.signINbtn{
+    text-decoration: none;
+}
+
+.nav-bar{
+    display: none;
+}
+
+.sample{
+    background-color: black;
+}
+
+
+@media (max-width: 1200px) {
+    html { 
+        font-size: 14px; 
+    }
+}
+
+@media (max-width: 900px) {
+    html { 
+        font-size: 12px; 
+    } 
+}
+
+@media(max-width:768px){
+    .nav-bar{
+        display: none;
+    }
+    .hambar{
+        display: block;
+    }
+    .nav-bar  a{
+        padding-left: 15px;
+    }
+    .header .search{
+        order :1;
+        flex-basis: 70%;
+    }
+    .header {
+        padding-bottom: 1rem;
+    }
+}
+@media(min-width:768px){
+    .nav-bar{
+        display: block;
+    }
+    .hambar{
+        display: none;
+    }
+}
+@media(max-width:400px){
+    .header .search{
+        flex-basis: 80%;
+    }
+}

@@ -1,0 +1,137 @@
+
+.filters{
+  background-color: black;
+}
+.MuiAccordion-root{
+  margin: 0px!important;
+}
+.filters .filters-top{
+  background-color: white;
+  color:black;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size:1.3rem;
+  font-weight: 800;
+  opacity: 0.9;
+  width: 100%;
+}
+
+.filters .range,.filters .brand_data{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.filters .multi-range-slider{
+  border: none;
+  box-shadow: none ;
+  width: 80%;
+  padding: "15px 10px" ;
+}
+
+
+.sort{
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.sort .sortby{
+  display: flex;
+}
+
+.sort .sortby div{
+  margin: 0 0.8rem;
+}
+
+.sortOrder{
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sort-item{
+  color:red;
+  border-bottom: 1px solid red;
+}
+
+.breadcrumb{
+    background-color: white;
+}
+.breadcrumb li{
+  width: fit-content;
+}
+
+.breadcrumb nav a {
+  margin-right: 0.8rem;
+}
+
+.sort{
+  height:1.5rem;
+
+}
+
+.sort .sort-dropdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  right: 4vw;
+  z-index: 2;
+  cursor: pointer;
+  background-color: white;
+  opacity: 1;
+  border: none;
+}
+
+.sort .sort-dropdown button{
+  position: relative;
+  border: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: rgb(230, 230, 224);
+  height: 1.5rem;
+  width: 100%;
+  border-radius: 0.8rem;
+}
+
+.sort .sort-dropdown ul{
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+.sort .sort-dropdown li{
+  list-style: none;
+}
+
+.sort .rs-dropdown-item{
+  padding-right: 2rem;
+}
+
+
+
+@media(max-width:768px){
+  .sortby{
+      display: none!important;
+  }
+  .sort{
+    padding-top: 0.5rem;
+    font-size: 12px;
+  }
+}
+
+@media(min-width:768px){
+  .sort-dropdown{
+      display: none!important;
+  }
+  .sortby{
+    display: flex!important;
+  }
+  .filters{
+    display: block;
+  }
+}
