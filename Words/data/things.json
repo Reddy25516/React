@@ -1,0 +1,443 @@
+[
+    {
+        "keyword" : ["waiter","vaitar"],
+        "explanation": [
+                            "A person who take up your order",
+                            "Can someone call the waiter"
+                        ]
+    },
+    {
+        "keyword" : ["fast-food"]
+    },
+    {
+        "keyword" : ["subway"],
+        "explanation": [
+                            "it is underground transportation system ",
+                            "I take the subway to the office"
+                        ]
+    },
+    {
+        "keyword" : ["headache"],
+        "explanation": [
+                            "a pain in your head",
+                            "my headache is getting worse"
+                        ]
+    },
+    {
+        "keyword" : ["diarrhea","die area"],
+        "explanation": [
+                            "when you have a trouble processing food, you have to use bathroom a lot"
+                        ]
+    },
+    {
+        "keyword" : ["stomachache"],
+        "explanation": [
+                            "unplease feeling in the stomach ",
+                            "Yesterday , I had a bad stomachache"
+                        ]
+    },
+    {
+        "keyword" : ["moisture"],
+        "explanation": [
+                            "తేమ  ",
+                            "water or other liquid diffused in a small quantity as vapour, within a solid, or condensed on a surface."
+                        ]
+    },
+    {
+        "keyword" : ["dust"]
+    },
+    {
+        "keyword" : ["vaccum tube", "vya kyum"],
+        "explanation": [
+                            "a device specifically used to clean up the dust "
+                        ]
+    },
+    {
+        "keyword" : ["highway"]
+    },
+    {
+        "keyword" : ["flyover"]
+    },
+    {
+        "keyword" : ["illness"],
+        "explanation": [
+                            "a type of sickness  ",
+                            "he has a cold . It's only minor illness "
+                        ]
+    },
+    {
+        "keyword" : ["cold"],
+        "explanation": [
+                            "I thought I caught a cold  "
+                        ]
+    },
+    {
+        "keyword" : ["injury"],
+        "explanation": [
+                            "any injuries you got ?   ",
+                            "He suffered a knee injury"
+                        ]
+    },
+    {
+        "keyword" : ["frying pan"],
+        "explanation": [
+                            "this fryig pan is very cheap "
+                        ]
+    },
+    {
+        "keyword" : ["cutting board"]
+    },
+    {
+        "keyword" : ["sink"],
+        "explanation": [
+                            "a place where you wash your hands or dishes  ",
+                            "The sink is almost full "
+                        ]
+    },
+    {
+        "keyword" : ["suitcase "],
+        "explanation": [
+                            "Do not leave valuables in your suitcase  "
+                        ]
+    },
+    {
+        "keyword" : ["tourist"]
+    },
+    {
+        "keyword" : ["hand rail "],
+        "explanation": [
+                            "the side on the steps ,escalator , where we hold our hands  "
+                        ]
+    },
+    {
+        "keyword" : ["mentor"],
+        "explanation": [
+                            "a person who gives a younger person help and adivce over a period of time "
+                        ]
+    },
+    {
+        "keyword" : ["meal"],
+        "explanation": [
+                            "a type of food that we at morning , after noon and night "
+                        ]
+    },
+    {
+        "keyword" : ["fog "],
+        "explanation": [
+                            "పొగమంచు "
+                        ]
+    },
+    {
+        "keyword" : [" foggy "],
+        "explanation": [
+                            "blurred or obscured as if by fog."
+                        ]
+    },
+    {
+        "keyword" : ["hail "],
+        "explanation": [
+                            "వడగళ్ళు"
+                        ]
+    },
+    {
+        "keyword" : ["hailstorm"],
+        "explanation": [
+                            "వడగండ్ల వాన ",
+                            "Hail is a type of solid rain made up of balls or lumps of ice. Storms that produce hail which reaches the ground are known as hailstorms."
+                        ]
+    },
+    {
+        "keyword" : ["storm "],
+        "explanation": [
+                            "తుఫాను",
+                            "a violent disturbance of the atmosphere with strong winds and usually rain, thunder, lightning, or snow."
+                        ]
+    },
+    {
+        "keyword" : ["thunderstorm"],
+        "explanation": [
+                            "పిడుగుపాటు ",
+                            "A rain-bearing cloud that also produces lightning. All thunderstorms are dangerous."," Every thunderstorm produces lightning."
+                        ]
+    },
+    {
+        "keyword" : ["aquarium"],
+        "explanation": [
+                            "tank of water in which live fish and other water creatures and plants are kept.",
+                            "when are we going to the aquarium"
+                        ]
+    },
+    {
+        "keyword" : ["fare"],
+        "explanation": [
+                            "how much it cost for a particular thing to do  or to go from one place to another place.",
+                            "how much is the bus fare ?"
+                        ]
+    },
+    {
+        "keyword" : ["remote control "],
+        "explanation": [
+                            "that we can control remotelly , through a remote "
+                        ]
+    },
+    {
+        "keyword" : ["magazine "],
+        "explanation": [
+            "periodical publication containing articles and illustrations, often on a particular subject or aimed at a particular readership. ",
+            "weekly magazine",
+            "would you like to read some magazines ?"
+                        ]
+    },
+    {
+        "keyword" : ["soft drink"],
+        "explanation": [
+            "a kind of drink that not has alcohol in it ",
+            "cold drink"
+                        ]
+    },
+    {
+        "keyword" : ["book shelf"],
+        "explanation": [
+            "a  furniture to keep book in  a shelf ",
+            "The book shelf if full of books "
+                        ]
+    },
+    {
+        "keyword" : ["sweep"],
+        "explanation": [
+            "cleaning house with a broom "
+                        ]
+    },
+    {
+        "keyword" : ["broom "],
+        "explanation": [
+            "చీపురు",
+            "long-handled brush of bristles or twigs, used for sweeping."
+                        ]
+    },
+    {
+        "keyword" : ["mop","maap"],
+        "explanation": [
+            "to clean floor with water and soap ",
+            "I spilled the juice, so I will mop the floor "
+                        ]
+    },
+    {
+        "keyword" : ["waitress"],
+        "explanation": [
+            "female of waiter ",
+            "the waitress is holding a tray with glasses "
+                        ]
+    },
+    {
+        "keyword" : ["humid "],
+        "explanation": [
+            "marked by a relatively high level of water vapour in the atmosphere ",
+            "The climate is humid "
+                        ]
+    },
+    {
+        "keyword" : ["snow"],
+        "explanation": [
+            "మంచు",
+            "atmospheric water vapour frozen into ice crystals and falling in light white flakes or lying on the ground as a white layer."
+                        ]
+    },
+    {
+        "keyword" : ["wind"],
+        "explanation": [
+            "గాలి"
+                        ]
+    },
+    {
+        "keyword" : ["windy"],
+        "explanation": [
+            "exposed to strong winds"
+                        ]
+    },
+    {
+        "keyword" : ["pool"],
+        "explanation": [
+            "a place where we can swim"
+                        ]
+    },
+    {
+        "keyword" : ["shaving razor"],
+        "explanation": [
+            "razor used to shave hair"
+                        ]
+    },
+    {
+        "keyword" : ["air conditioner "],
+        "explanation": [
+            "used for hair care , to make hair soft and shinning "
+                        ]
+    },
+    {
+        "keyword" : ["deodorant","deo-darant"],
+        "explanation": [
+            "thigs that helps to prevent unpleasant smell coming from the body  "
+                        ]
+    },
+    {
+        "keyword" : ["duck"]
+    },
+    {
+        "keyword" : ["cockroach"]
+    },
+    {
+        "keyword" : [" kettle  "],
+        "explanation": [
+            "something that you use to heat up water",
+            "The keetle is on the stove"
+                        ]
+    },
+    {
+        "keyword" : ["pigeon"],
+        "explanation": [
+            "పావురం",
+            "Don't feed the pigeons."
+                        ]
+    },
+    {
+        "keyword" : ["passport"],
+        "explanation": [
+            "the passport has expired "
+                        ]
+    },
+    {
+        "keyword" : ["tooth paste"],
+        "explanation": [
+            "we are out of toothpaste "
+                        ]
+    },
+    {
+        "keyword" : ["toothbrush"]
+    },
+    {
+        "keyword" : ["shampoo"],
+        "explanation": [
+            "the woman is shampooing her hair. "
+                        ]
+    },
+    {
+        "keyword" : ["secretary"],
+        "explanation": [
+            "an assistant , usually works in a office ",
+            "there responsibilites are schedule , answering phones , helping customers so on ... ",
+            "The secretary is on the phone "
+                        ]
+    },
+    {
+        "keyword" : ["shiver"],
+        "explanation": [
+            "shiver, or shake and tremble, when they're very cold. ",
+            "You might shiver in the snow if you forget to wear your winter coat."
+                        ]
+    },
+    {
+        "keyword" : ["thin"],
+        "explanation": [
+            "Something thin is narrow or not very thick. ",
+            "If you wear thin socks on a cold winter day, your toes might start to feel numb."
+                        ]
+    },
+    {
+        "keyword" : ["buffon "],
+        "explanation": [
+            "A buffoon is someone whose ridiculous behavior is a source of amusement to others.",
+            "a person who makes jokes and falls about trying to make the king laugh — he's paid to be a buffoon."
+                        ]
+    },
+    {
+        "keyword" : [" kindergarden "],
+        "explanation": [
+            "Kindergarten is where children are introduced to school; it's where five year old children learn all about their ABC's and choice time.",
+            "In middle school, you can’t dress up as a cartoon character or anything kindergarten like that."
+                        ]
+    },
+    {
+        "keyword" : ["dice"]
+    },
+    {
+        "keyword" : ["statue"],
+        "explanation": [
+            "statue of tata"
+                        ]
+    },
+    {
+        "keyword" : ["lantern "],
+        "explanation": [
+            "A lantern is an old-fashioned hand-held light, like the kind you might go looking for ghosts with"
+                        ]
+    },
+    {
+        "keyword" : ["cemetery"],
+        "explanation": [
+            "A cemetery is the land used for burials. "
+                        ]
+    },
+    {
+        "keyword" : ["concert"],
+        "explanation": [
+            "A concert is a performance by musicians or singers for an audience."
+                        ]
+    },
+    {
+        "keyword" : ["dessert"],
+        "explanation": [
+            "Served as the last course of a meal, a dessert is often sweet, like cake or pie."
+            ]
+    },
+    {
+        "keyword" : ["prophecy"],
+        "explanation": [
+            "జోస్యం ","knowledge of the future (usually said to be obtained from a divine source)","prophecy became reality"
+            ]
+    },
+    {
+        "keyword" : ["yell"],
+        "explanation": [
+            "a loud, sharp cry of pain, surprise, or delight","when you call someone with loud voice"
+            ]
+    },
+    {
+        "keyword" : ["paralysis"],
+        "explanation": [
+            "Paralysis feels like you can’t move part of your body the way you want to, no matter how hard you try. "
+            ]
+    },
+    {
+        "keyword" : ["stingy"],
+        "explanation": [
+            "unwillingness to share with others."
+            ]
+    },
+    {
+        "keyword" : ["hammer"],
+        "explanation": [
+            "sutthi"
+            ]
+    },
+    {
+        "keyword" : ["fur"],
+        "explanation": [
+            "the short, fine, soft hair of certain animals."
+            ]
+    },
+    {
+        "keyword" : ["fur"],
+        "explanation": [
+            "the short, fine, soft hair of certain animals."
+            ]
+    },
+    {
+        "keyword" : ["smart speaker"]
+    },
+    {
+        "keyword" : ["smart speaker"]
+    },
+    {
+        "keyword" : ["flower bush"]
+    }
+]
