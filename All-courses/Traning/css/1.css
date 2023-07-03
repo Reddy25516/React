@@ -1,0 +1,226 @@
+p{
+    list-style-type:none;
+    font-size : 1.5em !important;
+    /* 
+
+    one is from inline css 
+    external css 
+    internal css 
+
+    when ever we have to styles collides to a sinle element 
+    then this cmd with !important will takes place 
+    no matter what the pattern is 
+     */
+
+     /* when ever we have to style sheets files  */
+
+
+/* style1.css */
+
+/* style2.css */
+
+/* @import url("style1.css"); */
+}
+body{
+    size: 0ch;
+
+}
+
+/* which ever the styles that are present in the style1.css 
+now also will be avaialbe in the style2css 
+ */
+
+ p{
+    width: 50%;
+        /* 
+    here width means that it will adjust with in 50% of the total screen 
+    */
+
+    border: solid;
+ }
+
+
+/* ================================================== */
+
+
+
+
+ul li:nth-child(3){
+    background-color: red;
+}
+
+/* this means that the 3rd  list in the unordered list will be backgrounded with color
+red 
+ */
+
+
+
+ ul{
+    list-style-type:none;
+    /* list-style-type: none; - Removes the bullets. A navigation bar does not need list markers */
+    list-style:none;
+}
+
+/* 
+above both are same we can use any of it 
+this removes the list dots from the webpage
+ */
+
+
+/* '=====================' */
+
+ul li {
+    padding-left: 5px;
+    margin:0 3px 0 3px;
+    /* top right bottom down */
+    margin : 5px 5px;
+    border-bottom: 3px solid black;
+    border-bottom: 3px black solid;
+
+}
+
+
+ul li:nth-child(3){
+    display: none;
+    visibility: hidden;
+}
+
+
+/* 
+dispalay: none 
+this will remove that particular item and even space will also get removed
+
+visibility: hidden
+this removes element but the space will be allocated for it 
+
+ */
+
+
+.menu li:hover{
+    background-color: red;
+}
+
+/* 
+whenever someone is hovering over the menu 
+then the background color will be changed 
+ */
+
+
+p{
+    font-family: 'Courier New', Courier, monospace;
+    /* 
+    here browser sometime may not have the some styles over here 
+    so we mention different fonts here 
+    whatever the first one matches it will execute 
+    */
+}
+
+p{
+    font-variant: small-caps;
+    font-weight: 100px;
+    font-style: italic;
+}
+
+P{
+    text-indent:200px ;
+    
+    /* 
+    The text-indent property specifies the indentation of the first line in a text-block.
+
+    this specify a gap of 200px on the left side of the first paragraph
+     */
+    text-align:justify;
+    /* 
+    will adjust u r text in the line in such a way that there is no 
+    space at the end of the line 
+     */
+     
+}
+
+/* The text-align-last property specifies how to align the last line of a text. */
+
+p.a {
+    text-align-last: right;
+  }
+  
+  p.b {
+    text-align-last: center;
+  }
+  
+  p.c {
+    text-align-last: justify;
+  }
+
+
+P{
+    letter-spacing: 0cm;
+    word-spacing: 32px;
+    text-decoration: underline;
+
+}
+
+
+p{
+    position: fixed;
+    /* 
+    this style with fix with the windown 
+    even when we scrool the page 
+    it still remain in the same position  */
+
+    position: absolute;
+
+    float:left;
+    float:right;
+    clear: both;
+    clear:left;
+    clear:right;
+
+    display: flex;
+    
+}
+
+
+
+/* =============================================== */
+
+ https://www.webfx.com/archive/blog/images/assets/cdn.sixrevisions.com/0457-01-css-box-shadow-demo/demo.html 
+
+style{
+
+    p{
+            /* Basic Drop Shadow */
+    box-shadow: 0 0 10px;
+
+    /* Inner Shadow */
+    box-shadow: inset 0 0 10px;
+
+    /* Offset Drop Shadow (Bottom Right) */
+    box-shadow: 5px 5px 10px;
+
+    Offset Drop Shadow (Top Left)
+    box-shadow: -5px -5px 10px;
+    Inset Value
+    box-shadow: inset 0 0 5px 5px olive;
+    No Inset Value
+    box-shadow: 0 0 5px 5px olive;
+    Horizontal Offset Value
+    box-shadow: 20px 10px;
+    Vertical Offset Value
+    box-shadow: 10px -20px;
+    Blur Radius Value
+    box-shadow: 5px 5px 20px;
+    Spread Distance Value
+    box-shadow: 0 0 10px 5px;
+    Negative Spread Distance Value
+    box-shadow: 0 10px 10px -5px;
+    Default Color Value
+    color: red;
+    box-shadow: 0 0 10px 5px;
+    With Color Value
+    color: red;
+    box-shadow: 0 0 10px 5px blue;
+    Multiple Box Shadows
+    box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;
+    }
+}
+

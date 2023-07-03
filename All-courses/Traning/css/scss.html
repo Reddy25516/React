@@ -1,0 +1,108 @@
+
+
+<!-- Adding variables to the css  -->
+
+<style>
+    :root{
+        --pri-color:red;
+        --sec-color: blue;  
+    }
+
+    body{
+        background-color: var(--pri-color);
+    }
+
+    /* this is the way of writing the variables in the css  */
+
+
+</style>
+
+
+<style>
+
+    $primary-color:red ;
+    $sec-color:blue;
+
+    body{
+        background-color: $sec-color;
+    }
+
+    /* 
+    this is the way of declaring variables in the scss 
+    */
+</style>
+
+
+
+<style>
+
+    /* this is the scss code  */
+
+    $primary-color:red ;
+    $sec-color:blue;
+    $font-weights:(
+        "regular":400,
+        "normal":700,
+        "bold":900,
+    );
+    body{
+        background: $sec-color;
+        font-weight: map-get($font-weights,bold)
+    }
+
+
+
+
+    /* the converted css code is  */
+
+    body {
+    background: blue;
+    font-weight: 900;
+    }/*# sourceMappingURL=style.css.map */
+
+
+
+    /* below is the way fo writing the para in a main  */
+
+    main{
+        width:80%;
+        margin: 0 auto;
+
+        p{
+            font-weight: map-get($font-weights,bold);
+
+        }
+
+    }
+
+
+    /* the converted css code is  */
+
+    main {
+    width: 80%;
+    margin: 0 auto;
+    }
+    main p {
+    font-weight: 900;
+    }/*# sourceMappingURL=style.css.map */
+
+</style>
+
+
+
+<style>
+
+main{
+        width:80%;
+        margin: 0 auto;
+
+        .main_first{
+            font-weight: map-get($font-weights,bold);
+        }
+    }
+
+    /* this is the way of writing a class inside the element  */
+
+</style>
+
+

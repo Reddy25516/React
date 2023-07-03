@@ -1,0 +1,104 @@
+
+<!-- go through the below url  -->
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background
+
+
+<!-- flex shrink  -->
+
+<style>
+    #main div {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 100px;
+    }
+  
+  #main div:nth-of-type(2) {
+    flex-shrink: 3;
+  }
+  </style>
+  
+  
+  
+  
+  <div id="main">
+    <div style="background-color:black;"></div>
+    <div style="background-color:lightblue;"></div>
+    <div style="background-color:khaki;"></div>
+    <div style="background-color:pink;"></div>
+    <div style="background-color:lightgrey;"></div>
+  </div>
+
+
+
+
+<!-- Flex basis in css  -->
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#main {
+  width: 300px;
+  height: 100px;
+  border: 1px solid #c3c3c3;
+  display: flex;
+}
+
+#main div {
+  flex-basis: 50px;
+}
+
+#main div:nth-of-type(2) {
+  flex-basis: 100px;
+}
+</style>
+</head>
+<body>
+
+<h1>The flex-basis Property</h1>
+
+<p>Set the initial length of the flex items to 50 pixels, with an exception; set the initial length of the second flex item to 100 pixels:</p>
+<div id="main">
+  <div style="background-color:coral;">50px</div>
+  <div style="background-color:lightblue;">100px</div>
+  <div style="background-color:khaki;">50px</div>
+  <div style="background-color:pink;">50px</div>
+  <div style="background-color:lightgrey;">50px</div>
+</div>
+
+<p><b>Note:</b> Internet Explorer 10 and earlier versions do not support the flex-basis property.</p>
+
+</body>
+</html>
+
+
+
+<!--  -->
+
+<style>
+    .item {
+    flex-basis:  | auto; /* default auto */
+    }
+</style>
+
+
+<!-- 
+    Flex-self 
+
+ -->
+This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
+
+Please see the align-items explanation to understand the available values.
+
+<style>
+    .item {
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+    }
+</style>
+Note that float, clear and vertical-align have no effect on a flex item.
+
+
+
+<!--  -->

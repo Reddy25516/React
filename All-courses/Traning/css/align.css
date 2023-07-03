@@ -1,0 +1,169 @@
+
+
+/* The flex-wrap property specifies whether the flexible items should wrap or not. */
+
+p{
+    flex-wrap: wrap;
+    
+    /* 
+    eg 
+    
+    i 
+    am 
+    here
+
+    if the size provided in less than the text 
+    then with flex wrap it will wrap the content like below
+
+    i am here 
+    
+    */
+
+    align-content: flex-start;
+
+    /* 
+    4*5 box
+
+    ------------
+    1 2 3 4 5
+    6 7 
+    
+
+    ------
+    */
+
+    align-content: flex-end;
+    /* 
+    4*5
+    ------------
+
+
+    1 2 3 4 5
+    6 7 
+    ------
+
+    
+    */
+    align-content: space-around;
+
+    /* 
+        5*5
+    ------------
+
+    1 2 3 4 5
+
+    6 7 
+
+    ------
+ */
+    align-content: space-between;
+    /*
+    5*5
+    ------------
+    1 2 3 4 5
+
+
+
+    6 7 
+    ------
+    */
+    
+
+}
+
+
+
+/* 
+The align-items property is used to set the alignment of items inside the flexible container or in the given window. It aligns the Flex Items across the axis. The align-self property is used to override the align-items property. 
+ */
+ 
+
+
+ p{
+    float:left;
+
+
+    overflow: auto;
+    /* 
+    this will take the content in the specified width and the height(border)
+    and let is scroll if there is an extract content in it  
+    the content here will not go out of the box
+     */
+    overflow:visible;
+    /* 
+    if the content overflow out of the border it will be visible
+    here the content will go out of the box and still visible 
+     */
+
+    overflow:scroll;
+    /* 
+    same as auto 
+     */
+    overflow:hidden;
+    /* 
+    here the overflown content out of the border will not be visible :da;jfa
+
+     */
+    
+
+
+ }
+
+
+
+style{
+    list-style-image: url('1.jpg');
+    /* this is the way of specifying the image in the list button  */
+    list-style-type: circle;
+    list-style-type: disc;
+    list-style-type:decimal; 
+    /* numbers 
+    lower alphabets
+    */
+    list-style-type: lower-alpha;
+    list-style-type:lower-roman;
+
+}
+
+ul {
+    list-style-type: square;
+  }
+
+  ul {
+    list-style-type: none;
+
+    Ordered:
+
+decimal (default)
+decimal-leading-zero
+lower-roman
+upper-roman
+lower-greek
+lower-latin
+upper-latin
+armenian
+georgian
+lower-alpha
+upper-alpha
+
+
+  }
+
+  ul {
+    list-style-position: outside; /* default */
+    list-style-position: outside;
+  }
+
+
+
+/*  */
+
+
+p{
+  word-wrap: break-word;
+  word-wrap:normal;
+
+  /* 
+  if we have a bid word which goes out of the border 
+  then with break-word it will write in the next line */
+}

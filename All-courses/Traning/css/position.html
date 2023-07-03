@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+
+
+<html>
+
+<style>
+    body{
+        width: 1000px;
+        height: 800px;
+        background-color: cadetblue;
+        display: flex;
+        overflow:hidden;
+        border: solid 1px;
+        margin: 100px;
+    }
+
+    .cls{
+        width: 500px;
+        height: 500px;
+        border: 3px solid red;
+        background-color: white;
+        margin: 50px;
+        
+    }
+    .div1{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    .div3{
+        width: 200px;
+        height: 200px;
+        background-color: black;
+
+
+    }
+    .div2{
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        top:20px;
+        left:50px;
+        position:fixed;
+    }
+
+
+</style>
+<body>
+    <div class="cls">
+        <div class="div1"> this is div 1</div>
+        <div class="div2">this is div2</div>
+        <div class="div3">this is div3</div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+<!-- 
+    absolute will take the px with respect to the screen width and it goes along with the screen while you scrool 
+
+
+    Relative is with respect to the last element that u created 
+
+    static is the normal one/ predefined one
+
+    fixed is to fix something with the screen and even you scrool it still remains same 
+
+ -->
