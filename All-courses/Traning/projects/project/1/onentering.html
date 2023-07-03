@@ -1,0 +1,30 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>enter your name</div>
+        <input type="text" id="fname"><br>
+
+        THe Entered name is :
+        <input id="output">
+    </form>
+  
+
+    <script>
+        input=document.getElementById("fname")
+        input.addEventListener("keyup", function(){
+            x = document.getElementById("output");
+            x.value=input.value;
+
+        });
+        
+        </script>
+</body>
+</html>
