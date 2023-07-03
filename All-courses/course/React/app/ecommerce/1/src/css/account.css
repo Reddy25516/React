@@ -1,0 +1,168 @@
+.account{
+    padding: 5%;
+}
+
+.acc-left{
+    width: 20%;
+    padding: 2%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.acc-left .one{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.acc-left .one img{
+    height: 90px;
+    width: 90px;
+    background-color: red;
+    border-radius: 50%;
+    background-color:#EDEEEF;
+    margin-left: 32%;
+}
+
+.acc-left .one div:nth-child(2){
+    justify-content: center;
+    color: #244152;
+    font-weight: 600;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.acc-left .one div:nth-child(3), .acc-left .one div:nth-child(4){
+    justify-content: center;
+    margin: 10px auto;
+    color: #555555;
+    text-align: center;
+}
+
+.acc-left .two{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 10px;
+    padding: 1rem 0;
+    color: #555555;
+    font-size: 14px;
+}
+
+.acc-left .two div {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.acc-left .two div a{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.acc-left .two div a{
+    color: #555555;
+}
+
+.acc-left .two .fa-user{
+    font-size: 18px;
+    color: black;
+    opacity: 0.8;
+    padding-left: 1px;
+}
+
+.acc-left .two div:nth-child(1){
+    font-size: 20px;
+    color: #B7BDC1;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.acc-left .two Link{
+    text-decoration: none;
+}
+
+.active {
+    color: #FF3465;
+    font-weight: 600;
+}
+
+
+/* wishlist */
+.cart{
+    margin-top: 0px;
+}
+
+.cart .title{
+    font-size: 18px;
+}
+.cart .price{
+    font-size: 18px;
+}
+
+.cart .btns{
+   margin-top: 50px;
+}
+
+/* details page */
+
+.details{
+    background-color: white;
+    padding: 3% 3%;
+}
+
+.details .img1{
+    background-color:  #EDEEEF;
+    border-radius: 51%;
+    margin: 6% 20%;
+    height: 130px;
+    border: 1x solid white;
+    width: 130px;
+}
+.details .info div{
+    /* height: 30px; */
+    line-height: 20px;
+}
+
+.details .info div p:nth-child(1){
+    color: #999999;;
+    width: 130px;
+}
+
+.details .info div p:nth-child(2){
+    color: #2D323D;
+    font-weight: 600;
+    /* opacity: 0.9; */
+    font-size: 16px;
+    font-family: 'Work Sans';
+    /* width: 150px; */
+}
+
+
+.details .info .info{
+    font-size: 18px;
+    color: #B7BDC1;
+    letter-spacing: 0px;
+}
+
+.details .image label{
+    margin: 0 22%;
+    text-decoration: none;
+    color:#FF3465;
+    font-weight: 600;
+    opacity: 0.9;
+    border: none;
+}
+
+.details .info .btn2{
+    width: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    padding: 5px 12px;
+    border: 2px solid #463F5F;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.edit_input{
+    border: 1px solid black;
+    padding: 0px 20px;
+    height: 25px;
+}

@@ -1,0 +1,175 @@
+
+<script>
+
+import React, { Component } from 'react'
+
+class Hello extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            name :"Reddy"
+        }
+        this.clickHandler= this.clickHandler.bind(this)
+        // here we need to bind the click handler if we want to update the state variables
+    }
+    clickHandler(){
+        // alert('hello'+this.state.name)
+        alert(`hello ${this.state.name} `)
+        // this is template literals way
+    }    
+    render() {
+      return (
+        <div>
+          <div> {this.state.name}</div>
+          <button onClick={this.clickHandler}>Click</button>
+        </div>
+      )
+    }
+}
+export default Hello
+
+</script>
+
+
+**********************************************************************
+
+<!-- 
+    here in the below we created a child component 
+    and added into anothe child component 
+ -->
+<script> 
+
+import React from 'react'
+function Second() {
+  return (
+    <div>
+       <button> Child component</button>
+    </div>
+  )
+}
+export default Second
+
+
+'******************************************'
+
+import React, { Component } from 'react'
+import Second from './Second'
+class Hello extends Component {
+    render() {
+      return (
+        <div>
+          <Second />
+        </div>
+      )
+    }
+}
+export default Hello
+
+</script>
+
+
+*********************************************************
+
+<!-- 
+  here in the below we will be learning 
+  how to pass function from parent to child using props
+-->
+
+<script>
+import React, { Component } from 'react'
+import Second from './Second'
+class Hello extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            name :"Reddy"
+        }
+        this.clickHandler= this.clickHandler.bind(this)
+    }
+    clickHandler(){
+        // alert('hello'+this.state.name)
+        alert(`hello ${this.state.name} `)
+    }    
+    render() {
+      return ( 
+        <div>
+          <Second clickHandler={this.clickHandler} />
+        </div>
+      )
+    }
+}
+export default Hello
+
+'=================================='
+
+'using functional component to pass the props'
+
+import React from 'react'
+function Second(props) {
+  return (
+    <div>
+       <button onClick={props.clickHandler}> Child component</button>
+    </div>
+  )
+}
+export default Second
+</script>
+
+Output: 
+when ever you click on the child component button an alert will be generated 
+
+*****************************************
+
+<!-- 
+  here we are passing parameters from child to parent component 
+-->
+
+<script>
+import React, { Component } from 'react'
+import Second from './Second'
+class Hello extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            name :"Reddy"
+        }
+        this.clickHandler= this.clickHandler.bind(this)
+    }
+    clickHandler(surName){
+        // alert('hello'+this.state.name)
+        alert(`hello ${this.state.name} 
+            is ${surName} is your surname ?? `)
+    }    
+    render() {
+      return ( 
+        <div>
+          <Second clickHandler={this.clickHandler} />
+        </div>
+      )
+    }
+}
+export default Hello
+
+'********************************************'
+
+
+import React from 'react'
+function Second(props) {
+  return (
+    <div>
+       <button onClick={ () =>props.clickHandler('beeram')}> Child component</button>
+    </div>
+  )
+}
+export default Second
+</script>
+
+Output: Alert 
+
+Hello reddy 
+is beeram is your surname 
+
+***************************************************************
+

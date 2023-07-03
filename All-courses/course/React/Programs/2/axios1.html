@@ -1,0 +1,104 @@
+
+<!-- here we are getting the first 10 elemensts from the data -->
+<script>
+import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+function Interval() {
+    const [posts,setPosts] =useState([])
+
+    function secondSet(){
+        const first10 = posts.filter((element, index) => index < 10);
+        setPosts(first10);
+    }
+    useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/photos')
+        .then(res =>{
+            setPosts(res.data);
+            secondSet();
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    })
+    return (
+        <div>
+           {
+            posts.map(post=> 
+            <div>
+                <li key={post.id}>{post.title}</li>
+                <li> {post.id}</li>
+            </div>)
+           }
+        </div>
+    )
+}
+export default Interval
+</script>
+
+
+************************************************************
+
+<!-- passing data instead of axios  -->
+
+<script>
+
+import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+function Interval() {
+    const [posts,setPosts] =useState([])
+
+    function secondSet(res){
+        const first10 = res.filter((element, index) => index < 10);
+        setPosts(first10);
+    }
+    
+    useEffect(()=>{
+        var res=[{
+            "albumId": 1,
+            "id": 1,
+            "title": "accusamus beatae ad facilis cum similique qui sunt",
+            "url": "https://via.placeholder.com/600/92c952",
+            "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+          },
+          {
+            "albumId": 1,
+            "id": 2,
+            "title": "reprehenderit est deserunt velit ipsam",
+            "url": "https://via.placeholder.com/600/771796",
+            "thumbnailUrl": "https://via.placeholder.com/150/771796"
+          },
+          {
+            "albumId": 1,
+            "id": 3,
+            "title": "officia porro iure quia iusto qui ipsa ut modi",
+            "url": "https://via.placeholder.com/600/24f355",
+            "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+          },
+          {
+            "albumId": 1,
+            "id": 4,
+            "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+            "url": "https://via.placeholder.com/600/d32776",
+            "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+          }]
+        secondSet(res);
+    },[])
+
+    return (
+        <div>
+           {
+            posts.map(post=> 
+            <div className='list'>
+                <li key={post.id}>{post.title}</li>
+                <li> {post.id}</li>
+                <img className='image1' src={post.url}></img>
+            </div>)
+           }
+        </div>
+    )
+}
+export default Interval
+</script>
+
+
+*******************************************************

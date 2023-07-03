@@ -1,0 +1,155 @@
+
+<!-- styling a sample header  -->
+<style>
+/* my-app\src\components\style.module.css */
+body{
+    margin: 0px;
+}
+.header{
+    background-color: royalblue;
+    height: 50px;
+    font-size: 2em;
+    color: white;
+    padding: 20px;
+}
+</style>
+
+-------------------------- 
+
+<script>
+import React from 'react';
+import { useState } from 'react';
+import sty from '../components/style.module.css';
+
+const Hello =() =>{
+  return <div className={sty.header}>To Do App</div>;
+
+}
+export default Hello;
+</script>
+
+In the page we will get an header with 
+To Do App with a little styling for it 
+
+*********************************************************************
+*********************************************************************
+
+<!-- how to get an input filed values on click and how to save the data -->
+
+<!-- App.js  -->
+
+<script>
+
+import Hello from './components/Hello.js';
+import Form from './components/Form.js';
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+  return (
+    <>
+      <Hello />
+      <Form 
+          todo={todo} setTodo={setTodo}
+          todoList ={todoList} setTodoList={setTodoList}
+      />
+    </>
+  );
+}
+export default App;
+
+
+'-----------------------------------'
+
+// form.js file 
+
+const Form =({todo,setTodo,todoList,setTodoList}) => {
+    const handleChange =(event) =>{
+        setTodo(event.target.value);
+        console.log(todo);
+    }
+    const handleSubmit =event =>{
+        event.preventDefault();
+        setTodoList([...todoList,todo]);
+        console.log(todoList);
+    }
+    return(<>
+        <form onSubmit={handleSubmit}>
+            <input value={todo} onChange={handleChange} 
+                type="text" placeholder="Add to list "></input>
+            <button type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+</script>
+
+For the above code 
+when ever you enter the value in the input field 
+and click on add 
+
+then in the console the values will be displayed 
+
+***********************************************************
+************************************************************
+
+
+
+
+<script>
+import './components/styles.css';
+import List from './components/List.js';
+import Form from './components/Form';
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+
+  const handleChange =(event) =>{
+      setTodo(event.target.value);
+  }
+  
+  const handleSubmit =event =>{
+      event.preventDefault();
+      setTodoList([...todoList,todo]);
+      console.log(todoList);
+  }
+
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  return (
+    <>
+    <h2>To Do App</h2>
+    <Form todo={todo} handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <List todoList={todoList}  deleteHandler={deleteHandler}/>
+    </>
+  );
+}
+export default App;
+
+'-----------------------------------'
+
+const Form =({todo,handleSubmit,handleChange}) => {
+    return(<>
+        <form onSubmit={()=>handleSubmit(event)}>
+            <input value={todo} onChange={()=>handleChange(event)} 
+                type="text" placeholder="Add to list "></input>
+            <button type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+// here we get an error in the handleChange(event)
+
+</script>
+
+<!-- 
+    Here in the above we are using event in the delete and change function 
+    so we cant pass the function bw parent and child
+ -->

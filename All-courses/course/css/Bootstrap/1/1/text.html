@@ -1,0 +1,183 @@
+<p class="h1">h1. Bootstrap heading</p>
+<p class="h2">h2. Bootstrap heading</p>
+<p class="h3">h3. Bootstrap heading</p>
+<p class="h4">h4. Bootstrap heading</p>
+<p class="h5">h5. Bootstrap heading</p>
+<p class="h6">h6. Bootstrap heading</p>
+
+
+
+<h3>
+Fancy display heading
+<small class="text-muted">With faded secondary text</small>
+</h3>
+
+
+<!-- here display-1 having more higher than the heading text -->
+<h1 class="display-1">Display 1</h1>
+<h1 class="display-2">Display 2</h1>
+<h1 class="display-3">Display 3</h1>
+<h1 class="display-4">Display 4</h1>
+<h1 class="display-5">Display 5</h1>
+<h1 class="display-6">Display 6</h1>
+
+
+<!-- here there is no difference between the below two -->
+<h1 class="display-1">Hello</h1>
+<p class="display-1">hello p</p>
+
+
+
+Lead
+Make a paragraph stand out by adding .lead.
+
+<p class="lead">
+This is a lead paragraph. It stands out from regular paragraphs.
+</p>
+
+
+<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+<p><del>This line of text is meant to be treated as deleted text.</del></p>
+<p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+<p><u>This line of text will render as underlined.</u></p>
+<p><small>This line of text is meant to be treated as fine print.</small></p>
+<p><strong>This line rendered as bold text.</strong></p>
+<p><em>This line rendered as italicized text.</em></p>
+
+
+.mark will apply the same styles as <mark>.
+.small will apply the same styles as <small>.
+.text-decoration-underline will apply the same styles as <u>.
+.text-decoration-line-through will apply the same styles as <s>.
+
+
+
+<!--  
+    Add .initialism to an abbreviation for a slightly smaller font-size.
+    abbreviations and acronyms to show the expanded version on hover.
+-->
+<div class="container">
+    <p><abbr title="attribute">attr</abbr></p>
+    <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+</div>
+
+
+<!-- 
+    it will here having medium font-size and medium font-weight
+ -->
+<blockquote class="blockquote">
+    <p>A well-known quote, contained in a blockquote element.</p>
+</blockquote>
+
+
+<!-- 
+    go through the below thing for allof it
+ -->
+https://getbootstrap.com/docs/5.0/content/typography/
+
+
+
+<!-- text center alignment  -->
+text-end 
+
+<blockquote class="blockquote text-center">
+    <p>A well-known quote, contained in a blockquote element.</p>
+</blockquote>
+
+
+<!-- this is how we can write caption for a title -->
+<div class="container">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>A well-known quote, contained in a blockquote element.</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Someone famous in <cite title="Source Title">Source Title</cite>
+      </figcaption>
+    </figure>
+ </div>
+
+
+------------------------- 
+
+
+<!-- 
+    here we will not be getting any dotted or numbers or alphabets numbering 
+ -->
+<ul class="list-unstyled">
+    <li>This is a list.</li>
+    <li>It appears completely unstyled.</li>
+    <li>Structurally, it's still a list.</li>
+    <li>However, this style only applies to immediate child elements.</li>
+    <li>Nested lists:
+      <ul>
+        <li>are unaffected by this style</li>
+        <li>will still show a bullet</li>
+        <li>and have appropriate left margin</li>
+      </ul>
+    </li>
+    <li>This may still come in handy in some situations.</li>
+</ul>
+
+
+
+*********************************
+
+
+<!-- 
+  this below will show up in different colurs with different backgrounds like danger green yellow so on 
+ -->
+
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+</div>
+<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  A simple warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  A simple info alert—check it out!
+</div>
+<div class="alert alert-light" role="alert">
+  A simple light alert—check it out!
+</div>
+<div class="alert alert-dark" role="alert">
+  A simple dark alert—check it out!
+</div>
+
+
+
+<!--  all the content here will be in a green text color with light green background -->
+<div class="alert alert-success" role="alert">
+  <h4 >Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+
+
+<!-- an alert div with close button at end -->
+<div class="alert alert-warning alert-dismissible show" >
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" ></button>
+</div>
+
+
+<!-- this is similar as cart count icon -->
+<button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>

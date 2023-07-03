@@ -1,0 +1,450 @@
+
+
+class="form-label"
+<!-- with form-label we wil be getting some margin-bottom -->
+
+
+class="form-control"
+<!--   with form-control the input box will be placed below with some styling appplied for it
+  When you input you will be getting a border over the input box   
+    this input will behave like block and takes whole width as like div 
+-->
+
+class="form-check-input"
+<!-- this will have input checkbox with border radius opacity applied to it -->
+
+
+ <form>
+    <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input type="email" class="form-control" >
+      <div class="form-text">We'll never share your email with anyone else.</div>
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control">
+    </div>
+    <div class="mb-3 ">
+      <input type="checkbox" class="form-check-input">
+      <label>Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<!-- this is the best way to write if you want your input to be come around right side ot the text  -->
+<div class="mb-3 row align-items-center">
+    <div class="col-auto"><label >Email address</label></div>
+    <div class="col-7"><input type="email" class="form-control "></div>
+    <span id="passwordHelpInline" class="form-text">
+        Must be 8-20 characters long.
+      </span></div>
+</div>
+
+
+<!-- 
+    here this particular field to disabled to edit
+    in place of content editable we can use it 
+-->
+<input class="form-control" value="hello" disabled>
+
+
+<!-- 
+    similarly for the above 
+    we can also disable 
+    checkbox 
+    button etc...
+ -->
+
+ <!-- here in the below when you disable the input the label for it will also looks like it is disabled -->
+ <div class="mb-3 ">
+    <input type="checkbox" id="1"  disabled class="form-check-input">
+    <label  for="1" class="form-check-label">Check me</label>
+  </div>
+
+
+<!-- 
+    here we have text area with 3 rows space
+ -->
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control"  rows="3"></textarea>
+</div>
+
+
+<!-- this will have a height around 48(30+16+2) -->
+<input class="form-control form-control-lg" type="text" >
+
+
+<!-- this will have height (21+4(8)+1(2)) -->
+<input class="form-control form-control-sm" type="text" >
+
+
+<!-- read only we can go into the input but we can't able to type something in it -->
+<input class="form-control" type="text"  readonly>
+
+
+class="form-control-plaintext" 
+<!-- when you have this class here it will not show up like an input box  -->
+<input type="text" readonly class="form-control-plaintext"  value="email@example.com">
+
+
+
+class="visually-hidden"
+<!-- to hide an element -->
+<label for="inputPassword2" class="visually-hidden">Password</label>
+
+
+
+<!-- this is the way to select only one file  -->
+<div class="mb-3">
+    <label for="formFile" class="form-label">Default file input example</label>
+    <input class="form-control" type="file" id="formFile">
+</div>
+
+
+<!-- this is the way to select multiple files from it -->
+<div class="mb-3">
+    <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+    <input class="form-control" type="file" id="formFileMultiple" multiple>
+</div>
+
+
+<!-- form-control-lg  -->
+<div class="mb-3">
+    <label for="formFileSm" class="form-label">Small file input example</label>
+    <input class="form-control form-control-sm" id="formFileSm" type="file">
+  </div>
+<div>
+    <label for="formFileLg" class="form-label">Large file input example</label>
+    <input class="form-control form-control-lg" id="formFileLg" type="file">
+</div>
+
+
+<!-- data list for search bar -->
+
+<!-- 
+    here it will show in the successtions when you input some name in it 
+    you can able to search based on the below option list 
+ -->
+<label for="exampleDataList" class="form-label">Datalist example</label>
+<input class="form-control" list="datalistOptions" placeholder="Type to search...">
+<datalist id="datalistOptions">
+    <option value="San Francisco">
+    <option value="New York">
+    <option value="Seattle">
+    <option value="Los Angeles">
+    <option value="Chicago">
+</datalist>
+
+
+<!-- 
+    here we can select option 
+    here form-select will style the select menu
+-->
+<select class="form-select" >
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+
+
+<!-- large one -->
+<select class="form-select form-select-lg mb-3" ></select>
+
+<!-- small one  -->
+<select class="form-select form-select-sm" aria-label=".form-select-sm example"></select>
+
+
+<!-- with this we can able to select multiple options from the list -->
+<select class="form-select" multiple >
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+  
+
+size="3" 
+<!-- 
+    here it means that number of elements it should show at a time 
+    here you will get a scrool bar to scrool bw the list of elements present in it
+ -->
+<select class="form-select" size="3" aria-label="size 3 select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+
+
+<!-- we can also disable this one -->
+<select class="form-select" aria-label="Disabled select example" disabled>
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+
+
+
+<!-- chebox with checked -->
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <label class="form-check-label" for="flexCheckChecked">
+      Checked checkbox
+    </label>
+  </div>
+
+<!-- disabling a checkbox -->
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox"  disabled>
+    <label class="form-check-label" for="flexCheckDisabled">
+      Disabled checkbox
+    </label>
+  </div>
+  
+
+
+  <!-- checked switch box same like enable disable  -->
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+</div>
+
+<!-- enable disable with checked -->
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+</div>
+
+
+<!-- disabling a enable disable box -->
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+    <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+</div>
+
+<!-- disabling a enable disable box  with checked -->
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+</div>
+
+
+
+****************************
+
+<!-- inline checkboxes  -->
+
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">1</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">2</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+</div>
+
+
+************************************
+
+<!-- here we are changing the checked button to a normal button size with same functionality -->
+
+<input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+<label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
+
+<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+<label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
+
+
+
+
+***********************************
+
+<!-- single range bar -->
+
+<label for="customRange1" class="form-label">Example range</label>
+<input type="range" class="form-range" id="customRange1">
+
+<!-- disabling single range bar -->
+<label for="disabledRange" class="form-label">Disabled range</label>
+<input type="range" class="form-range" id="disabledRange" disabled>
+
+
+<!-- // ✅ Set the disabled attribute -->
+button.setAttribute('disabled', '');
+
+<!-- // ✅ Remove the disabled attribute  -->
+// button.removeAttribute('disabled');
+
+
+*************************
+
+<!-- range bar with min and max -->
+<label for="customRange2" class="form-label">Example range</label>
+<input type="range" class="form-range" min="0" max="5" id="customRange2">
+
+
+<!-- range bar with steps -->
+<label for="customRange3" class="form-label">Example range</label>
+<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+
+
+****************************
+
+input groups 
+<!-- we can use it in case of search button etc -->
+
+
+<!-- https://getbootstrap.com/docs/5.0/forms/input-group/ -->
+
+<!-- this is the way to specify a input and a search button along with each other  -->
+<div class="row">
+    <div class="col-2">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="">
+        <button class="btn btn-outline-secondary " type="button" >Button</button>
+      </div>
+    </div>
+</div>
+
+****************************
+
+
+<!-- floating input  -->
+<div class="form-floating mb-3">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+</div>
+
+
+<!-- invalid field given for it -->
+<form class="form-floating">
+    <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" value="test@example.com">
+    <label for="floatingInputInvalid">Invalid input</label>
+</form>
+
+
+<!-- text area with floating -->
+<div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+    <label for="floatingTextarea">Comments</label>
+  </div>
+
+
+
+  <!-- way to give two inputs side by side  -->
+  <div class="row col-9 ">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+    </div>
+  </div>
+
+
+  <!-- form validation error type  -->
+  <!-- valid with valid message -->
+  <div class="col-md-4">
+    <label class="form-label">First name</label>
+    <input type="text" class="form-control is-valid" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">Looks bad</div>
+  </div>
+
+
+  <!-- invalid with invalid message -->
+  <div class="col-md-4">
+    <label for="validationServerUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend3">@</span>
+      <input type="text" class="form-control is-invalid" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+
+
+<!-- for text area -->
+<div class="mb-3">
+    <label for="validationTextarea" class="form-label">Textarea</label>
+    <textarea class="form-control is-invalid" required></textarea>
+    <div class="invalid-feedback">
+        Please enter a message in the textarea.
+    </div>
+</div>
+
+
+<!-- for checkbox  -->
+<div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+    <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
+    <div class="invalid-feedback">Example invalid feedback text</div>
+</div>
+
+<!-- for radio button -->
+<div class="form-check">
+    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+    <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
+</div>
+
+
+
+
+<!-- accordian -->
+<!-- this is the content used for accordian  -->
+
+<!-- without accordion you will not be getting the accordian body and the button accordingly -->
+<div class="accordion">
+    <!-- without accordian item you will not be getting the border for the accordian border -->
+    <div class="accordion-item">
+        <button class="accordion-button collapsed">
+            Accordion Item #1
+        </button>
+
+        <!-- show will show the content  -->
+        <div class="show">
+            <!-- accordian-body here is used for spacing on the margin-top etc -->
+            <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the
+            </div>
+        </div>
+    </div>
+</div>
+
+
+accordion accordion-flush
+<!-- the above is used to remove the border for it -->
+<div class="accordion">
+    <div class="accordion-item">
+        <button class="accordion-button collapsed">
+            Accordion Item #1
+        </button>
+        <div class="show">
+            <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the
+            </div>
+        </div>
+    </div>
+</div>
+

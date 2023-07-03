@@ -1,0 +1,49 @@
+
+<script>
+// my-app\src\index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const x = 5;
+let text = "Goodbye";
+if (x < 10) {
+  text = "Hello";
+}
+const myElement = <h1>{text}</h1>;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(myElement)
+
+</script>
+Here in the above I changed the index.js file and added this 
+so we wil get the above output
+
+
+************************************************
+
+
+<!-- useState is used in functional components -->
+
+<script>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { useState } from 'react';
+
+function Hello(){
+  const [brand, setBrand] = useState("reddy");
+  function buttonClick(){
+    setBrand("narayana");
+  }
+  return(
+    <>
+      <div> Hello{brand}</div>
+      <button onClick={buttonClick}>Button</button>
+    </>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Hello />
+)
+</script>
+
+****************************************************

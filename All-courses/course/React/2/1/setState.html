@@ -1,0 +1,281 @@
+<script>
+
+import React,{Component} from 'react'
+
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.state.count =this.state.count+1 
+        console.log(this.state.count)
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.increment()}>Increment</button>
+        </div>)
+    }
+}
+export default Hello
+</script>
+
+    here in the above code when you click on the increment button 
+    in the console we are getting 
+    1
+    2
+    3
+    but in the UI we still see the value of count as 0
+
+<!-- 
+    In the above we are not using the setState method to change the state value 
+    Whenever we just want to chnage the state value we have to use it  
+    below code is correct way
+-->
+
+*************************************************
+
+<script> 
+
+import React,{Component} from 'react'
+
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.setState({
+            count : this.state.count +1
+        })
+        console.log(this.state.count)
+        // this line of count will be executed before the setState value
+        // 
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.increment()}>Click</button>
+        </div>)
+    }
+}
+export default Hello
+
+</script>
+
+    Here in the above we get the correct result 
+    when you click on increment button the value will be changing 
+    from 0 1, 2,3 and so on ... 
+
+<!-- 
+    for the above the count value in the ui is 0,1,2
+    where as the consoole value for it is like    0,1,2 
+    console value is lag by 1 unit
+ -->
+*****************************************
+
+<!-- setState also has a callback function -->
+
+<script>
+import React,{Component} from 'react'
+
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.setState({
+            count : this.state.count +1
+        },
+        ()=>{
+            console.log("callback value is", this.state.count)
+        }
+        )
+        console.log("normal value is",this.state.count)
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.increment()}>Click</button>
+        </div>)
+    }
+}
+export default Hello
+</script>
+
+<!-- output -->
+normal value is 0
+callback value is 1
+normal value is 1
+callback value is 2
+normal value is 2
+callback value is 3
+
+**************************************************************************
+
+<!-- incrementing the value by 5 using 5 calls -->
+
+<script>
+
+
+import React,{Component} from 'react'
+
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.setState({
+            count : this.state.count +1
+        },
+        ()=>{
+            console.log("callback value is", this.state.count)
+        }
+        )
+        console.log("normal value is",this.state.count)
+    }
+
+    incrementFive(){
+        console.log("increment five is called");
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.incrementFive()}>Click</button>
+        </div>)
+    }
+}
+export default Hello
+
+
+</script>
+increment five is called
+Hello.js:17 normal value is 0
+Hello.js:17 normal value is 0
+Hello.js:17 normal value is 0
+Hello.js:17 normal value is 0
+Hello.js:17 normal value is 0
+5Hello.js:14 callback value is 1 ->(5)
+
+<!-- 
+    here in the above we called the this.increment 5 times but the value is incremented by only 1 time
+ -->
+
+******************************************************
+
+<!-- Using prev state to do it  -->
+
+<script>
+
+import React,{Component} from 'react'
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.setState(prevState => ({
+            count : prevState.count +1
+        }))
+        console.log(this.state.count)
+    }
+    
+    incrementFive(){
+        console.log("increment five is called");
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.incrementFive()}>Click</button>
+            </div>)
+    }
+}
+export default Hello
+
+</script>
+
+<!-- 
+    here when ever you click on it 
+    the value will gets incremented 
+-->
+
+<!-- COnsole  -->
+increment five is called
+Hello.js:13 0
+Hello.js:13 0
+Hello.js:13 0
+Hello.js:13 0
+Hello.js:13 0
+
+
+
+
+************************************************************
+
+<!-- With call back function  -->
+<script>
+
+
+import React,{Component} from 'react'
+
+class Hello extends Component{
+    constructor(props){
+        super(props)
+        this.state= {count:0}
+    }
+    increment(){
+        this.setState(prevState => ({
+            count : prevState.count +1
+        }),
+        ()=>{
+            console.log("callback value is", this.state.count)
+        })
+        console.log(this.state.count)
+    }
+
+    incrementFive(){
+        console.log("increment five is called");
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+        this.increment()
+    }
+    render(){
+        return (<div>   
+            <div> Count -{this.state.count}</div>
+            <button onClick={()=>this.incrementFive()}>Click</button>
+        </div>)
+    }
+}
+export default Hello
+
+
+</script>
+
+
+Output :
+increment five is called
+Hello.js:16 0
+Hello.js:16 0
+Hello.js:16 0
+Hello.js:16 0
+Hello.js:16 0
+5-> callback value is 5
+
+
+********************************************************************************
+

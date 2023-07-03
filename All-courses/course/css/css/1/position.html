@@ -1,0 +1,275 @@
+
+<!-- position: static; -->
+An element with position: static; is not positioned in any special way; it is always positioned according to the normal flow of the page
+
+
+<!-- position: relative; -->
+An element with position: relative; is positioned relative to its normal position.
+it is not defined based on the previous or any other element 
+
+<!-- position: fixed -->
+The element is removed from the normal document flow, and no space is created for the element in the page layout. 
+It is positioned relative to its closest positioned ancestor,
+if any; otherwise, it is placed relative to the initial containing block.
+
+
+<!-- position: absolute; -->
+An element with position: absolute; is positioned relative parent element 
+what ever the we given position absolute  then it will go for the parent element 
+and position the current element based on it 
+
+
+<!-- position: sticky  -->
+
+The element is positioned according to the normal flow of the document, 
+and then offset relative to its nearest scrolling ancestor
+
+here it will be sticky to the top until the parent div is in the window once the parent div is out of window it will hide for it 
+
+run these below code and see the result 
+
+<style>
+    div.sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      padding: 5px;
+      background-color: #cae8ca;
+      border: 2px solid #4CAF50;
+    }
+</style>
+
+
+<p>Try to <b>scroll</b> inside this frame to understand how sticky positioning works.</p>
+<div style="height:1000px">
+    <div class="sticky">I am sticky!</div>
+        <div> </div>
+</div>
+<div >
+    <p>In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.</p>
+</div>
+
+
+------------------------------- 
+
+<!-- position for clip -->
+
+<style>
+    img {
+        position: absolute;
+        clip: rect(0px,100px,200px,0px);
+    }
+
+</style>
+
+
+here we are cropping the image 
+
+10px-  start from top 10px  from 0 to 10 it will cut it 
+100px -till width 100px 
+200px - height till 200px;
+,100px,200px,0px
+
+*************************************************************
+
+
+
+<!-- display: inline -->
+An element with a display property set to inline will not start on a new line and it will take up the remaining/available screen width. It just takes up the space such an element would normally take.
+
+Some elements are inline by default, like <span>, <a>, <i>, and <img>.
+
+you can convert a div,p etc.. into inline 
+similarly u can also chnage span a img i to display block 
+
+<!-- 
+    here we can give the width or height to the inline element
+    it won't be taking any width for it  
+-->
+<style>
+p{
+    display: inline;
+    width: 200px;
+    border: 1px solid black;
+}
+</style>
+
+******************************************
+
+
+<!-- display: block -->
+An element that has the display property set to block starts on a new line and takes up the available screen width.
+
+block-level by default are <div>, <section>, <p></p>
+
+**************************************
+
+<!-- display: inline-block -->
+Apart from block and inline display, there's also inline-block.
+
+An element you assign a display of inline-block is inline by presentation. But it has the added advantage of you being able to apply width and height to it, which you can't do when the element is assigned a dispaly of inline.
+
+*************************************
+
+<!-- display : table  -->
+
+<div class="table">
+    <div class="row">
+      <div class="cell">Fruits</div>
+      <div class="cell">Lemurs</div>
+      <div class="cell">Pets</div>
+    </div>
+    <div class="row">
+      <div class="cell">Cashew</div>
+      <div class="cell">Hua hua</div>
+      <div class="cell">Dog</div>
+    </div>
+    <div class="row">
+      <div class="cell">Apple</div>
+      <div class="cell">Diadem Sifaka</div>
+      <div class="cell">Cat</div>
+    </div>
+    <div class="row">
+      <div class="cell">Mango</div>
+      <div class="cell">Ring-tailed</div>
+      <div class="cell">Chicken</div>
+    </div>
+</div>
+
+<style>
+    .table {
+        display: table;
+    }
+
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+    }
+
+    .row,
+    .cell {
+        padding: 10px;
+    }
+</style>
+
+*******************************************************
+
+<!-- display: inherit -->
+This makes the element inherit the display property of its parent. So, if you have a <span> tag inside a div and you give the span tag a display of inherit, it turns it from inline to block element.
+
+
+****************************************************
+
+<style>
+    .container {
+        flex-direction: row | row-reverse | column | column-reverse;
+      }
+
+
+    .container {
+        flex-wrap: nowrap | wrap | wrap-reverse;
+    }
+
+
+
+
+</style>
+
+<div class="item1">item1</div>
+<div class="item2">item2</div>
+<div class="item3">item3</div>
+<div class="item4">item4</div>
+<div class="item5">item5</div>
+<div class="item6">item6</div>
+<div class="item7">item7</div>
+<div class="item8">item8</div>
+<div class="item9">item9</div>
+
+<!-- flex-flow -->
+This is a shorthand for the flex-direction and flex-wrap properties, which together define the flex container’s main and cross axes. The default value is row nowrap.
+
+<style>
+    .container {
+        flex-flow: column wrap;
+    }
+
+    .item {
+        order: 5; 
+        /* default is 0 
+        it is used to chnage the order of the element position */
+    }
+
+
+    .item {
+        flex-grow: 4; /* default 0 */
+    }
+    /* 
+    This defines the ability for a flex item to grow if necessary 
+    It dictates what amount of the available space inside the flex container the item should take up.
+    it will effect only it has space at the end
+    */
+</style>
+
+
+
+
+
+*************************************************\
+
+<!-- Grid  -->
+
+<style>
+    body{
+        display: grid;
+        width: 600px;
+        border: 1px solid black;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    /* 
+    here we can see that we divided those items 
+    into 3 columns 
+    based on that rows will also gets divided on it 
+    */
+
+    body{
+        display: grid;
+        width: 400px;
+        border: 1px solid black;
+        grid-template-columns: 1fr 2fr 1fr;
+        column-gap: 10px;
+        row-gap: 20px
+    }
+    /* 
+    here we can able to give the column-gap and row-gap 
+    */
+
+
+</style>
+
+
+****************************************************
+
+
+<style>
+
+    body{
+        display: flex;
+        flex-wrap: wrap;
+        width: 400px;
+        border: 1px solid black;
+    }
+    div{
+        border: 1px solid black;
+    }
+    .item2{
+        flex-basis: 200px;
+    }
+
+    /* 
+        here we can see that all will be assigned based on the width it has 
+        whenever we give flex-basis for the item it takes that width
+    */
+</style>    

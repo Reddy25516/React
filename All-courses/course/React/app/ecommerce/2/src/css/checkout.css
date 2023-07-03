@@ -1,0 +1,162 @@
+
+
+.checkout{
+    margin-top: 5%;
+}
+
+
+/* .checkout .products .last-row{
+    border-top: 2px solid #EDEEEF;
+    border-bottom: 2px solid #EDEEEF;
+} */
+.checkout .shipping{
+    border-bottom: 2px solid #EDEEEF;
+    padding: 30px 0px;
+}
+.checkout table tr:nth-child(1),.checkout table tr:last-child{
+    border-top: 2px solid #EDEEEF;
+    border-bottom: 2px solid #EDEEEF;
+}
+
+.checkout table{
+    margin-bottom: 30px;
+}
+
+.checkout tr{
+    border: none;
+    height: 40px;
+}
+
+.checkout .right{
+    padding-left: 50px;
+}
+table tr th{
+    font-size: 16px;
+}
+
+table tr td{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.checkout .shipping input[type="radio"]{
+    width: 20px;
+    padding-top: 20px;
+    height: 20px;
+    padding-left: 20px;
+    accent-color:  #FF3465;
+}
+
+.checkout .shipping div{
+    display: flex;
+    margin: 10px 0px;
+    color: #2D323D;
+    padding-left: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.checkout .shipping p:nth-child(2){
+    text-align:start;
+    margin-left: 20px;
+    margin-top: -2px;
+}
+
+.shipping .price{
+    margin-left: 60px;
+}
+
+.shipping .title{
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.checkout .right .promo{
+    margin-bottom: 30px;
+}
+
+.checkout .right .promo p:nth-child(1){
+    font-weight: 600;
+    font-size: 15px;
+}
+.checkout .right .promo p:nth-child(2){
+    font-weight: 500;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.checkout .right .promo button{
+    border: none;
+    background-color: white;
+    
+}
+
+.checkout .right .promo input{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E8E9EA;
+    border-radius: 2px;
+    height: 30px;
+    
+} 
+.checkout .right .promo button{
+    position: relative;
+    left :58%;
+    height: 20px;
+    top:-25px;
+    font-weight: 600;
+    text-align: center;
+    z-index: 6;
+    opacity: 0.8;
+}
+
+.summary table tr td:nth-child(2){
+    text-align: center;
+}
+.checkout .right .place-order{
+    color:white;
+}
+.checkout .place-order button{
+    width: 200px;
+    height: 56px;
+    background: #463F5F 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 10px #463F5F33;
+    border-radius: 4px;
+    opacity: 1;
+    color: white;
+}
+
+.checkout .place-order .fa-arrow-right{
+    padding-left: 10px;
+}
+
+.checkout .place-order button:hover{
+    background-color: white;
+    color:#463F5F;
+}
+
+/* success page */
+
+.success {
+    margin-top: 140px;
+}
+.success img{
+    height: 150px;
+    margin: 0 auto;
+}
+.success img1{
+    justify-content: center;
+}
+
+.success div p:nth-child(1){
+    font-size: 28px;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.success div p{
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.8;
+    justify-content: center;
+    text-align: center;
+}

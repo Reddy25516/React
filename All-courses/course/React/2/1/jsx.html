@@ -1,0 +1,74 @@
+
+
+<!-- JSX -->
+JavaScript Xml 
+
+<script>
+
+'================================='
+
+// this is using jsx
+import React from 'react'
+
+const Hello =()=> {
+    return (
+        <div>  
+            <h1>hello vishwas </h1>
+            </div>
+            )
+}
+
+export default Hello
+
+'------------'
+
+// this is using without jsx
+import React from 'react'
+
+const Hello =()=> {
+    
+    return React.createElement('h1',null,"hello reddy")
+    return React.createElement('div',null,<h1>hello reddy</h1>)
+    // even this works 
+}
+
+export default Hello
+
+'========================='
+
+import React from 'react'
+
+//these below are both equal 
+
+const Hello =()=> {
+// return (
+//     <div id="Hello" className ='dummyClass'>  
+    //         <h1>hello vishwas </h1>
+    //     </div>
+    // )
+    return React.createElement(
+        'div',
+        {id :'Hello', className: 'dummyClass'},
+        React.createElement('div',null,<h1>hello Reddy</h1>)
+        )
+    }
+    
+    export default Hello
+            
+'=========================================================='
+
+import React from 'react'
+const Hello =()=> {
+    return (
+        <div>          
+            <h1>hello vishwas </h1>  // React.createElement('h1',null,"hello Reddy")
+            </div>
+            )
+}
+export default Hello
+
+</script>
+
+<!-- here in the above we imported React even though we are not using it bcoz jsx convert this code as like it -->
+
+*********************************************

@@ -1,0 +1,105 @@
+<!-- how to use event.target.value -->
+
+<script>
+
+import React, { Component } from 'react'
+
+class Hello extends Component {
+    state={
+        userName : ""
+    }
+    changeUserName =(event) =>{
+        this.setState({
+            userName : event.target.value
+        })
+        console.log(event.target.value)
+    }
+    render() {
+        return (
+            <form>
+                <div>
+                    <label>UserName</label>
+                    <input type="text" value={this.state.userName} onChange={this.changeUserName} />
+                </div>
+            </form>
+        )
+    }
+}
+export default Hello
+
+
+</script>
+
+Input : 
+Username :__________ 
+
+Output:
+what ever the name we inputed here 
+it will be printed in the console in the onchange format 
+
+***************************************************************************
+
+
+<script>
+import React, { Component } from 'react'
+class Hello extends Component {
+    state={
+        userName : "",
+        age :''
+    }
+    changeUserName =(event) =>{
+        this.setState({
+            userName : event.target.value
+        })
+        console.log(event.target.value);
+    }
+    changeAge =(event) =>{
+        this.setState({
+           age : event.target.value
+        })
+        console.log(event.target.value);
+    }
+    submitForm=(event)=>{
+        console.log(`user name is ${this.state.userName} and the age is ${this.state.age}`)
+    }
+    render() {
+        return (
+            <form onSubmit={this.submitForm}>
+                <div>
+                    <label>UserName</label>
+                    <input type="text" value={this.state.userName} onChange={this.changeUserName} /><br></br>
+                    <label> Age </label>
+                    <input type="text" value={this.state.age} onChange={this.changeAge} />
+                </div>
+                <button type='submit'>Submit</button>
+            </form>
+        )
+    }
+}
+export default Hello
+</script>
+
+<!-- 
+    here in the above when ever we submit the form 
+    the form gets reloaded so we even cant see the values in the console too
+ -->
+
+
+******************************************************
+
+To not to let this happen we can use 
+event.preventDefault()
+
+<script>
+submitForm=(event)=>{
+    console.log(`user name is ${this.state.userName} and the age is ${this.state.age}`)
+    event.preventDefault()
+}
+</script>
+
+<!-- 
+    event prevent default will not let to refresh the page 
+-->
+
+**************************************
+

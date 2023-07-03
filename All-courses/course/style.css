@@ -1,0 +1,38 @@
+
+.board{
+    display: flex;
+    flex-wrap: wrap;
+}
+body{
+    height: 1000px;
+    width: 1080px;
+    margin-top: 40px;
+    margin-left: 200px;
+}
+.square{
+    height:60px;
+    width: 100px;
+    justify-content: center;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    vertical-align: center;
+    display: flex;
+    margin: 3px;
+    background-color:burlywood;
+}
+/* .board>div:nth-child(even){
+    background-color: red;
+} */
+
+.row{
+    display: flex;
+}
+
+.fa-solid{
+    font-size: 40px;
+}
+
+.blue{
+    color: blue;
+}

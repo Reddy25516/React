@@ -1,0 +1,149 @@
+npm install axios 
+<!-- for the api calls -->
+
+<!-- a sample api call  -->
+https://jsonplaceholder.typicode.com/posts
+if you go to above url u can find the data in it 
+
+from there we are fetching data using api call and using in this  function 
+
+<script>
+
+import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+function Interval() {
+    const [posts,setPosts] =useState([])
+
+    useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(res =>{
+            console.log(res);
+            setPosts(res.data);
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    })
+    return (
+        <div>
+           { 
+            posts.map(post=> <li key={post.id}>{post.title}</li>)
+           }
+        </div>
+    )
+}
+export default Interval
+
+</script>
+
+In the output we can see the whole list of li elements with the data 
+
+*****************************************
+*****************************************
+
+https://jsonplaceholder.typicode.com/posts/2
+<!-- 
+    if we enter the above url in the browser 
+    we get only the data with id=2 
+    as like below
+-->
+
+{
+    "userId": 1,
+    "id": 2,
+    "title": "qui est esse",
+    "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+}
+
+<!-- this is the code for getting a single object it the array of objects -->
+
+<script>
+import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+function Interval() {
+    const [posts,setPosts] =useState({})
+    const [id,setId]=useState(1)
+    useEffect(()=>{
+        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(res =>{
+            // console.log(res);
+            setPosts(res.data);
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    },[id])
+    return (
+        <div>
+        <input type='text' value={id} onChange={(e)=>setId(e.target.value)} />
+        <div>title is : {posts.title}</div>
+        <div> body is :{posts.body}</div>
+        </div>
+    )
+}
+export default Interval
+</script>
+
+we are giving the input (id ) value in the input box given to us 
+Here we are printing the single object title and the body of it 
+
+
+<!-- if that input value is not present (id is not present we get an error like below) -->
+
+GET https://jsonplaceholder.typicode.com/posts/19878 404
+AxiosError {message: 'Request failed with status code 404', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest, …}
+
+
+**************************************************
+**************************************************
+
+<!-- how to get other element target value in different way  -->
+
+here we are getting letting useEffect to reflect only when we click the button 
+not when we enter the input value 
+
+<script>
+
+import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+function Interval() {
+    const [posts,setPosts] =useState({})
+    const [id,setId]=useState(1)
+    const [idButton,setIdButton] =useState(1);
+
+    const handleClick =()=>{
+        setIdButton(id);
+    }
+    useEffect(()=>{
+        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(res =>{
+            // console.log(res);
+            setPosts(res.data);
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    },[idButton])
+    return (
+        <div>
+        <input type='text' value={id} onChange={(e)=>setId(e.target.value)} />
+        <button type="button" onClick={handleClick}> Fetch Post</button>
+        <div>title is : {posts.title}</div>
+        <div> body is :{posts.body}</div>
+        </div>
+    )
+}
+export default Interval
+
+</script>
+
+In the above we have 
+
+_____________________ (button)
+
+when ever you give an input and click on the button 
+the data will be fetched for it 
+
+
+**************************************************************************
+**************************************************************************

@@ -1,0 +1,223 @@
+<script>
+
+import React from 'react';
+const List =({todoList,sortOrder,deleteHandler,editList})=>{
+    return (
+        <div className="list">
+            <button onClick={()=>sortOrder('name')}> sort by name</button>
+            <button> sort by id desc </button>
+            <table className='table'>
+                <tr>
+                    <th className=''>index</th>
+                    <th>Id</th>
+                    <th className='th2'>name</th>
+                    <th className=''>button</th>
+                    <th>edit</th>
+                </tr>
+                {todoList.map((todoItem,index)=>(
+                    <tr key={index}>
+                        <td>{index} </td>
+                        <td>{todoItem['id']}</td>
+                        <td>{todoItem['name']}</td>
+                        <td><button className="delete" onClick={()=>deleteHandler(index)}>Delete</button></td>
+                        <td><button className="delete" onClick={()=>editList(todoItem['id'])}>Edit</button></td>
+                    </tr>
+                ))}
+            </table>
+        </div>
+    )
+}
+export default List
+
+
+'------------------------------------------------------'
+
+
+const Form =({todo,setTodo,todoList,setTodoList,indexValue,setIndexValue}) => {
+    const handleChange =(event) =>{
+        setTodo(event.target.value);
+        // console.log(todo);
+    }
+    const handleSubmit =event =>{
+        let new_indexValue=indexValue+1;
+        setIndexValue(new_indexValue);
+        event.preventDefault();
+        let new_list=[...todoList,{name:todo,id:indexValue}]
+        setTodoList(new_list);
+        // console.log(todoList);
+    }
+    return(<>
+        <form className="form" onSubmit={handleSubmit}>
+            <input className="input" value={todo} onChange={handleChange} 
+                type="text" placeholder="Add to list "></input><br></br>
+            <button className="add" type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+
+'---------------------------- '
+
+
+import './components/styles.css';
+import List from './components/List.js';
+import Form from './components/Form';
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+  const [indexValue,setIndexValue] =useState(1);
+  
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  const editList=(idValue)=>{
+    todoList.forEach((todoItem,index)=>{
+      if(todoItem['id']==idValue){
+        todoItem['name']="tejasree";
+      }
+  });
+   
+  }
+
+  const sortOrder=(order) =>{
+    let id="id";
+    if(order=='name'){
+      let new_list= todoList.sort((a,b) => b.id - a.id);
+      setTodoList(new_list);
+      console.log("we are in it ");
+      console.log(new_list);
+    }
+  }
+
+
+  return (
+    <div className='app body'>
+        <h2 className='head'>To Do App</h2>
+        <Form 
+          todo={todo} setTodo={setTodo}
+          todoList ={todoList} setTodoList={setTodoList}
+          indexValue={indexValue} setIndexValue={setIndexValue}
+        />
+          <List  todoList={todoList} sortOrder={sortOrder} editList={editList} deleteHandler={deleteHandler}/>
+    </div>
+  );
+}
+export default App;
+
+</script>
+
+*************************
+
+<!-- edit handler with edit button -->
+
+<script>
+import './components/styles.css';
+import React from 'react';
+import './App.css'
+import {  useEffect, useState } from 'react';
+
+function App() {
+  
+const [myArray, updateMyArray] = useState([]);
+const [value,setValue]=useState('');
+const [count,setCount]=useState(1);
+const [isActive,setIsActive]=useState(false);
+const [editValue,setEditValue]=useState('');
+const [editId,setEditId]=useState(0);
+
+const sortHandler =()=>{
+  // var new_arr =[...myArray.reverse()]
+  var new_arr= myArray.reverse()
+  new_arr=[...new_arr];
+  updateMyArray(new_arr);
+}
+const changeHandler =(e)=>{
+  setValue(e.target.value)
+}
+
+const onClick = () => {
+  var obj ={ id : count, item : value}
+  setCount(count+1);
+  var new_Array = [...myArray, obj]
+    updateMyArray(new_Array);
+};
+
+
+const deleteHandler =(indexValue)=>{
+  const newTodos = myArray.filter((todoitem,index)=> index!==indexValue);
+  updateMyArray(newTodos);
+}
+
+
+const editHandler=(idValue)=>{
+  setIsActive(true);
+  setEditId(idValue);
+}
+
+const editChange=(e)=>{
+  setEditValue(e.target.value);
+}
+
+const editClick=()=>{
+  let new_array=[];
+  var idValue=editId;
+  myArray.forEach((todoItem,index)=>{
+      if(todoItem['id']==idValue){
+        todoItem['item']=editValue;
+      }
+      console.log(todoItem);
+      console.log("i am in the edit handler")
+  });
+  new_array=[...myArray];
+  updateMyArray(new_array);
+  setIsActive(false);
+  setEditValue('');
+}
+
+return (<>
+    
+    <input type="text"  onChange={changeHandler} placeholder="enter value to add"></input>
+    <button type="button" onClick={ onClick } value="sort">Add</button>
+    <br></br>
+    <button onClick={ sortHandler } >Sort</button>
+    
+    <div className="list">
+            <table className='table'>
+                <tr>
+                    <th className=''>index</th>
+                    <th className=''>id</th>
+                    <th className='th2'>value</th>
+                    <th className=''>button</th>
+                    <th > Edit</th>
+                </tr>
+                <input className='editInput' style={{display: isActive ? 'block' : 'none'}} type="text" 
+                onChange={editChange} value={editValue}></input>
+                <button className="editInput" style={{display: isActive ? 'block' : 'none'}} 
+                onClick={editClick}>Add</button>
+
+                {myArray.map((todoItem,index)=>(
+                  <>
+                    <tr key={index}>
+                        <td>{index}   </td>
+                        <td>{todoItem.id}</td>
+                        <td>{todoItem.item} </td>
+                        <td><button className="delete" onClick={()=>deleteHandler(todoItem.id)}>Delete</button></td>
+                        <td><button className='delete' onClick={()=>editHandler(todoItem.id)}>Edit</button></td>
+                    </tr>
+                    
+                  </>
+                ))}
+            </table>
+    </div>
+    
+    </>
+);
+}
+export default App;
+
+</script>

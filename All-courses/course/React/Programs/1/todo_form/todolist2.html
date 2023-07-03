@@ -1,0 +1,343 @@
+<!-- creating a todo form 
+whenever we submit the form the values will be displayed in the 
+the todo list -->
+<script>
+import './components/styles.css';
+import List from './components/List.js';
+
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+
+  const handleChange =(event) =>{
+      setTodo(event.target.value);
+      // console.log(todo);
+  }
+  
+  const handleSubmit =event =>{
+      event.preventDefault();
+      setTodoList([...todoList,todo]);
+      console.log(todoList);
+  }
+
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  return (
+    <>
+    <h2>To Do App</h2>
+    <form onSubmit={handleSubmit}>
+        <input value={todo} onChange={handleChange} 
+            type="text" placeholder="Add to list "></input>
+        <button className='bold' type="submit">Add</button>
+    </form>
+      <List todoList={todoList}  deleteHandler={deleteHandler}/>
+    </>
+  );
+}
+export default App;
+
+
+'---------------------------------------'
+
+import React from 'react';
+const List =({todoList,deleteHandler})=>{
+    return (
+        <>
+        {todoList.map((todoItem,index)=>(
+        <div key={index}>
+            <h5>{todoItem}  <button onClick={()=>deleteHandler(index)}>Delete</button></h5>
+        </div>
+        ))}
+        </>
+    )
+}
+export default List
+
+</script>
+
+Here in the above we can see that 
+onclick for the child (list) is different syntax 
+then the onclick for the app (buttons)
+
+<!-- 
+    the above worked fine 
+    we taken function as a prop and executed the command
+ -->
+
+***********************************************************************
+***********************************************************************
+
+<!-- another method for the same  -->
+
+
+
+<script>
+
+
+import './components/styles.css';
+import List from './components/List.js';
+import Form from './components/Form';
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  return (
+    <>
+    <h2>To Do App</h2>
+    <Form 
+      todo={todo} setTodo={setTodo}
+      todoList ={todoList} setTodoList={setTodoList}
+    />
+      <List todoList={todoList}  deleteHandler={deleteHandler}/>
+    </>
+  );
+}
+export default App;
+
+'---------------------------------------'
+
+
+const Form =({todo,setTodo,todoList,setTodoList}) => {
+    const handleChange =(event) =>{
+        setTodo(event.target.value);
+        console.log(todo);
+    }
+    const handleSubmit =event =>{
+        event.preventDefault();
+        setTodoList([...todoList,todo]);
+        console.log(todoList);
+    }
+    return(<>
+        <form onSubmit={handleSubmit}>
+            <input value={todo} onChange={handleChange} 
+                type="text" placeholder="Add to list "></input>
+            <button type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+'-------------------------------------------'
+
+
+import React from 'react';
+const List =({todoList,deleteHandler})=>{
+    return (
+        <>
+        {todoList.map((todoItem,index)=>(
+        <div key={index}>
+            <h5>{todoItem}  <button onClick={()=>deleteHandler(index)}>Delete</button></h5>
+        </div>
+        ))}
+        </>
+    )
+}
+export default List
+
+</script>
+
+
+<!-- to do list application with some styling  -->
+
+<script>
+import './components/styles.css';
+import List from './components/List.js';
+import Form from './components/Form';
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  return (
+    <div className='app body'>
+        <h2 className='head'>To Do App</h2>
+        <Form 
+          todo={todo} setTodo={setTodo}
+          todoList ={todoList} setTodoList={setTodoList}
+        />
+          <List  todoList={todoList}  deleteHandler={deleteHandler}/>
+    </div>
+  );
+}
+export default App;
+
+'----------------------------------'
+
+
+const Form =({todo,setTodo,todoList,setTodoList}) => {
+    const handleChange =(event) =>{
+        setTodo(event.target.value);
+        console.log(todo);
+    }
+    const handleSubmit =event =>{
+        event.preventDefault();
+        setTodoList([...todoList,todo]);
+        console.log(todoList);
+    }
+    return(<>
+        <form className="form" onSubmit={handleSubmit}>
+            <input className="input" value={todo} onChange={handleChange} 
+                type="text" placeholder="Add to list "></input><br></br>
+            <button className="add" type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+'-------------------------------'
+
+import React from 'react';
+const List =({todoList,deleteHandler})=>{
+    return (
+        <div className="list">
+            <table className='table'>
+                <tr>
+                    <th className=''>index</th>
+                    <th className='th2'>value</th>
+                    <th className=''>button</th>
+                </tr>
+
+                {todoList.map((todoItem,index)=>(
+                    <tr key={index}>
+                        <td>{index}   </td>
+                        <td>{todoItem} </td>
+                        <td><button className="delete" onClick={()=>deleteHandler(index)}>Delete</button></td>
+                    </tr>
+                ))}
+            </table>
+        </div>
+    )
+}
+export default List
+
+</script>
+
+<style>
+/* components/style.css */
+
+.bold{
+    font-size: 20px;
+}
+table, th {
+    border: 1px solid;
+    text-align: center;
+  }
+
+.list .table{
+    margin-left: 30px;
+    width: 90%;
+    background-color: violet;
+}
+
+.list .th2{
+    width: 80%;
+}
+
+.app,.body{
+    text-align: center;
+    border: 1px solid black;
+    width: 1000px;
+    margin: 5% auto;
+}
+
+.head{
+    font-size: 40px;
+    font-weight: bolder;
+    font-style: oblique;
+    color:tomato;
+}
+
+.form{
+    background-color: aquamarine;
+    padding: 20px;
+}
+
+.form .input{
+    font-family: inherit;
+    width: 60%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: blue;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form .add{
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    width: 150px;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.form .add:hover {
+    transform: scale(1.05) rotate(-1deg);
+
+}
+
+.list{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list .delete{
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+</style>
+

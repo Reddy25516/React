@@ -1,0 +1,69 @@
+<script>
+
+
+'Class component'
+
+import React,{Component} from 'react'
+
+class Learning extends Component{
+    render(){
+        return <h1> Hello Udemy</h1>
+    }
+}
+export default Learning 
+
+
+// go to app.js
+import Learning from './components/learning';
+function App() {
+    return (
+      <div className="App">
+        <header className="App-header">
+        <Learning/>
+        </header>
+      </div>
+    );
+  }
+
+  /*
+  here <learning/>
+  is same as <learning></learning>
+  */
+// we cant create any div outside that div section 
+
+</script>
+
+In the above while you are importing 
+import Learning from './components/learning';
+
+<!-- we get an error when we write the above like belos -->
+import {Learning} from './components/learning';
+
+Error:
+<!-- 
+    export 'Hello' (imported as 'Hello') was not found in './components/Hello' (possible exports: default)
+ -->
+
+*************************************************
+
+
+<script>
+
+import React,{Component} from 'react'
+// we need to import like this for class component 
+
+// we need to write extends Compoonent to specify it as a react class
+class Welcome extends Component {
+    // here the name of the class should be file name (Welcome)
+    render(){       //render function should be there 
+
+        return <h1>class component</h1>
+    }
+}
+export default Welcome
+// we should always write this as  Welcome 
+// we cant write any other name than this 
+
+//this is the class component 
+
+</script>

@@ -1,0 +1,278 @@
+
+<script>
+"List Rendereing :"
+
+// map 
+
+var arr=[1,2,3,4,5]
+const map1= arr.map(x=> x*2)
+console.log(map1)
+// [ 2, 4, 6, 8, 10 ]
+
+
+'----------------'
+
+//rfce
+import React from 'react'
+
+function Namelist() {
+    const names  =["reddy","teju ","satya"]
+  return (
+    <div>
+      <h2>{names[0]}</h2>
+      <h2>{names[1]}</h2>
+      <h2>{names[2]}</h2>
+    </div>
+  )
+}
+
+export default Namelist
+
+'these dispalys one down one '
+
+'--------------'
+'these works same as above '
+
+function Namelist() {
+    const names  =["reddy","teju ","satya"]
+  return (
+    <div>
+        {
+      names.map(name => <h2>{name}</h2>)
+        }
+    </div>
+  )
+}
+
+'------------------'
+// works same as above 
+
+function Namelist() {
+    const names  =["reddy","teju ","satya"]
+    const namelist= names.map(name =><h2>{name}</h2>)
+    return <div>{namelist}</div>
+}
+
+
+'========================================'
+
+//rfce
+import React from 'react'
+function Namelist() {
+    const persons=[
+        {
+            name : "reddy",
+            age:22
+        },
+        {
+            name: "teju",
+            age : 20 
+        }
+    ]
+    const personlist = persons.map(person=>
+        <h2>i am {person.name} , {person.age} old</h2>
+        )
+    return <div>{personlist}</div>
+}
+export default Namelist
+
+/*
+i am reddy , 22 old
+i am teju , 20 old
+*/
+
+'=============================================='
+
+// using single component for the above code 
+import React, { Component } from 'react'
+function Hello(){
+
+    const persons=[
+        {
+            name : "reddy",
+            age:22
+        },
+        {
+            name: "teju",
+            age : 20 
+        }
+    ]
+    const personlist = persons.map(person=> <div>
+                                        <h2>I am {person.name}</h2>
+                                        <h2>my age is am {person.age}</h2>
+                                        <br></br>
+                                    </div>)
+    return <div>{personlist}</div>
+}
+export default Hello
+
+</script>
+
+
+<!-- we will be getting the above erro to solve this issue we used component instead of jsx  -->4
+
+<script>
+
+// above using two class  
+// we get the same output as above 
+
+//rfce
+import React from 'react'
+import Person from './Person'
+
+function Namelist() {
+    const persons=[
+        {
+            name : "reddy",
+            age:22
+        },
+        {
+            name: "teju",
+            age : 20 
+        }
+    ]
+    const personlist = persons.map(person=> <Person person={person}/>)
+    // const personlist = persons.map(person=> <Person key={person.name} person={person}/>)
+    /*
+    here key ={person.name}
+    is used to ensure that every key is unique
+    when ever u know that particular name or age is unique
+    then u have to assign it to the key 
+    */
+    return <div>{personlist}</div>
+}
+export default Namelist
+
+'---------------------------------------'
+
+import React from 'react'
+function Person({person}) {
+  return (
+    <div>
+      <h2>i am {person.name} , {person.age} old</h2>
+    </div>
+  )
+}
+export default Person
+
+</script>
+Output:
+<!-- the above ways will get an error like this  -->
+react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `Hello`. See https://reactjs.org/link/warning-keys for more information.
+    at div
+    at Hello
+    at div
+    at App
+  
+<!-- to solve the above issue we will use the key for it -->
+
+<script>
+  
+  import React, { Component } from 'react'
+import Second from './Second'
+function Hello(){
+
+    const persons=[
+        {
+            id : 1,
+            name : "reddy",
+            age:22
+        },
+        {
+            id : 2,
+            name: "teju",
+            age : 20 
+        }
+    ]
+    const personlist = persons.map(person=> <Second key={person.id} person={person}/>)
+    return <div>{personlist}</div>
+}
+export default Hello
+
+'====================='
+
+import React from 'react'
+function Second(props) {
+  return (
+    <div>
+        <h2>I am {props.person.name}</h2>
+        <h2>my age is am {props.person.age}</h2>
+        <br></br>                       
+    </div>
+  )
+}
+export default Second
+
+
+</script>
+Now i will not be getting any error in the console because we are using different key for each of it 
+
+
+'**********************************************************************'
+
+"Lists and Keys "
+
+<script>
+//rfce
+
+
+import React, { Component } from 'react'
+function Hello(){
+    const names  =["reddy","teju ","satya"]
+    const namelist= names.map(name =><h2>{name}</h2>)
+    return <div>{namelist}</div>
+}
+export default Hello
+</script>
+
+Output:
+react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `Hello`. See https://reactjs.org/link/warning-keys for more information.
+    at h2
+    at Hello
+    at div
+    at App
+
+'----------------------------------'
+<script>
+
+import React from 'react'
+import Person from './Person'
+
+function Namelist() {
+    const names  =["reddy","teju ","satya"]
+    const namelist= names.map(name =><h2 key={name}>{name}</h2>)
+    return <div>{namelist}</div>
+}
+export default Namelist
+
+// here key is used to ensure no error in the console
+//but what if it contains duplicate elements 
+//we will get the error again to solve this issue we used
+
+'---------------------------------------------------'
+
+/*
+here in the below we are taking the unique key as index not name age etc
+so that they always unique
+*/
+
+function Namelist() {
+  const names  =["reddy","teju ","satya","reddy"]
+  const namelist= names.map((name,index )=><h2 key={index}>{index} {name}</h2>)
+  return <div>{namelist}</div>
+}
+
+'******************************************************************'
+</script>
+
+
+when to use index as a key :
+  The item in your list do not  have a unique id 
+  The list is a static list and will not change 
+  the list will never be reordered and filtered
+ 
+'==========================================='

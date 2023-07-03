@@ -1,0 +1,195 @@
+
+<!-- progress bar  -->
+https://getbootstrap.com/docs/5.3/components/progress/
+
+
+<!-- 
+    here we will be having a progress bar with half filled in it 
+ -->
+<div class="progress">
+    <div class="progress-bar" style="width: 50%;"></div>
+</div>
+
+
+Here the value inside the progress bar will be shown as 50% 
+<div class="progress">
+    <div class="progress-bar" style="width: 50%;" >50%</div>
+</div>
+
+
+progress-bar-striped
+<!-- to get the striped backgrond -->
+progress-bar-striped
+bg-success ( to get green color )
+bg-warning (yellow color)
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 50%;" >50%</div>
+</div>
+
+<!-- 
+    in the above only width :50% in the progress-bar 
+    is changing the value of it 
+
+ -->
+
+---------------------------- 
+
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar w-75"></div>
+</div>
+
+<!-- we can also write like this  -->
+here in the above role aria-label aria-valuenow aria-valuemin aria-valuemax 
+are not useful 
+
+------------- 
+<!-- height and width  -->
+
+This is the way to specify height and width to a progress bar 
+<div class="progress" style="height: 30px; width : 100px" >
+    <div class="progress-bar w-75"></div>
+</div>
+
+
+------------------ 
+
+here 
+overflow-visible ( the content written outside the 10% bar also visible)
+text-dark ( the actual color is white in progress bar)
+here in content will be visible inside the bar 
+
+<div class="progress" style="height: 30px;" >
+    <div class="progress-bar overflow-visible text-dark" style="width: 10%">Long label text for the progress bar, set to a dark color</div>
+</div>
+
+-------------------------- 
+
+<!-- red color -->
+bg-danger 
+
+bg-warning 
+<!-- yellow color -->
+
+bg-info 
+<!-- sky blue color -->
+
+bg-success 
+<!-- green color -->
+
+---------------------------- 
+
+<!-- Multiple bars  -->
+You can include multiple progress components inside a container with .progress-stacked to create a single stacked progress bar.
+
+<!-- here below we will be having 3 progress bars -->
+<div class="progress-stacked">
+    <div class="progress"  style="width: 15%">
+      <div class="progress-bar">15%</div>
+    </div>
+    <div class="progress"  style="width: 30%">
+      <div class="progress-bar bg-success">30%</div>
+    </div>
+    <div class="progress"  style="width: 20%">
+      <div class="progress-bar bg-info">20%</div>
+    </div>
+</div>
+
+
+------------------------- 
+
+<!-- here the progress bar seems to be moving inside wave inside -->
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"  style="width: 50%;">50%</div>
+</div>
+
+
+***********************************************************
+***********************************************************
+
+<!-- Navbar -->
+
+<ul class="nav">
+    <li class="nav-link">nav item 1</li>
+    <li class="nav-link">nav item 2</li>
+    <li class="nav-link">nav item 3</li>
+</ul>
+
+
+<ul class="nav">
+    <li class="nav-item"><a href="" class="nav-link active">nav item 1</a></li>
+    <li class="nav-item"><a href="" class="nav-link">nav item 2</a></li>
+    <li class="nav-item"><a href="" class="nav-link">nav item 3</a></li>
+</ul>
+
+
+************************************
+
+<!-- nav pills -->
+<nav>
+    <ul class="nav nav-pills bg-light">
+      <li class="nav-item"><a href="" class="nav-link active">nav item 1</a></li>
+      <li class="nav-item"><a href="" class="nav-link">nav item 2</a></li>
+      <li class="nav-item"><a href="" class="nav-link">nav item 3</a></li>
+    </ul>
+</nav>
+
+***************************** 
+
+<!-- this gives us a navbar with dark background -->
+
+but here it will be towards left 
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item active"><a href="" class="nav-link">nav item 1</a></li>
+        <li class="nav-item"><a href="" class="nav-link">nav item 2</a></li>
+        <li class="nav-item"><a href="" class="nav-link">nav item 3</a></li>
+      </ul>
+    </div>
+</nav>
+
+*****************************
+
+<!-- as it is inside the container the nav elements will be aligned to center -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item active"><a href="" class="nav-link">nav item 1</a></li>
+          <li class="nav-item"><a href="" class="nav-link">nav item 2</a></li>
+          <li class="nav-item"><a href="" class="nav-link">nav item 3</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+********************************
+
+<!-- 
+    here now we will be having a navbar-brand along with the name and image of it aligned left to home navs
+ -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand"><img src="image1.jpg" width="30px" height="30px" alt="">Flipkart</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item active"><a href="" class="nav-link">nav item 1</a></li>
+          <li class="nav-item"><a href="" class="nav-link">nav item 2</a></li>
+          <li class="nav-item"><a href="" class="nav-link">nav item 3</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+********************************
+
+
+<!-- navbar toggle button -->
+
+<!-- with this we can generate  a navbar toggler button  -->
+<button class="navbar-toggler" type="button" >
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+**************************************

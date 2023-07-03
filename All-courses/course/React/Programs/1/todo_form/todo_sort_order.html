@@ -1,0 +1,115 @@
+
+<!-- to  -->
+<script>
+
+
+import './components/styles.css';
+import List from './components/List.js';
+import Form from './components/Form';
+
+import { useState } from 'react';
+function App() {
+  const [todo,setTodo] = useState('');
+  const [todoList,setTodoList] =useState([]);
+  const [indexValue,setIndexValue] =useState(1);
+  
+  const deleteHandler =(indexValue)=>{
+     const newTodos = todoList.filter((todoitem,index)=> index!==indexValue);
+     setTodoList(newTodos);
+  }
+
+  const editList= (idValue)=>{
+    var new_list=[]
+    todoList.forEach((todoItem,index)=>{
+        if(todoItem['id']==idValue){
+          todoItem['name']="tejasree";
+        }
+        new_list.push(todoItem);
+    });
+    setTodoList(new_list);
+  }
+
+  const sortOrder=(order) =>{
+    var new_list=[]
+    if(order=='name'){
+      new_list = todoList.sort((a,b) => b.id - a.id);
+      console.log(new_list);
+    }else{
+      new_list=todoList;
+    }
+    setTodoList(new_list);
+  }
+  
+  return (
+    <div className='app body'>
+        <h2 className='head'>To Do App</h2>
+        <Form 
+          todo={todo} setTodo={setTodo}
+          todoList ={todoList} setTodoList={setTodoList}
+          indexValue={indexValue} setIndexValue={setIndexValue}
+        />
+          <List todoList={todoList} sortOrder={sortOrder} editList={editList} deleteHandler={deleteHandler}/>
+    </div>
+  );
+}
+export default App;
+
+
+'--------------------------------------------'
+
+
+const Form =({todo,setTodo,todoList,setTodoList,indexValue,setIndexValue}) => {
+    const handleChange =(event) =>{
+        setTodo(event.target.value);
+        // console.log(todo);
+    }
+    const handleSubmit =event =>{
+        let new_indexValue=indexValue+1;
+        setIndexValue(new_indexValue);
+        event.preventDefault();
+        let new_list=[...todoList,{name:todo,id:indexValue}]
+        setTodoList(new_list);
+    }
+    return(<>
+        <form className="form" onSubmit={handleSubmit}>
+            <input className="input" value={todo} onChange={handleChange} 
+                type="text" placeholder="Add to list "></input><br></br>
+            <button className="add" type="submit">Add</button>
+        </form>
+    </>)
+}
+export default Form
+
+
+
+'------------------------------------------------'
+import React from 'react';
+const List =({todoList,sortOrder,deleteHandler,editList})=>{
+    return (
+        <div className="list">
+            <button onClick={()=>sortOrder('name')}> sort by name</button>
+            <button> sort by id desc </button>
+            <table className='table'>
+                <tr>
+                    <th className=''>index</th>
+                    <th>Id</th>
+                    <th className='th2'>name</th>
+                    <th className=''>button</th>
+                    <th>edit</th>
+                </tr>
+                {todoList.map((todoItem,index)=>(
+                    <tr key={index}>
+                        <td>{index} </td>
+                        <td>{todoItem['id']}</td>
+                        <td>{todoItem['name']}</td>
+                        <td><button className="delete" onClick={()=>deleteHandler(index)}>Delete</button></td>
+                        <td><button className="delete" onClick={()=>editList(todoItem['id'])}>Edit</button></td>
+                    </tr>
+                ))}
+            </table>
+        </div>
+    )
+}
+export default List
+
+</script>

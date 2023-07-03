@@ -1,0 +1,390 @@
+
+
+<!-- tables -->
+
+
+<table class="table table-dark">
+    <!-- 
+        class table give you line below each row 
+        table-dark will give you the background color -black 
+     -->
+    <thead class="table-light">
+        <!-- table-light will give you the background-color white -->
+      <tr>
+        <th>column1</th>
+        <th>column1</th>
+        <th>column1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success">
+        <!-- table-sucess will give you the light green color(background) to the row -->
+        <td>column1</td>
+        <td class="table-warning">column2</td>
+        <!--  light red color background-->
+        <td>column3</td>
+      </tr>
+      <tr>
+        <td>column1</td>
+        <td>column2</td>
+        <td>column3</td>
+      </tr>
+      <tr>
+        <td>column1</td>
+        <td>column2</td>
+        <td>column3</td>
+      </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-striped"></table>
+<!-- this will give one white row one black row background (light white and light black always light colors apply for tables) -->
+
+<table class="table-bordered ">
+  <!-- 
+    here this is the way of specifying the border for the table 
+   -->
+    table-success 
+</table>
+
+<table class="table table-striped table-bordered table-hover"></table>
+<!-- table hover here it will when ever you hovered on a row it will show up a little out -->
+
+
+***************************
+
+<!-- here we can see our table is not  reponsive  the table rows will also stay like it -->
+
+<div class="row">
+    <table class="table  table-bordered ">
+      <thead class=>
+        <tr>
+          <th>column1</th>
+          <th>column1</th>
+          <th>column1</th>
+          <th>tableedadfadsf 1</th>
+          <th>tableedadfadsf 2</th>
+          <th>tableedadfadsf 3</th>
+          <th>tableedadfadsf 4</th>
+          <th>tableedadfadsf 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>column1</td>
+          <td >column2</td>
+          <td>column3</td>
+        </tr>
+        <tr>
+          <td>column1</td>
+          <td>column2</td>
+          <td>column3</td>
+        </tr>
+        <tr>
+          <td>column1</td>
+          <td>column2</td>
+          <td>column3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- 
+    here the table is reponsive until there is no space with the row words
+    once the size is too less then it comes with a scrool bar where you can scrool it to the right and so on
+
+    in the above case whole page will move 
+    now only table will move 
+   -->
+
+  <div class="table-responsive">
+    <table class="table  table-bordered ">
+      <thead class=>
+        <tr>
+          <th>column1</th>
+          <th>column1</th>
+          <th>column1</th>
+          <th>tableedadfadsf 1</th>
+          <th>tableedadfadsf 2</th>
+          <th>tableedadfadsf 3</th>
+          <th>tableedadfadsf 4</th>
+          <th>tableedadfadsf 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>column1</td>
+          <td >column2</td>
+          <td>column3</td>
+        </tr>
+        <tr>
+          <td>column1</td>
+          <td>column2</td>
+          <td>column3</td>
+        </tr>
+        <tr>
+          <td>column1</td>
+          <td>column2</td>
+          <td>column3</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+
+<!-- 
+  here table will take half space 
+  but image takes its whole size 
+  to make it to half we have to use fluid
+-->
+
+<div class="row">
+  <div class="col-6">
+    <img src="image1.jpg" alt="" class="img-fluid">
+    <!-- 
+      by applying the image fluid 
+      now image takes half space and the table takes half space
+     -->
+  </div>
+  <div class="col-6 table-responsive">
+      <table class="table  table-bordered ">
+        <thead class=>
+          <tr>
+            <th>column1</th>
+            <th>column1</th>
+            <th>column1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td>column1</td>
+            <td >column2</td>
+            <td>column3</td>
+          </tr>
+          <tr>
+            <td>column1</td>
+            <td>column2</td>
+            <td>column3</td>
+          </tr>
+          <tr>
+            <td>column1</td>
+            <td>column2</td>
+            <td>column3</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+**************************************
+
+<!-- here when you specify the table by default it will have the border bottom  -->
+<table class="table">
+  <thead>
+    <tr>
+      <th >#</th>
+      <th >First</th>
+      <th >Last</th>
+      <th >Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <!-- here we have colspan-2 it means here it will take 2 columns gap for it  -->
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- here we will be having a blue-water color all over the table -->
+<table class="table table-primary"></table>
+
+
+<!-- this will have a light black color -->
+<table class="table table-secondary"></table>
+
+<!-- this will have light red color  -->
+<table class="table table-danger"></table>
+
+<!-- this will have too light red color -->
+<table class="table table-warning"></table>
+
+<!-- light blue color -->
+<table class="table table-info"></table>
+
+
+<!-- this will have a dark color  -->
+<table class="table table-dark"></table>
+
+
+
+
+<!-- On rows -->
+<tr class="table-primary">...</tr>
+<tr class="table-secondary">...</tr>
+<tr class="table-success">...</tr>
+<tr class="table-danger">...</tr>
+<tr class="table-warning">...</tr>
+<tr class="table-info">...</tr>
+<tr class="table-light">...</tr>
+<tr class="table-dark">...</tr>
+
+
+<!-- On cells (`td` or `th`) -->
+<tr>
+  <td class="table-primary">...</td>
+  <td class="table-secondary">...</td>
+  <td class="table-success">...</td>
+  <td class="table-danger">...</td>
+  <td class="table-warning">...</td>
+  <td class="table-info">...</td>
+  <td class="table-light">...</td>
+  <td class="table-dark">...</td>
+</tr>
+
+*********************************
+
+Use .table-striped to add zebra-striping to any table row within the <tbody>.
+
+<table class="table table-striped">
+  ...
+</table>
+
+<!-- we can also have a combined effect  -->
+<table class="table table-dark table-striped">
+  ...
+</table>
+
+
+<!-- when you hover on the row of a table it will now have a color if white ( light black) if black (light white color ) -->
+<table class="table table-hover">
+  ...
+</table>
+
+
+<!-- here it will have the hover effect even though we not hovering on it -->
+<tr class="table-active">
+  <th>1</th>
+  <td>Mark</td>
+  <td>Otto</td>
+  <td>@mdo</td>
+</tr>
+
+
+
+<!-- below are the ways of adding a color to a border  -->
+<!-- this will have blue color  -->
+<table class="table table-bordered border-primary"></table>
+
+<!-- this will have red color -->
+<table class="table table-bordered border-warning"></table>
+
+
+
+**********************************************
+
+<!-- now this will not have any borders for it even the row border bottom  -->
+
+<table class="table table-borderless">
+  ...
+</table>
+
+
+
+<!-- this will remove the padding for each row bottom and top -->
+<table class="table table-sm"></table>
+
+
+
+<!-- alignment -->
+<!-- here for the 4 th one we have a much larger height than other so we can align the text on the top using 
+  align-top 
+  align-bottom 
+  align-middle
+-->
+<tr class="table-active align-top">
+  <th>1</th>
+  <td>Mark</td>
+  <td>Otto</td>
+  <td  class="col-3">This here is some placeholder text, intended to take up quite a bit of vertical space, to demonstrate how the vertical alignment works in the preceding cells.</td>
+</tr>
+
+
+
+<!-- here we are only giving head a bolor table-dark -->
+<thead class="table-dark"></thead>
+
+***********************************
+<!-- 
+  this is the way of writing a caption to a table 
+  but here it will take the bottom of the table 
+    
+-->
+<table class="table table-sm">
+  <caption>List of users</caption>
+  <thead>
+    ...
+  </thead>
+  <tbody>
+    ...
+  </tbody>
+</table>
+
+<!-- tbis is the way of specifyin the caption above the table  -->
+<table class="table caption-top">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+
+
+  <!-- table responsive  -->
+
+here we are mentioning the breakpoint at which it should be responsive
+  <div class="table-responsive">
+    <table class="table">
+      ...
+    </table>
+  </div>
+  
+  <div class="table-responsive-sm">
+    <table class="table">
+      ...
+    </table>
+  </div>
+  
+  <div class="table-responsive-md">
+    <table class="table">
+      ...
+    </table>
+  </div>
+  
+  <div class="table-responsive-lg">
+    <table class="table">
+      ...
+    </table>
+  </div>
+  
+  <div class="table-responsive-xl">
+    <table class="table">
+      ...
+    </table>
+  </div>

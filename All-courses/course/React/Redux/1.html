@@ -1,0 +1,478 @@
+
+Redux is a state management library 
+React is a ui library 
+
+npm install redux react-redux
+
+<!-- a sample code to for a button click to change the state value -->
+
+<script>
+
+// <!-- index.js -->
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+const store= createStore(counterReducer);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+
+reportWebVitals();
+
+'---------------------------------------'
+// app.js 
+import React from 'react'
+import {useSelector,useDispatch} from "react-redux";
+import {increment,decrement} from './components/action';
+
+const App =() => {
+    const count =useSelector(state=>state)
+    const dispatch =useDispatch();
+  return (
+    <div>
+        <h1>{count}</h1>
+       <button onClick={()=>dispatch(decrement())}> Decrement</button>
+       <button onClick={()=>dispatch(increment())}> Increment</button>
+    </div>
+  )
+}
+export default App
+
+
+'----------------------------'
+
+// action.js 
+export const increment =()=>{
+    return {
+        type : "INCREMENT"
+    }
+}
+export const decrement=()=>{
+    return {
+        type : "DECREMENT"
+    }
+}
+
+
+//reducer.js 
+export const counterReducer =(state=0,action)=>{
+    switch(action.type){
+        case "INCREMENT":
+            return state+1;
+        case "DECREMENT":
+            return state-1;
+        default:
+            return state;
+    }
+}
+
+</script>
+
+Output 
+{count}
+increment(button)
+decrement(button)
+
+when you click on increment count value will increase 
+when you click on decrement count value will decrease 
+
+
+*********************************************************************
+*********************************************************************
+
+<!-- middle ware  -->
+
+A middle ware is a function that returns another function
+
+<script>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>{
+  return(next)=>{
+    return (action)=>{
+      console.log("middleware ran");
+    }
+  }
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+
+reportWebVitals();
+
+'-------------------------------'
+
+
+export const counterReducer =(state=0,action)=>{
+    console.log("reducer ran");
+    switch(action.type){
+        case "INCREMENT":
+            return state+1;
+        case "DECREMENT":
+            return state-1;
+        default:
+            return state;
+    }
+}
+
+</script>
+
+Here for the above Output is :
+
+reducer ran 
+when we click  on button the it will print the middleware ran 
+
+BUt the value here will not increment or decrement 
+becuase in the middle care is dropping the action object 
+
+
+*********************************************************
+*********************************************************
+
+<!-- we can implement it using next(action) in the middle ware -->
+
+<script>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>{
+  return(next)=>{
+    return (action)=>{
+      console.log("before middleware action ");
+      next(action);
+      console.log("after middleware action")
+    }
+  }
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+
+reportWebVitals();
+
+'-------------------------'
+
+
+export const counterReducer =(state=0,action)=>{
+    console.log("reducer ran");
+    switch(action.type){
+        case "INCREMENT":
+            return state+1;
+        case "DECREMENT":
+            return state-1;
+        default:
+            return state;
+    }
+}
+
+</script>
+
+Output:
+reducer ran
+index.js:14 before middleware action 
+reducer.js:3 reducer ran
+index.js:16 after middleware action
+
+<!-- 
+    here in the above reducer ran will run without any button click 
+    whenever you clcik on the button 
+    the next 3 lines will be printed as above 
+ -->
+
+************************************************************
+
+<!-- Replacing the above logger function to a simple function -->
+
+<script>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+// here this works same as above function 
+const myLogger =(store) =>(next) =>(action) =>{
+  console.log("middleware ran");
+  next(action);
+
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+reportWebVitals();
+</script>
+
+
+***********************************************************
+
+<!-- we can give two middleware  -->
+<script>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>(next) =>(action) =>{
+  console.log("first middleware ran");
+  next(action);
+}
+const SecondLogger =(store) =>(next) =>(action) =>{
+  console.log("second middleware ran");
+  next(action);
+}
+
+const store= createStore(counterReducer,applyMiddleware(myLogger,SecondLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+reportWebVitals();
+
+</script>
+
+Output:
+reducer ran
+index.js:12 first middleware ran
+index.js:16 second middleware ran
+reducer.js:3 reducer ran
+
+<!-- 
+    here we can seee that both the middle care will ran first before the action 
+    the value will also gets incremented only once not twice 
+ -->
+
+ *******************************************
+
+ <!-- with two midddle ware the output will be like below  -->
+Output:
+
+reducer ran
+index.js:12 first middleware ran
+index.js:17 second middleware ran
+reducer.js:3 reducer ran
+index.js:19 second middle ware after action 
+index.js:14 first middleware after action
+
+
+
+<!-- with three middle ware the output will be like  -->
+
+reducer ran
+index.js:12 first middleware ran
+index.js:17 second middleware ran
+index.js:22 third middleware ran
+reducer.js:3 reducer ran
+index.js:24 third middle ware after action 
+index.js:19 second middle ware after action 
+index.js:14 first middleware after action
+
+*********************************************************
+
+
+<!-- 
+    condition :
+    when the value is equal or greater the 10 
+    the action should decrement the value by 1 
+-->
+<script>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>(next) =>(action) =>{
+  if(store.getState()>=10){
+    return next({type: "DECREMENT"});
+  }
+  next(action);
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+reportWebVitals();
+</script>
+<!-- 
+    here in the above when the value is 10 
+    the action we are passing is of type decrement 
+    it means the action will now change from anyAction to decrement 
+ -->
+
+*******************************************
+
+<!-- without having return value for the above code  -->
+
+<script>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>(next) =>(action) =>{
+  if(store.getState()>=10){
+    next({type: "DECREMENT"});
+    //  here the value will be decremented first 
+    // and then incremented action it runs both the decrement and the given action
+  }
+  next(action);
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+reportWebVitals();
+
+
+'--------------------------'
+
+export const counterReducer =(state=0,action)=>{
+    console.log("action type is ",action.type );
+    switch(action.type){
+        case "INCREMENT":
+            return state+1;
+        case "DECREMENT":
+            return state-1;
+        default:
+            return state;
+    }
+}
+
+</script>
+
+Output :
+if you click on increment the value will be 10 
+if you click on decrement the value will be 8 
+
+when you cilck the increment button at 10 
+Output is :
+action type is  DECREMENT
+reducer.js:3 action type is  INCREMENT
+
+when you cilck the decrement button at 10 
+Output is :
+action type is  DECREMENT
+reducer.js:3 action type is  DECREMENT 
+
+
+
+*****************************************************************
+<!-- working with logger -->
+npm i redux-logger
+
+<script>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+import logger from "redux-logger";
+ 
+
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { counterReducer } from './components/reducer';
+
+const myLogger =(store) =>(next) =>(action) =>{
+  if(store.getState()>=10){
+    next({type: "DECREMENT"});
+  }
+  next(action);
+}
+const store= createStore(counterReducer,applyMiddleware(myLogger,logger));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+       <App />
+    </Provider>
+);
+reportWebVitals();
+
+</script>
+<!-- when you click on increment button -->
+Output:
+<!-- on value changes from 0 to 1 -->
+action INCREMENT @ 15:23:15.773
+prev state 0
+action     
+    {type: 'INCREMENT'}
+        type: "INCREMENT"
+next state 1
+
+
+action DECREMENT @ 15:25:17.261
+prev state 1
+action     
+    {type: 'DECREMENT'}
+        type: "DECREMENT"
+next state 0
+
+*****************************************************************
+

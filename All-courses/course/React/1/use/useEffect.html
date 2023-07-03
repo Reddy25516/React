@@ -1,0 +1,353 @@
+
+<!-- 
+    useEffect here is used to chnage the document title 
+    when clicking a button 
+ -->
+<script>
+import './components/styles.css';
+
+import { useEffect, useState } from 'react';
+function App() {
+  const [count,setCount] = useState(0);
+
+  useEffect(()=>{
+    document.title=`you clicked ${count} times`;
+  })
+  return (
+    <div className='app body'>
+       <button onClick={()=>setCount(count+1)} >Click {count} times</button>
+    </div>
+  );
+}
+export default App;
+
+</script>
+
+in the above whenever you click on the button the values gets incremented by 1 
+and also in the document.title if reflected 
+
+
+*******************************************************************
+*******************************************************************
+
+<!-- 
+   useEffect with the input filed 
+ -->
+<script>
+
+import './components/styles.css';
+import { useEffect, useState } from 'react';
+function App() {
+  const [count,setCount] = useState("");
+
+  useEffect(()=>{
+    document.title=`name is ${count}`;
+    console.log("you are updating the values in it");
+  })
+  return (
+    <div className='app body'>
+      <input type='text' value={count} onChange={e=>{setCount(e.target.value)}}></input>
+       <button onClick={()=>setCount(count+1)} >Click {count} times</button>
+    </div>
+  );
+}
+export default App;
+
+</script>
+
+here in the above code
+when ever you click in button 
+output prints in the console 
+even on onChange it will print the ouput 
+
+suppose if you enter name  reddy 
+you are updating the values in it will gets printed 5 times 
+
+
+**********************************************
+**********************************************
+
+
+<!-- useEffect with conditional rendering -->
+
+We used [count] inside an array 
+so it means any values inside the array gets changed then the useEffect will get triggered
+
+<!-- here in the below we  are specifing the second paramter to the use Effect  -->
+
+<script>
+import './components/styles.css';
+import { useEffect, useState } from 'react';
+function App() {
+  const [count,setCount] = useState("");
+  const [name,setName] =useState("");
+
+  useEffect(()=>{
+      document.title=`name is ${count}`;
+      console.log("you are updating the values in it");
+  },[count])
+
+  return (
+    <div className='app body'>
+      <input type='text' value={name} onChange={e=>{setName(e.target.value)}}></input>
+       <button onClick={()=>setCount(count+1)} >Click {count} times</button>
+    </div>
+  );
+}
+export default App;
+</script>
+
+here in the above 
+useEffect will trigger only when count value gets changed 
+unless it will not trigger 
+
+******************************************************
+
+<!-- useeffect will only trigger when you write onclick or onchange or any function  -->
+<script>
+import './components/styles.css';
+
+import { useEffect, useState } from 'react';
+function App() {
+  const [count,setCount] = useState("");
+  const [name,setName] =useState("");
+
+  useEffect(()=>{
+      document.title=`name is ${count}`;
+      console.log("you are updating the values in it");
+  })
+  return (
+    <div className='app body'>
+      <input type='text'></input>
+       <button onClick={()=>setCount(count+1)} >Click {count} times</button>
+    </div>
+  );
+}
+export default App;
+</script>
+
+Here in the above when you are changin the input value it will not trigger because 
+it is not having the onchange function 
+it will trigger only when you click the button 
+
+
+**********************************************************************
+**************************************************************************
+
+<!-- mouse move trigger -->
+
+
+<script>
+
+// here we used event listener to trigger the useEffect
+
+import './components/styles.css';
+import { useEffect, useState } from 'react';
+function App() {
+  const [x,setX] = useState("");
+  const [y,setY] =useState("");
+  const  mousePosition =(e)=>{
+      setX(e.clientX);
+      setY(e.clientY);
+  }
+
+  useEffect(()=>{
+      console.log("you are updating the values in it");
+      window.addEventListener('mousemove',mousePosition);
+  })
+  
+  return (
+    <div className='app body'>
+        Hooke X- {x} and Y -{y}
+    </div>
+  );
+}
+export default App;
+
+</script>
+
+here when you move the mouse 
+you can see the coordinates will be displaying on the screen 
+
+and also in the console it prints the message given 
+
+******************************************************************
+******************************************************************
+
+<!-- how to call useEffect only once  -->
+
+here we are passing the empty array it will 
+call only once 
+
+<script>
+
+import './components/styles.css';
+import { useEffect, useState } from 'react';
+function App() {
+  const [x,setX] = useState("");
+  const [y,setY] =useState("");
+  const  mousePosition =(e)=>{
+      setX(e.clientX);
+      setY(e.clientY);
+  }
+
+  useEffect(()=>{
+      console.log("you are updating the values in it");
+      window.addEventListener('mousemove',mousePosition);
+  },[])
+
+  return (
+    <div className='app body'>
+        Hooke X- {x} and Y -{y}
+    </div>
+  );
+}
+export default App;
+
+</script>
+
+here on mouse position change the values will be displayed but 
+in useEffect will trigger only once (you can check it in console.log())
+
+
+******************************************************
+*******************************************************
+
+<!-- display the component when its value is true -->
+
+<script>
+import './components/styles.css';
+import Mouse from './components/Mouse';
+function App() {
+
+  return (
+    <div className='app body'>
+        <Mouse />
+    </div>
+  );
+}
+export default App;
+
+
+'-------------------------'
+
+import React from 'react';
+import Hook from './Hook';
+import { useState } from 'react';
+
+function Mouse() {
+    const [display,setDisplay] =useState(true);
+  return (
+    <div>
+        <button onClick={()=> setDisplay(!display)}>Toggle Display</button>
+        {display && <Hook />}
+    </div>
+  )
+}
+export default Mouse
+
+
+'----------------------------'
+
+import React from 'react';
+import { useEffect, useState } from 'react';
+
+function Hook() {
+    const [x,setX] = useState("");
+    const [y,setY] =useState("");
+    const  mousePosition =(e)=>{
+        setX(e.clientX);
+        setY(e.clientY);
+        console.log("mouse position");
+    }
+    useEffect(()=>{
+        console.log("you are updating the values in it");
+        window.addEventListener('mousemove',mousePosition);
+    },[])
+  
+    return (
+      <div className='app body'>
+          Hooke X- {x} and Y -{y}
+      </div>
+    );
+}
+
+export default Hook
+
+</script>
+
+here when ever you click on the toggle display button 
+the hook component will be like appear disappear 
+
+<!-- the main issue with above is  -->
+even when the hook is disabled the 
+event listner it it will be performing its action 
+you can see in the console it is printing the mouse position 
+
+
+<!-- to remove that too go for the next code  -->
+
+****************************************************
+***************************************************
+
+<!-- a seconds displaying timer -->
+1,2,3,4,... for each second 
+
+<script>
+import React,{useEffect, useState} from 'react';
+function Interval() {
+    const [count,setCount] =useState(0);
+
+    const tick =()=>{
+        setCount(count+1);
+    }
+    useEffect(()=>{
+        const Interval =setInterval(tick,1000);
+        console.log("hi");
+        return () =>{
+            clearInterval(Interval);
+        }
+    },[count])
+    return (
+        <div>
+            {count}
+        </div>
+    )
+}
+export default Interval
+
+</script>
+Here use effect will trigger for each second 
+in use effect we are calling the tick function for each second
+we can also remove count from here using previous state 
+
+as below way 
+
+**********************************************
+***********************************************
+
+<script>
+
+import React,{useEffect, useState} from 'react';
+function Interval() {
+    const [count,setCount] =useState(0);
+
+    const tick =()=>{
+        setCount(prevCount=> prevCount+1);
+    }
+    useEffect(()=>{
+        const Interval =setInterval(tick,1000);
+        console.log("hi");
+        return () =>{
+            clearInterval(Interval);
+        }
+    },[])
+    return (
+        <div>
+            {count}
+        </div>
+    )
+}
+export default Interval
+
+</script>

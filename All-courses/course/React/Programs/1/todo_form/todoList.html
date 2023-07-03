@@ -1,0 +1,125 @@
+
+<script>
+// index.js file 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { useState } from 'react';
+
+function Hello(){
+  const [brand, setBrand] = useState("");
+  const [brandList,setBrandList] =useState([]);
+  function buttonClick(event){
+    setBrand(event.target.value);
+  }
+  const submitForm=(event) =>{
+    event.preventDefault()
+    let tempList=[...brandList,brand];
+    // here we used ...brandList to get the list of all elements in the array
+    setBrandList(tempList);
+    console.log(tempList)
+  }
+  return(
+    <form onSubmit={submitForm}>
+      <input value={brand} onChange={buttonClick} type="text"></input>
+      <button type="submit">Button</button>
+    </form>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Hello />
+)
+
+</script>
+
+Input: 
+___________ button 
+
+When ever you click on the button the values inside the input will be added to the brandList 
+
+
+*****************************************
+*****************************************
+
+
+<!-- passing props to child component and displaying data -->
+
+Here we are displaying the data 
+of list of inputed items 
+
+<script>
+
+// app.js file
+
+import Hello from './components/Hello.js';
+function App() {
+  return (
+    <Hello />
+  );
+}
+export default App;
+
+'------------------'
+
+// hello.js 
+import React from 'react';
+import { useState } from 'react';
+import ListItem from './ListItem';
+
+function Hello(){
+    const [brand, setBrand] = useState("");
+    const [brandList,setBrandList] =useState([]);
+
+    function buttonClick(event){
+      setBrand(event.target.value);
+    }
+    
+    const submitForm=(event) =>{
+      event.preventDefault()
+      let tempList=[...brandList,brand];
+      setBrandList(tempList);
+      console.log(tempList)
+    }
+    return(
+      <>
+      <form onSubmit={submitForm}>
+        <input value={brand} onChange={buttonClick} type="text"></input>
+        <button type="submit">Button</button>
+      </form>
+      {
+        brandList.map((item)=>(
+          <ListItem key={item} name={item}>list item</ListItem>
+        ))
+      }
+      </>
+    )
+}
+export default Hello
+
+'---------------------------------------'
+
+// listitem.js file 
+import React from 'react';
+function ListItem(props){
+    return <h1>{props.name}</h1>;
+}
+export default ListItem
+</script>
+
+***************************************
+<!-- destructuring the above props way  -->
+
+
+<script>
+import React from 'react';
+function ListItem({name}){
+    return <h1>{name}</h1>;
+}
+export default ListItem
+</script>
+
+In the above we can see that we 
+taken name out of the props and we displayed it
+
+**********************************************************
+

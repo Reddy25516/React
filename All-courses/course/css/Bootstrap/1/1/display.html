@@ -1,0 +1,66 @@
+
+<div class="col-3 bg-light p-3 border">
+    .col-3: width of 25%
+</div>
+
+
+
+<!-- 
+  here we can see when ever the width is greater than md 
+  then image will be floating on the right and content will be starting from te start 
+
+  whenever it is smaller than medium then it will start from 
+ -->
+<div class="clearfix">
+  <img src="..." class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+
+  <p>
+    A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+  </p>
+
+  <p>
+    As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+  </p>
+
+  <p>
+    And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+  </p>
+</div>
+
+
+**************************
+
+<!-- px-4 here means to give the padding on the left and right with 4 -->
+<div class="row border px-4"></div>
+
+px-4 ( padding across horizontal borders)
+py-4 (padding across veritcal borders )
+<!-- gutters  -->
+<!-- 
+  in the below we given p-4 for the whole container 
+  now we need to use those padding for a particular div 
+  in that case we will be using gx-5 
+  here p-4 length == gx-5 length 
+
+ -->
+<div class="container border p-4">
+  <div class="row bordern gx-5">Hello</div>
+  <div class="border">Hello</div>
+</div>
+</body>
+
+***************************
+
+<div class="p-3 col-6 border bg-light">Custom column padding</div>
+<!-- here after each row we will be gettnig a space of gy-5 between each row-->
+<div class="row gy-5">
+  <div class="p-3 col-6 border bg-light">Custom column padding</div>
+  <div class="p-3 col-6 border bg-light">Custom column padding</div>
+  <div class="p-3 col-6 border bg-light">Custom column padding</div>
+  <div class="p-3 col-6 border bg-light">Custom column padding</div>
+</div>
+
+
+g-4 is used to give space vertical and horizontal in both the directions 
+
+****************************

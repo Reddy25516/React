@@ -1,0 +1,116 @@
+
+<script>
+
+//  this is used to get the current time
+// it will diplay the time at which you render the page 
+// it will be static 
+import React from 'react'
+
+const App =() => {
+  let time = new Date().toLocaleTimeString()
+  return (
+   <>
+    <h1> {time}</h1>
+   </>
+  )
+}
+export default App
+
+//*****************************************
+
+import React, { useState } from 'react'
+
+const App =() => {
+  let  timeFirst = new Date().toLocaleTimeString();
+  const [time,setTime] =useState(timeFirst);
+
+  const UpdateTime =() =>{
+    var time = new Date().toLocaleTimeString();
+    setTime(time);
+  }
+  return (
+   <>
+    <h1> {time}</h1>
+    <button onClick={UpdateTime}> Get Time</button>
+   </>
+  )
+}
+export default App
+
+// in the above we are getting the current time at first 
+// after every click you will get the time too
+
+</script>
+
+******************************************
+
+Below is the actual react code for to get the current time with dynamic display with time
+<script>
+import React, { useState } from 'react'
+
+const App =() => {
+  let  timeFirst = new Date().toLocaleTimeString();
+  const [time,setTime] =useState(timeFirst);
+
+  const UpdateTime =() =>{
+    var time = new Date().toLocaleTimeString();
+    setTime(time);
+  }
+//   this here will default run for each second 
+  setInterval(UpdateTime);
+//    this will run for every 2 seconds
+  setInterval(UpdateTime,2000);
+  
+  return (
+   <>
+    <h1> {time}</h1>
+    <button onClick={UpdateTime}> Get Time</button>
+   </>
+  )
+}
+export default App
+
+//**********************************
+
+var time = new Date().toLocaleDateString();
+// this will get the current date
+
+
+// here we directly passed time value to it
+import React, { useState } from 'react';
+
+const App =() =>{
+  const [time,setTime] =useState(new Date().toLocaleTimeString());
+  return(
+    <>
+    <h1>{time}</h1>
+    </>
+  )
+}
+export default App;
+</script>
+
+***************************************
+
+<script>
+import React, { useState } from 'react';
+
+const App =() =>{
+  const [time,setTime] =useState(new Date().toLocaleTimeString());
+  setInterval(function(){
+    setTime(new Date().toLocaleTimeString());
+  },2000)
+  return(
+    <>
+    <h1>{time}</h1>
+    </>
+  )
+}
+export default App;
+
+</script>
+
+WE can directly pass function tot a setInterval as above
+
+********************************************
+

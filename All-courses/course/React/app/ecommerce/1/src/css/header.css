@@ -1,0 +1,94 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.header{
+    width: 100%;
+    background-color:black;
+    padding: 0px 3%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    opacity: 0.9;
+}
+
+.header .kraya{
+    font-size: 25px;
+    color: white;
+}
+
+.search input{
+    padding-left: 20px;
+    height: 30px;
+}
+
+.search-icon {
+    background-color: #fff;
+    position: relative;
+    margin-left: -43px;
+    height: 26px;
+    top:2px;
+    width: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    padding: 4px 12px 0 8px;
+}
+
+
+.cart-icon{
+    color: white;
+    justify-content: center;
+    font-size: 25px;
+    width: 160px;
+}
+  
+.cart-icon .icon{
+    color: white;
+    position: absolute;
+    top :18px;
+}
+  
+.cart-icon .cart{
+    font-size: 13px;
+    position: relative;
+    left: 20px;
+    top:-10px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    padding-left: 4px;
+    background-color: red;
+}
+
+.fa-user{
+    color: white;
+    font-size: 25px;
+}
+header .login{
+    padding-top: 10px;
+}
+.login p{
+    color: white;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+
+
+/* nav bar styling */
+
+
+nav ul{
+    margin: 0 auto;
+}
+
+.blue{
+    color: blue;
+}
+
+.signINbtn{
+    text-decoration: none;
+}

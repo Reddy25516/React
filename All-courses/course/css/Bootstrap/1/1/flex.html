@@ -1,0 +1,217 @@
+
+
+<!-- here it takes the column width based on size of each column -->
+<div class="row row-cols-auto">
+    <div class="col">Columndkjafdjafh adfshlak asf</div> 3
+    <div class="col">Column</div>1
+    <div class="col">Column</div>1
+    <div class="col">Column</div>1
+  </div>
+  
+  total width =6 
+  
+*****************************************
+
+<!-- here each row will have only two only two columns -->
+<div class="container">
+    <div class="row row-cols-2">
+      <div class="col">Column</div>6
+      <div class="col">Column</div>6
+      <div class="col">Column</div>6
+      <div class="col">Column</div>6
+    </div>
+</div>
+
+
+<!-- here each row will have 3 columns  -->
+
+<div class="container">
+    <div class="row row-cols-3">
+      <div class="col">Column</div>4
+      <div class="col">Column</div>4
+      <div class="col">Column</div>4
+      <div class="col">Column</div>4
+    </div>
+</div>
+
+
+***********************************
+
+<!-- here it will have width  -->
+
+<div class="container">
+    <div class="row row-cols-4">
+      <div class="col">Column</div> 6
+      <div class="col">Column</div>6
+      <div class="col">Column</div>6
+      <div class="col">Column</div>6
+    </div>
+</div>
+
+
+*************************
+
+<!-- 
+    here we will be having 3 columns for a row 
+    but for one column we have width half of it 
+ -->
+<div class="container">
+    <div class="row row-cols-4">
+      <div class="col">Column</div>3 
+      <div class="col">Column</div>3 
+      <div class="col-6">Column</div>6
+      <div class="col">Column</div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row row-cols-2 row-cols-lg-3">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+      <div class="col-4 col-lg-2">Column</div>
+    </div>
+</div>
+
+
+
+<div class="container-sm">100% wide until small breakpoint</div>
+<div class="container-md">100% wide until medium breakpoint</div>
+<div class="container-lg">100% wide until large breakpoint</div>
+<div class="container-xl">100% wide until extra large breakpoint</div>
+<div class="container-xxl">100% wide until extra extra large breakpoint</div>
+
+
+
+<!--  -->
+<div class="row align-items-center">
+    <div>Helo</div>
+</div>
+<div class="row align-items-end"></div>
+<div class="row align-items-center"></div>
+
+
+
+
+<div class="row">
+    <div class="col align-self-start">
+      One of three columns
+    </div>
+    <div class="col align-self-center">
+      One of three columns
+    </div>
+    <div class="col align-self-end">
+      One of three columns
+    </div>
+</div>
+
+
+
+<div class="row justify-content-start"></div>
+
+******************************************
+
+<!-- 
+    here when it is having size greater than sm still it will have 3 pars 
+    like as  3 3 
+             3 3 
+    since there is a break on the middle of those columns t will go to next line 
+ -->
+<div class="row">
+    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+
+    <!-- Force next columns to break to new line -->
+    <div class="w-20 div1 border">hello</div>
+
+    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+</div>
+
+
+
+<!-- changing the order of the rows -->
+<div class="container">
+    <div class="row">
+      <div class="col">First in DOM, no order applied</div>
+      <div class="col order-5">Second in DOM, with a larger order</div>
+      <div class="col order-1">Third in DOM, with an order of 1</div>
+    </div>
+  </div>
+
+
+  <!-- we can also specify using order last and order first -->
+<div class="container">
+<div class="row">
+    <div class="col order-last">First in DOM, ordered last</div>
+    <div class="col">Second in DOM, unordered</div>
+    <div class="col order-first">Third in DOM, ordered first</div>
+</div>
+</div>
+
+
+<!-- 
+    here col should be given for it else it will go to next line 
+    row should also be there else all divs works as a whole one column for row
+
+    when there are multiple order-first 
+    all those will be moved to first and remaning will be moved to back in the order 
+ -->
+<div class="container">
+    <div class="row">
+      <div class="col order-last">First in DOM, ordered last</div>
+      <div class="col order-first">Second in DOM, unordered</div>
+      <div class="col order-first">Third in DOM, ordered first</div>
+    </div>
+</div>
+
+
+
+<!-- offset-3 is used to gave space before a column in a row  -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+      <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+    </div>
+  </div>
+
+
+
+<!-- 
+    ms-auto 
+    it is used to 
+-->
+  <div class="container">
+    <div class="row">
+      <div class="col-4 ms-auto">.col-md-4</div>
+      <div class="col-md-4">.col-4 .ms-auto</div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+      <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+    </div>
+    <div class="row">
+      <div class="col-auto me-auto">.col-auto .me-auto</div>
+      <div class="col-auto">.col-auto</div>
+    </div>
+  </div>
+
+
+

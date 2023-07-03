@@ -1,0 +1,33 @@
+
+<!-- program to create a json data -->
+
+<script>
+
+let countries=["india","australia","china","france","america","russia","england"]
+let id=0;
+let flight_ids=[];
+let data=[];
+for(i=0;i<7;i++){
+  for(j=0;j<7;j++){
+    if(i!=j){
+      let data1={}
+      id=id+1
+      data1.id=id;
+      data1.source_countries=countries[i];
+      data1.destination_country=countries[j];
+    //   here the range is 10k to 100k-1 
+      let fli_id=Math.floor(Math.random() *90000 + 10000)
+      while(flight_ids.includes(fli_id)){
+        fli_id=parseInt(Math.random(1,101)*100000)
+      }
+      flight_ids.push(fli_id);
+      data1.flight_id=fli_id;
+      data1.price= Math.floor(Math.random() *5001 + 5000)
+      data.push(data1);
+    }
+  }
+}
+console.log(data);
+
+
+</script>

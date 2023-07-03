@@ -1,0 +1,108 @@
+
+
+https://getbootstrap.com/docs/5.0/components/badge/
+
+
+<button type="button" class="btn btn-primary">
+    Notifications <span class="badge bg-secondary">4</span>
+</button>
+
+
+<button type="button" class="btn btn-primary position-relative">
+    Inbox
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+      99+
+    </span>
+  </button>
+
+
+  <!-- round circle -->
+  <button type="button" class="btn btn-primary position-relative">
+    Profile
+    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger  border-light rounded-circle">87
+    </span>
+  </button>
+
+
+<!-- different colors -->
+  <span class="badge bg-primary">Primary</span>
+  <span class="badge bg-secondary">Secondary</span>
+  <span class="badge bg-success">Success</span>
+  <span class="badge bg-danger">Danger</span>
+  <span class="badge bg-warning text-dark">Warning</span>
+  <span class="badge bg-info text-dark">Info</span>
+  <span class="badge bg-light text-dark">Light</span>
+  <span class="badge bg-dark">Dark</span>
+
+
+<span class="badge rounded-pill bg-primary">Primary</span>
+
+
+
+**************************************
+
+
+<!-- outline buttons -->
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-light">Light</button>
+<button type="button" class="btn btn-outline-dark">Dark</button>
+
+
+<!-- for to get larger sized button -->
+<button type="button" class="btn btn-primary btn-lg">Large button</button>
+<button type="button" class="btn btn-secondary btn-lg">Large button</button>
+
+
+<!-- for to get samller sized buttons -->
+<button type="button" class="btn btn-primary btn-sm">Small button</button>
+<button type="button" class="btn btn-secondary btn-sm">Small button</button>
+
+
+
+<!-- way of disabling a button  -->
+<button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+<button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
+
+
+<!-- way of disabling a tag -->
+<a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+
+
+<!-- with this we can able to write something in grid or block way  -->
+<div class="d-grid gap-2 col-2">
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-primary" type="button">Button</button>
+</div>
+
+
+<!-- here when the size is above medium then it will convert to block type else grid type -->
+<div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-primary" type="button">Button</button>
+</div>
+
+
+
+<!-- we can place the button at the center using  mx-auto -->
+<div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-primary" type="button">Button</button>
+  </div>
+
+
+<!-- 
+    here we can see that for second div we given length to it and we also given mx-auto
+    it will equal margin on both sided of it 
+ -->
+  <div class="col-5 border mx-auto">
+    <div class="gap-3 col-3 mx-auto border">
+      <button class="btn btn-primary" type="button">Button</button>
+      <button class="btn btn-primary" type="button">Button</button>
+    </div>
+  </div>

@@ -1,0 +1,318 @@
+
+<script>
+
+import React, { useState } from 'react';
+import './App.css';
+
+const App =() =>{
+  const initialValues = {username:"", email :"", password :""};
+  const [formValues,setFormValues] =useState(initialValues);
+
+  const handleChange =(e) =>{
+    // here name is the name given to the input 
+    // value is the name of the target value
+    const {name,value} =e.target;
+    setFormValues({...formValues,name:value});
+    console.log(formValues);
+  }
+  return(
+      <div> 
+        <form>
+          <h1> Login form</h1>
+          <div>
+            <label> User Name</label>
+            <input type="text" name="username" placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" placeholder='email' value={formValues.email} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password" value={formValues.password} onChange={handleChange}></input>
+          </div>
+          <button type="submit"> Submit</button>
+        </form>
+      </div>
+  )
+}
+export default App;
+</script>
+
+<!-- 
+    here if you change any value in it 
+    either email password or user name the ouptu would be like below
+ -->
+
+{username: '', email: '', password: ''}
+{username: '', email: '', password: '', name: 'h'}
+
+**************************************
+
+<script>
+
+import React, { useState } from 'react';
+import './App.css';
+
+const App =() =>{
+  const initialValues = {username:"", email :"", password :""};
+  const [formValues,setFormValues] =useState(initialValues);
+
+  const handleChange =(e) =>{
+    const {name,value} =e.target;
+    setFormValues({...formValues,[name]:value});
+    console.log(formValues);
+  }
+  return(
+      <div> 
+        <form>
+          <h1> Login form</h1>
+          <div>
+            <label> User Name</label>
+            <input type="text" name="username" placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" placeholder='email' value={formValues.email} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password" value={formValues.password} onChange={handleChange}></input>
+          </div>
+          <button type="submit"> Submit</button>
+        </form>
+      </div>
+  )
+}
+export default App;
+
+</script>
+
+Output:
+{username: 'username', email: 'emai', password: ''}
+{username: 'username', email: 'email', password: ''}
+{username: 'username', email: 'email', password: 'o'}
+{username: 'username', email: 'email', password: ''}
+{username: 'username', email: 'email', password: 'p'}
+{username: 'username', email: 'email', password: 'pa'}
+{username: 'username', email: 'email', password: 'pas'}
+
+<!-- 
+    in the above what ever the fields you updated those fields will get updated
+ -->
+ 
+
+ ----------------------------
+
+ <!-- 
+    here it will not work for the above since we didn't had the name attribute here
+  -->
+<div>
+    <label> User Name</label>
+    <input type="text"  placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+</div>
+
+---------------- 
+
+const initialValues = {username:"", email :"", password :""};
+<!-- 
+    this here to wont work becuase 
+    the name field username should match with the setname  the same above in the js file
+ -->
+<div>
+    <label> User Name</label>
+    <input type="text" name="usernam" placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+</div>
+
+****************************************
+
+<!-- this is the way to set sinle field value when input field is changed -->
+<script> 
+const [name,setName] =useState("");
+const handleName =(e) =>{
+  setName(e.target.value);
+  console.log(e.target.value)
+}
+</script>
+
+<div>
+    <label> {name}User Name</label>
+    <input type="text"  placeholder='userName' value={name} onChange={handleName}></input>
+</div>
+
+
+*******************************************
+*******************************************
+
+<!-- checking the values not to be empty -->
+
+<script>
+import React, { useEffect, useState } from 'react';
+import './App.css';
+
+const App =() =>{
+  const initialValues = {username:"", email :"", password :""};
+  const [formValues,setFormValues] =useState(initialValues);
+  const [formErrors,setFormErrors] =useState({});
+  const [isSubmit,setIsSubmit]= useState(false);
+
+  const handleChange =(e) =>{
+    const {name,value} =e.target;
+    setFormValues({...formValues,[name]:value});
+  }
+
+  const handleSubmit =(e) =>{
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  }
+
+  const validate =(values)=>{
+    const errors ={};
+    if (!values.username){
+      errors.username="username is required";
+    }
+    if (!values.email){
+      errors.email="email is required";
+    }
+    if (!values.password){
+      errors.password="password is required";
+    }
+    return errors
+  }
+  
+  useEffect(()=>{
+    console.log(formErrors)
+    if(Object.keys(formErrors).length==0 && isSubmit){
+      console.log(formValues);
+      console.log("form submitted successfully");
+    }
+  },[formErrors])
+
+  return(
+      <div> 
+        <pre>{JSON.stringify(formValues,undefined,2)}</pre>
+        <form onSubmit={handleSubmit}>
+          <h1> Login form</h1>
+          <div>
+            <label> User Name</label>
+            <input type="text" name="username" placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+            <p>{formErrors.username}</p>
+          </div>
+          <div>
+            <label>Email</label>
+            <input name="email" placeholder='email' value={formValues.email} onChange={handleChange}></input>
+            <p>{formErrors.email}</p>
+          </div>
+          <div>
+            <label>Password</label>
+            <input name="password" value={formValues.password} onChange={handleChange}></input>
+            <p>{formErrors.password}</p>
+          </div>
+          <button type="submit"> Submit</button>
+        </form>
+      </div>
+  )
+}
+export default App;
+
+</script>
+
+*************************************************
+*************************************************
+
+<!-- in here we also contains validation for it -->
+<script>
+
+import React, { useEffect, useState } from 'react';
+  import './App.css';
+  
+  const App =() =>{
+    const initialValues = {username:"", email :"", password :""};
+    const [formValues,setFormValues] =useState(initialValues);
+    const [formErrors,setFormErrors] =useState({});
+    const [isSubmit,setIsSubmit]= useState(false);
+  
+    const handleChange =(e) =>{
+      const {name,value} =e.target;
+      setFormValues({...formValues,[name]:value});
+    }
+  
+    const handleSubmit =(e) =>{
+      e.preventDefault();
+      setFormErrors(validate(formValues));
+      setIsSubmit(true);
+    }
+  
+  
+    const validate =(values)=>{
+      const errors ={};
+  
+      var name = /^[a-zA-Z ]+$/;
+      if (!values.username){
+        errors.username="username is required";
+      }
+      else if(values.username.length<4){
+        errors.username= "it should contain a minimum of 4 letters"
+      }else if(!values.username.match(name)){
+        errors.username="it should only contains letters and a space"
+      }
+  
+      if (values.email){  
+        if(!values.email.includes("@gmail.com")){
+          errors.email="it should contain @gmail.com";
+        }
+      }
+      else{
+        errors.email="email is required";
+      }
+  
+      var pass = /^(?=.*[!@#$%^&*])(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
+      if (!values.password){
+        errors.password="password is required";
+      }
+      else if(!values.password.match(pass)){
+        errors.password="it should contain atlease one caps , one small letter , one number and one special character";
+  
+      }
+      return errors
+    }
+  
+    useEffect(()=>{
+      console.log(formErrors)
+      if(Object.keys(formErrors).length===0 && isSubmit){
+        console.log(formValues);
+        console.log("form submitted successfully");
+      }
+    },[formErrors])
+  
+    return(
+        <div> 
+          <pre>{JSON.stringify(formValues,undefined,2)}</pre>
+          <form onSubmit={handleSubmit}>
+            <h1> Login form</h1>
+            <div>
+              <label> User Name</label>
+              <input type="text" name="username" placeholder='userName' value={formValues.username} onChange={handleChange}></input>
+              <p>{formErrors.username}</p>
+            </div>
+            <div>
+              <label>Email</label>
+              <input name="email" placeholder='email' value={formValues.email} onChange={handleChange}></input>
+              <p>{formErrors.email}</p>
+            </div>
+            <div>
+              <label>Password</label>
+              <input name="password" value={formValues.password} onChange={handleChange}></input>
+              <p>{formErrors.password}</p>
+            </div>
+            <button type="submit"> Submit</button>
+          </form>
+        </div>
+    )
+  }
+  export default App;
+
+</script>
+
+

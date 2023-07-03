@@ -1,0 +1,449 @@
+
+<!-- // what exactly a react  -->
+
+react is a javascript library to build user interfaces 
+`
+<!-- // concepts in react  -->
+components 
+ React component can be :
+    functional component 
+    class component 
+
+<!-- // jsx syntax  -->
+
+<!-- in the below link we can execute our react code -->
+https://jscomplete.com/playground
+
+
+
+<script> 
+
+function Hello() {
+	return <div>Hello React!</div>;
+}
+function Second(){
+  return <div>Hewllo React </div>;
+}
+ReactDOM.render(
+  <Second />, 
+  document.getElementById('mountNode'),
+);
+
+Output:
+// Hello React 
+
+
+// ----------------
+
+// the above function we can also write like this 
+function Second(){
+  return 'Hello Again React';
+}
+
+// we can even change the tags for it
+function Hello() {
+	return <h1>Hello React!</h1>;
+}
+
+</script>
+
+<!-- Ouptut for the above code is  -->
+Hewllo React
+
+----------------------------
+
+<script> 
+function Second(){
+  return <div>Hewllo React </div>;
+}
+ReactDOM.render(
+  <Second />, 
+  document.getElementById('mountNode'),
+);
+</script>
+
+In the above we written html inside the js code 
+but it still works fine 
+because in the react code 
+we had jsx extension for it(so it )
+
+the above div tag is not html it is jsx 
+
+
+<!-- *********************** -->
+
+The above code can also be written in this way as below without jsx 
+
+<script> 
+    function Second(){
+    // return <div>Hello Again React</div>;
+    return React.createElement('div',null,'Hello Again React');
+    }
+    ReactDOM.render(
+    // <Second/>, 
+    React.createElement(Second,null),
+    document.getElementById('mountNode'),
+    );
+</script>
+
+Here in the above 
+the component name should start with caps as like Second 
+
+----------------------------------------- 
+
+
+<script>
+    function Hello(){
+        return <button> CLick </button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );
+</script>
+
+  
+
+*********************************************************
+
+<!-- we will be learning how to use states in react -->
+
+useState():
+it contains two items :
+    state object 
+    function to change the state object 
+
+<!-- structure of states -->
+const [currentStateValue,functionToSetStateValue] = useState(initialStateValue)
+
+<script> 
+    const [counter,setCounter] =useState(0);
+</script>
+
+<!-- 
+    here in the above counter is a variable 
+    set counter is a method to set the variable as like setter it works 
+    useState(0) it means we are assigning the intial value of counter to 0
+ -->
+
+
+
+--------------------------- 
+
+<script> 
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button>counter</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );
+
+</script>
+Output: 
+counter 
+
+<!-- 
+    here in the above we can see that in the button written counter 
+    here is should display text counter 
+    but not the value of the counter 
+
+    to display a js variable we have to enclose in inside the {} curly braces 
+    as below
+ -->
+
+<script> 
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button>{counter}</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );
+</script>
+
+output: 
+0
+
+to write js code inside the element we have to use curly braces 
+
+----------------------------------- 
+
+<!-- on Click sample function  -->
+
+<script> 
+    function print(){
+        console.log("button cicked");
+    }
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button onClick={print}>{counter}</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );    
+</script>
+
+Output: 
+when ever we click the counter value  
+in the console it print button clicked 
+
+------------------ 
+
+Note :
+<script>
+     function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button onClick={print()}>{counter}</button>;
+    }
+</script>
+
+When you invoke the print function 
+it it prints the button clicked output without cliking on it 
+now even though you click on the button it doesn't print again and again (only once it will gets printed)
+
+
+*****************************************
+
+<!-- this will also works  -->
+<!-- writing the whole function in the line in self -->
+
+<script>
+    function print(){
+        console.log("button cicked");
+    }
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button onClick={
+                function print(){
+                    console.log("button cicked");
+                }
+            }>
+        {counter}</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );   
+</script> 
+
+
+------------------ 
+
+
+<!-- inline function  -->
+<!-- Arrow Function  -->
+<script> 
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button onClick={()=>console.log("button cicked")}>{counter}</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );    
+</script>
+
+this is the way of writing the inline function for the onclick function  
+
+
+---------------------------------- 
+<!-- onclick increment the value  -->
+
+<script> 
+    function Hello(){
+        const [counter,setCounter] =useState(0);
+        return <button onClick={()=>setCounter(counter+1)}>{counter}</button>;
+    }
+    ReactDOM.render(
+        <Hello />, 
+        document.getElementById('mountNode'),
+    );
+</script>
+
+output: 
+whenever we click on the click button 
+the value of the counter increments 
+
+-------------------------- 
+
+Note: 
+useState(0), is called hook in the react 
+
+
+<!-- calling a function on onclick and incrementing the value -->
+
+
+<script> 
+    function Button() {
+        const [counter, setCounter] = useState(5);
+    function incre(){
+        setCounter(counter+1);
+    }
+        return <button onClick={incre}>{counter}</button>;
+    }
+
+    ReactDOM.render(
+    <Button />, 
+    document.getElementById('mountNode'),
+    );
+</script>
+
+---------------- 
+
+
+<script> 
+    function Button() {
+        const [counter, setCounter] = useState(5);
+    const incre =()=>setCounter(counter+1);
+        return <button onClick={incre}>{counter}</button>;
+    }
+
+    ReactDOM.render(
+    <Button />, 
+    document.getElementById('mountNode'),
+    );
+</script>
+
+**********************************************
+
+<!-- including two components into an array format -->
+
+<script> 
+    function Button() {
+        const [counter, setCounter] = useState(5);
+    const incre =()=>setCounter(counter+1);
+        return <button onClick={incre}>{counter}</button>;
+    }
+    function Display(){
+        return(
+            <div> Hi </div>
+            );
+    }
+    ReactDOM.render(
+        [<Button />,<Display />],
+        document.getElementById('mountNode'),
+    );
+</script>
+
+
+
+
+<!-- 
+    below is the way to render two componennts in the div tag
+ -->
+<script>
+    function Button() {
+        const [counter, setCounter] = useState(5);
+    const incre =()=>setCounter(counter+1);
+        return <button onClick={incre}>{counter}</button>;
+    }
+
+    function Display(){
+        return(
+            <div> Hi </div>
+        );
+    }
+    ReactDOM.render(
+        <div>
+            <Button /><Display />
+        </div>,
+        document.getElementById('mountNode'),
+    );
+</script>
+
+
+
+--------------------- 
+
+<!-- using React.Fragment to render elements -->
+
+<script> 
+    function Button() {
+        const [counter, setCounter] = useState(5);
+        const incre =()=>setCounter(counter+1);
+            return <button onClick={incre}>{counter}</button>;
+        }
+    function Display(){
+        return(
+        <div> Hi </div>
+        );
+    }
+    ReactDOM.render(
+    <React.Fragment>
+        <Button />
+        <Display />
+    </React.Fragment>,
+    document.getElementById('mountNode'),
+    );
+</script>
+
+
+--------------- 
+<!-- using empty tag  -->
+
+<script> 
+    function Button() {
+        const [counter, setCounter] = useState(5);
+        const incre =()=>setCounter(counter+1);
+        return <button onClick={incre}>{counter}</button>;
+    }
+    function Display(){
+        return(
+        <div> Hi </div>
+        );
+    }
+    ReactDOM.render(
+        <>
+            <Button />
+            <Display />
+        </>,
+        document.getElementById('mountNode'),
+    );
+</script>
+
+
+
+************************************ 
+
+<!-- using App  Component  -->
+
+<script>
+      function Button() {
+            const [counter, setCounter] = useState(5);
+            const incre =()=>setCounter(counter+1);
+            return <button onClick={incre}>{counter}</button>;
+        }
+        function Display(){
+            return(
+            <div> Hi </div>
+            );
+        }
+
+        function App(){
+            return (
+            <div> 
+                <Button/>
+                <Display/>
+            </div>
+            );
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('mountNode'),
+        );
+</script>
+
+
+------------------------------------------
+<!-- 
+    here in the above we declared the variables inside the Button Component
+    so we can't access the values inside the Display Component
+    to do so  declare the variables in the App component now
+ -->
+
+
+ 

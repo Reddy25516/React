@@ -1,0 +1,120 @@
+
+
+<script>
+import './components/styles.css';
+import React from 'react';
+import {  useEffect, useState } from 'react';
+
+function App() {
+  
+const [myArray, updateMyArray] = useState([]);
+
+const sortHandler =()=>{
+  // var new_arr =[...myArray.reverse()]
+  var new_arr= myArray.reverse()
+  new_arr=[...new_arr];
+  updateMyArray(new_arr);
+}
+
+const onClick = () => {
+  var new_Array = [...myArray, `${myArray.length}`]
+    updateMyArray(new_Array);
+};
+
+return (<>
+    <input type="button" onClick={ onClick } value="Update" />.
+    <input type="button" onClick={ sortHandler } value="sort"></input>
+    <div>{myArray.map( e =>
+      <div>{ e }</div>
+    )}
+    </div>
+    </>
+);
+}
+export default App;
+
+</script>
+
+Output: 
+when ever we click on update then a value is added to the array 
+the new value will be the length of the array 
+
+
+whenever you click on sort 
+all the elements will be reversed 
+
+
+**************************************
+
+<!-- array rendering with deleter and sort button  -->
+
+Here we are not having the index value for it 
+only having the item value 
+
+<script>
+
+
+
+import './components/styles.css';
+import React from 'react';
+import {  useEffect, useState } from 'react';
+
+function App() {
+  
+const [myArray, updateMyArray] = useState([]);
+const [value,setValue]=useState('');
+
+const sortHandler =()=>{
+  // var new_arr =[...myArray.reverse()]
+  var new_arr= myArray.reverse()
+  new_arr=[...new_arr];
+  updateMyArray(new_arr);
+}
+const changeHandler =(e)=>{
+  setValue(e.target.value)
+}
+
+const onClick = () => {
+  var new_Array = [...myArray, value]
+    updateMyArray(new_Array);
+};
+
+
+const deleteHandler =(indexValue)=>{
+  const newTodos = myArray.filter((todoitem,index)=> index!==indexValue);
+  updateMyArray(newTodos);
+}
+
+return (<>
+    <input type="text"  onChange={changeHandler} placeholder="enter value to add"></input>
+    <button type="button" onClick={ onClick } value="sort">Add</button>
+    <br></br>
+    <button onClick={ sortHandler } >Sort</button>
+    
+    <div className="list">
+            <table className='table'>
+                <tr>
+                    <th className=''>index</th>
+                    <th className='th2'>value</th>
+                    <th className=''>button</th>
+                </tr>
+
+                {myArray.map((todoItem,index)=>(
+                    <tr key={index}>
+                        <td>{index}   </td>
+                        <td>{todoItem} </td>
+                        <td><button className="delete" onClick={()=>deleteHandler(index)}>Delete</button></td>
+                    </tr>
+                ))}
+            </table>
+    </div>
+  
+    </>
+);
+}
+export default App;
+
+</script>
+
+
+

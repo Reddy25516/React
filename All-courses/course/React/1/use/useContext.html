@@ -1,0 +1,161 @@
+<!-- useContext -->
+context provides a  way to pass data through the  component tree
+without having to pass props down manually at every level 
+
+<!-- here we are passing prop value from 4 th level child -->
+
+<script> 
+
+
+import React from 'react';
+import './components/styles.css';
+import CompCA from './components/CompCA';
+
+export const userContext = React.createContext();
+
+function App() {
+    return (
+        <div className='body'>
+            <userContext.Provider value="vishwas">
+              <CompCA />
+            </userContext.Provider>
+        </div>
+    );
+}
+export default App;
+
+'----------------------'
+
+import React from 'react'
+import CompCB from './CompCB'
+
+function CompCA() {
+  return (
+    <div>
+        <CompCB />
+    </div>
+  )
+}
+export default CompCA
+
+
+'-------------------------'
+
+import React from 'react'
+import CompCC from './CompCC'
+
+function CompCB() {
+  return (
+    <div>
+      <CompCC />
+    </div>
+  )
+}
+
+export default CompCB
+
+
+'--------------------'
+
+import React from 'react'
+import { userContext } from '../App'
+function CompCC() {
+  return (
+    <div>
+       <userContext.Consumer>
+        {
+            user => {
+                return <div>User Context value is {user}</div>
+            }
+        }
+       </userContext.Consumer>
+    </div>
+  )
+}
+
+export default CompCC
+
+</script>
+
+Ouput: 
+User Context value is Vishwas 
+
+<!-- below code is an easy way for the above  -->
+
+***************************************************
+***************************************************
+
+useContext
+
+<!-- way of passing props to grand child components using useContext -->
+<!-- using the use context for the same above  -->
+
+<script> 
+
+import React from 'react';
+import './components/styles.css';
+import CompCA from './components/CompCA';
+
+export const userContext = React.createContext();
+export const channelContext = React.createContext();
+function App() {
+    return (
+        <div className='body'>
+            <userContext.Provider value={'vishwas'}>
+              <channelContext.Provider value={'codevolution'}>
+                <CompCA />
+              </channelContext.Provider>
+            </userContext.Provider>
+        </div>
+    );
+}
+export default App;
+
+
+'---------------------------------'
+
+import React from 'react'
+import CompCB from './CompCB'
+
+function CompCA() {
+  return (
+    <div>
+        <CompCB />
+    </div>
+  )
+}
+export default CompCA
+
+
+'--------------------------'
+
+
+import React from 'react'
+import CompCC from './CompCC'
+import { useContext } from 'react';
+import { userContext,channelContext } from '../App';
+
+function CompCB() {
+    const user= useContext(userContext);
+    const channel = useContext(channelContext);
+    return (
+        <div>
+          {user} -{channel}
+        </div>
+    )
+}
+export default CompCB
+
+
+</script>
+
+OUtput :
+vishwas -codevolution
+
+Here in the above CompCB 
+we can get the value of it 
+
+
+***********************************************************
+***********************************************************
+

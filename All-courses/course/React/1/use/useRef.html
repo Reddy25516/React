@@ -1,0 +1,135 @@
+
+<!-- without use refs -->
+<script>
+
+import React,{useState,useEffect} from 'react';
+
+function App() {
+  const [name, setName] = useState('');
+  const [renderCount, setRenderCount] = useState(0);
+
+  useEffect(() => {
+    setRenderCount(prevRenderCount => prevRenderCount + 1);
+  });
+  return (
+    <>
+        <input value={name} onChange={e => setName(e.target.value)} />
+        <div> my name is {name}</div>
+        <div> i rendered {renderCount} times</div>
+    </>
+  )
+}
+export default App
+</script>
+
+Output:
+    here in the above whenever you change the value of 
+    the value will be shown in the below 
+
+    here use effect will keep on increasing infinite times 
+    it will not increase based on input change 
+
+*************************************
+
+<!-- using useRef -->
+
+<!-- 
+  here in the below renderCount is an object 
+  to get the value out of it we have to use renderCount.current 
+ -->
+
+<script>
+
+import React,{useState,useEffect, useRef} from 'react';
+
+function App() {
+  const [name, setName] = useState('');
+  const renderCount= useRef(0);
+
+  useEffect(() => {
+    renderCount.current = renderCount.current +1;
+  });
+  return (
+    <>
+        <input value={name} onChange={e => setName(e.target.value)} />
+        <div> my name is {name}</div>
+        <div> i rendered {renderCount.current} times</div>
+    </>
+  )
+}
+export default App
+</script>
+
+Output:
+whenever you change the value in the input 
+rendercount value will increase 
+
+suppose 
+
+input : reddy 
+count =5 
+
+********************************************************
+
+<!-- button onclick focusing to particular input -->
+
+<script>
+
+import React, { useState, useEffect, useRef } from 'react';
+function App() {
+    const [name, setName] = useState('');
+    const inputRef = useRef();
+
+    function focus(){
+      inputRef.current.focus()
+    }
+    return (
+        <>
+          <input  ref={inputRef} value={name} onChange={e => setName(e.target.value)} />
+          <div> my name is {name}</div>
+          <button onClick={focus}>focus</button>
+        </>
+    )     
+}
+export default App
+
+</script>
+
+Output:
+here whenever you click on the button focus 
+the focus will go into the input element 
+
+
+***************************************************
+*******************************************************
+
+<!-- 
+  the below code is also same as above with one change 
+  here when you click the focus button 
+  then the input value will have some value
+ -->
+<script>
+import React, { useState, useEffect, useRef } from 'react';
+
+function App() {
+    const [name, setName] = useState('');
+    const inputRef = useRef();
+
+    function focus(){
+      inputRef.current.focus()
+      inputRef.current.value="some value";
+    }
+    return (
+        <>
+          <input  ref={inputRef} value={name} onChange={e => setName(e.target.value)} />
+          <div> my name is {name}</div>
+          <button onClick={focus}>focus</button>
+        </>
+    )     
+}
+export default App
+</script>
+
+
+**********************************************
+************************************************

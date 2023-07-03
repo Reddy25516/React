@@ -1,0 +1,267 @@
+
+<!-- props -->
+<!-- 
+    using props to pass the data bw the functions
+    so that we can access bw the functions
+ -->
+
+<script>
+    function Button(props) {
+        return <button onClick={props.clickFun}>{props.message}</button>;
+    }
+    function Display(props){
+        return(
+        <div>{props.message}</div>
+        );
+    }
+    function App(){
+            const [counter, setCounter] = useState(5);
+            const incrementCounter=()=> setCounter(counter+1);
+        return (
+        <div> 
+            <Button clickFun={incrementCounter} message={counter}/>
+            <Display message={counter}/>
+        </div>
+        );
+    }
+    ReactDOM.render(
+        <App/>,
+        document.getElementById('mountNode'),
+    );
+</script>
+
+In the above we can see that we can able to pass the values 
+
+
+-------------------- 
+
+const [counter, setCounter] = useState();
+
+<!-- 
+    when there is no value for the useState it takes NaN which means not a number
+ -->
+
+------------------------ 
+
+
+
+**************************************************************************
+
+<!-- using props in a dynamic way  -->
+
+
+<script> 
+      function Button(props) {
+            return <button onClick={()=>props.clickFun(props.message)}> {props.message} </button>;
+        }
+        function Display(props){
+            return(
+                <div>{props.message}</div>
+            );
+        }
+        function App(){
+                const [counter, setCounter] = useState(4);
+                const incrementCounter=(incrementValue)=> setCounter(counter+incrementValue);
+            return (
+            <div> 
+                <Button clickFun={incrementCounter} message={1}/>
+                <Button clickFun={incrementCounter} message={5}/>
+                <Button clickFun={incrementCounter} message={10}/>
+                <Button clickFun={incrementCounter} message={20}/>
+                <Display message={counter}/>
+            </div>
+            );
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('mountNode'),
+        );
+</script>
+
+<!-- 
+    here when ever we click on particualr button is should sent different value with same variable 
+    this is achieved using props
+ -->
+
+<!-- above all in app.js -->
+<script>
+
+import React from 'react';
+import { useState } from 'react';
+
+function Button(props) {
+  return <button onClick={()=>props.clickFun(props.message)}> {props.message} </button>;
+}
+function Display(props){
+  return(
+      <div>{props.message}</div>
+  );
+}
+
+function App(){
+  const [counter, setCounter] = useState(4);
+  const incrementCounter=(incrementValue)=> setCounter(counter+incrementValue);
+  return (
+  <div> 
+    <Button clickFun={incrementCounter} message={1}/>
+    <Button clickFun={incrementCounter} message={5}/>
+    <Button clickFun={incrementCounter} message={10}/>
+    <Button clickFun={incrementCounter} message={20}/>
+    <Display message={counter}/>
+  </div>
+  );
+}
+export default App
+
+</script>
+ ---------------- 
+ <!-- same code as above -->
+
+<script> 
+        function Button(props) {
+            const handleClick=()=> props.clickFun(props.message);
+            return <button onClick={handleClick}> {props.message} </button>;
+        }
+        function Display(props){
+            return(
+            <div>{props.message}</div>
+            );
+        }
+        function App(){
+                const [counter, setCounter] = useState(4);
+                const incrementCounter=(incrementValue)=> setCounter(counter+incrementValue);
+            return (
+            <div> 
+                <Button clickFun={incrementCounter} message={1}/>
+                <Button clickFun={incrementCounter} message={5}/>
+                <Button clickFun={incrementCounter} message={10}/>
+                <Button clickFun={incrementCounter} message={20}/>
+                <Display message={counter}/>
+            </div>
+            );
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('mountNode'),
+        );
+</script>
+
+
+*****************************************************
+
+<script>
+    document.getElementById('mountNode').innerHTML = `
+        <div>
+        Hello HTML
+    </div>
+    `;
+    ReactDOM.render(
+        React.createElement(
+            'div', 
+            null, 
+            'Hello React',
+        ),
+        document.getElementById('mountNode2'),
+    );
+</script>
+
+<!-- 
+    1st one is using the native dom web api using innerHTML
+
+    and anothe being controlled with the react api which in terms using the dom api
+ -->
+
+
+*********************************************************
+
+<script>
+    document.getElementById('mountNode').innerHTML = `
+        <div>
+        Hello HTML
+        <input />
+        <pre>${(new Date).toLocaleTimeString()}</pre>
+    </div>
+    `;
+
+    ReactDOM.render(
+        React.createElement(
+            'div', 
+            null, 
+            'Hello React',
+            React.createElement('input',null),
+            React.createElement('pre',null, (new Date).toLocaleTimeString())
+        ),
+        document.getElementById('mountNode2'),
+    );
+
+</script>
+
+Ouput: 
+Hello HTML 
+(input filed)
+Date Display (here date will display and it will not run to make it run we have to use setInterval)
+
+
+************************************
+
+<!-- using setInterval to run the whole code in a time span it is like reloading the data -->
+
+<script> 
+    const render = () => {
+        document.getElementById('mountNode').innerHTML = `
+        <div>
+        Hello HTML
+        <input />
+        <pre>${(new Date).toLocaleTimeString()}</pre>
+        </div>
+    `;
+
+    ReactDOM.render(
+        React.createElement(
+        'div', 
+        null, 
+        'Hello React',
+        React.createElement('input',null),
+        React.createElement('pre',null, (new Date).toLocaleTimeString())
+        ),
+        document.getElementById('mountNode2'),
+    ); 
+    };
+    setInterval(render,1000)
+    // here 1000 milli second= 1 sec
+</script>
+
+<!-- 
+    here the time will be running the seconds will be display for each second
+ -->
+
+Error: 
+
+in the first ipput :
+    Here we can't able to input something because the code gets refreshed on every second
+
+in the second input :
+   here only the pre tag is getting updated every second 
+   rest of all are not updated every second 
+
+*************************************************
+
+<script> 
+    // scalar values 
+    const answer =10;
+    const name= "reddy";
+
+    //arrays and objects 
+    const numbers =[99,2,333];
+    const person ={
+        firstName : "reddy",
+        age :22
+    };
+</script>
+Here in the abovev scalar values are immutable 
+where as arrays and objects are mutable(can be changed)
+
+
+----------------- 
+
+

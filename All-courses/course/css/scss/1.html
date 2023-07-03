@@ -1,0 +1,191 @@
+
+<link rel="stylesheet" href="scss/main.css">
+
+get extenstion sass live server 
+
+create a file like ----.scss 
+now click on (Watch Sass)
+now you can see that your sass file is being converted to css file 
+
+***********************
+
+<style>
+    
+    $red:red; 
+
+    body{
+        background-color: $red;
+    }
+
+    /* the above code now till be converting into  */
+
+    body {
+        background-color: red;
+    }/*# sourceMappingURL=main.css.map */
+
+
+</style>
+
+
+Sass stands for Syntactically Awesome Stylesheet
+
+
+
+<style>
+    $myFont: Helvetica, sans-serif;
+    $myColor: red;
+    $myFontSize: 18px;
+    $myWidth: 680px;
+
+    body {
+    font-family: $myFont;
+    font-size: $myFontSize;
+    color: $myColor;
+    }
+
+    #container {
+    width: $myWidth;
+    }
+
+    '-------------------'
+
+    body {
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    color: red;
+    }
+
+    #container {
+    width: 680px;
+    }/*# sourceMappingURL=main.css.map */
+
+
+
+    ******************************************************
+
+    
+    nav {
+        ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+        li {
+        display: inline-block;
+        }
+        a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+        }
+    }
+
+
+    '----------------------'
+
+    nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+    nav li {
+    display: inline-block;
+    }
+    nav a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    }/*# sourceMappingURL=main.css.map */
+
+
+
+    *************************************************
+
+    font: {
+        family: Helvetica, sans-serif;
+        size: 18px;
+        weight: bold;
+    }
+
+    text: {
+        align: center;
+        transform: lowercase;
+        overflow: hidden;
+    }
+
+    p{
+        font-family: Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+
+        text-align: center;
+        text-transform: lowercase;
+        text-overflow: hidden;
+    }
+
+    *****************************
+
+
+    @mixin one {
+        color: red;
+        font-size: 25px;
+        font-weight: bold;
+        border: 1px solid blue;
+    }
+
+    body{
+        @include one;
+        color:blue;
+    }
+
+
+    body {
+        color: red;
+        font-size: 25px;
+        font-weight: bold;
+        border: 1px solid blue;
+        color: blue;
+    }/*# sourceMappingURL=main.css.map */
+
+
+
+
+    /* extend */
+    
+    .button-basic  {
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .button-report  {
+        @extend .button-basic;
+        background-color: red;
+    }
+    
+    .button-submit  {
+        @extend .button-basic;
+        background-color: green;
+        color: white;
+    }
+
+
+    .button-basic, .button-submit, .button-report {
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .button-report {
+        background-color: red;
+    }
+
+    .button-submit {
+        background-color: green;
+        color: white;
+    }/*# sourceMappingURL=main.css.map */
+</style>
