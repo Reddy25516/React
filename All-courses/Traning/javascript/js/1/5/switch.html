@@ -1,0 +1,132 @@
+
+
+
+<html>
+    <head>switch case</head>
+    <p></p>
+
+    <script >
+        var day='saturday';
+        switch(day){
+            case 'sunday':
+                document.write('<h3> it is sunday</h3>')
+            
+            case 'monday':
+                document.write('<h3> it is monday</h3>')
+
+            case 'tuesday':
+                document.write('<h3> it is tuesday</h3>')
+            case 'wednesday':
+                document.write('<h3> it is wednesday</h3>')
+            
+            default:
+                document.write('<h1> it is holiday</h1>')
+        }
+    
+    </script>
+</html>
+
+
+'output:
+
+it is holiday
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+
+<html>
+    <head>switch case</head>
+    <p></p>
+
+    <script >
+        var day='monday';
+        switch(day){
+            case 'sunday':
+                document.write('<h3> it is sunday</h3>')
+            
+            case 'monday':
+                document.write('<h3> it is monday</h3>')
+
+            case 'tuesday':
+                document.write('<h3> it is tuesday</h3>')
+            case 'wednesday':
+                document.write('<h3> it is wednesday</h3>')
+            
+            default:
+                document.write('<h1> it is holiday</h1>')
+        }
+    </script>
+</html>
+
+
+
+output:
+
+it is monday
+it is tuesday
+it is wednesday
+it is holiday
+
+
+
+
+
+BREAK IN switch
+
+
+
+<html>
+    <head>switch case</head>
+    <p></p>
+
+    <script >
+        var day='sunday';
+        switch(day){
+            case 'sunday':
+                document.write('<h3> it is sunday</h3>')
+            
+            case 'monday':
+                document.write('<h3> it is monday</h3>')
+
+            case 'tuesday':
+                break;     // here we used break statement it come out of loop when it encounter
+                            
+
+                document.write('<h3> it is tuesday</h3>')
+            case 'wednesday':
+                document.write('<h3> it is wednesday</h3>')
+            
+            default:
+                document.write('<h1> it is holiday</h1>')
+        }
+    </script>
+
+</html>
+
+
+output:
+it is sunday
+it is monday
+
+
+
+
+<script >
+    var day=01;
+    switch(day+ 'name'){            // we can also write switch case like this
+
+        case '1name':
+            document.write('<h3> it is sunday</h3>')
+    }
+</script>
+
+
+

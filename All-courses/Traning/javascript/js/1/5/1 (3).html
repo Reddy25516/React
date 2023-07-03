@@ -1,0 +1,126 @@
+
+
+// functions
+
+
+<html>
+    <head><title>functions</title></head>
+    <script >
+        function add(){
+            var a=5,b=7,c;     // even this works we can declare like this 
+               c= a+b;    // here it even doesnt matter indentation we can provide any number of spaces
+            document.write(c)   
+        }
+        add()     // this is the way of calling a function  
+        
+    </script>
+</html>
+
+
+'output is 12'
+
+
+
+
+
+// passing parameters into a function 
+
+
+<html>
+    <head><title>functions</title></head>
+    <script >
+        function add(a,b){
+            var c= a+b;
+            document.write(c)   
+        }
+        add(2,3)
+        
+    </script>
+</html>
+
+'output 5'
+
+
+
+
+
+// returning value through function 
+
+
+<html>
+    <head><title>functions</title></head>
+    <script >
+        function add(a,b){
+            var c= a+b;
+            return c
+        }
+        var result =add(2,3)
+        document.write(result)  
+    </script>
+</html>
+
+
+'output 5'
+
+
+
+//    
+
+<html>
+    <head><title>functions</title></head>
+    <script >
+        function add(a,b){
+            var c= a+b;
+        }                                  
+                                            // since we didnt return any value here output is undefined
+                                            // we always need to return when assign a function value to
+                                            //  a variable
+        var result =add(2,3)
+        document.write(result)  
+    </script>
+</html>
+
+'output: undefined'
+
+
+'==========================================================='
+
+<script>
+function variable(){
+    var a=10;
+}
+variable();
+document.write("a");
+document.write(a);
+
+</script>
+
+// value of a is not printed here bcoz of local variable a 
+// it is not a global variable 
+
+
+'============================================='
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        function variable(){
+            a=10;
+        }
+        variable();
+        document.write(a);
+    </script>
+</body>
+</html>
+
+
+// this works 
+'any variable that is declared without the var or let keyword is a 
+global variable'
+
+

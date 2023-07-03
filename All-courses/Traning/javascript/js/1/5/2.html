@@ -1,0 +1,172 @@
+
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var str1= new String()   // this is the way of creating  object using new keyword
+    
+        document.write('<h3>'+typeof(str1)+'</h3>')
+    </script>
+</html>
+
+
+'outptu:
+object 
+'
+
+// adding property to an object
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000
+        }
+        car.type='vehicle'       // this will add property type to the car object
+
+        document.write('<h3>'+car.type+'</h3>')
+    </script>
+</html>
+
+
+'
+outtput:
+vehicle'
+
+
+
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000
+        }
+        car.type='vehicle'   
+
+        document.write('<h3>'+car+'</h3>')
+    </script>
+</html>
+
+
+'output:
+[object Object]
+'
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000
+        }
+        //car.type='vehicle'   
+
+        document.write('<h3>'+car.type+'</h3>')
+    </script>
+</html>
+
+'output:
+undefined
+'
+<!-- if propery is not present we get undefined as output-->
+
+
+
+
+// deleting attributes using delete
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000
+        }
+        delete car.price
+        document.write('<h3>'+car.price+'</h3>')
+    </script>
+</html>
+
+output: undefined
+
+
+
+
+// changing attributes
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000
+        }
+        car.model='model 1'
+        document.write('<h3>'+car.model+'</h3>')
+    </script>
+</html>
+
+
+'========================================'
+
+<script>
+    var cars=new Object();
+    cars.a=5;
+    cars.b=8;
+    cars.area= function(){
+        return this.a*this.b
+    }
+    cars.perimeter= function(){
+        return 2*this.a+2*this.b
+    }
+    document.write("<br/>",cars.a)
+    document.write("<br/>",cars.b)
+    document.write("<br/>",cars.area())
+    document.write("<br/>",cars.perimeter())
+</script>
+
+'==================================='
+
+// using constructor function 
+
+
+<script>
+    function cars(a,b){
+        this.a=a;
+        this.b=b;
+        this.area= function(){
+            return a*b
+        }
+        this.perimeter= function(){
+            return 2*a+2*b
+        }
+    }
+
+    var value = new cars(7,8)  
+    document.write("<br/>",value.a)
+    document.write("<br/>",value.b)
+    document.write("<br/>",value.area())
+    document.write("<br/>",value.perimeter())
+</script>
+
+
+'======================================='

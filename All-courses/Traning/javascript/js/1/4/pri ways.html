@@ -1,0 +1,596 @@
+`
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script src="./index.js""></script>
+</body>
+</html>
+
+<!-- this is the way of loading a js file "
+<script src ="./index.html"></script> -->
+
+<!--  this is the way of writing comments in html -->
+
+'----------'
+console.log("hi reddy")
+
+<!-- here the output will be displayed in a console tab in the web page 
+    inspect -- console
+-->
+
+console.log("hi reddy","good morning")
+<!-- this is the way to combine two statments in one line  -->
+
+'================================================================='
+
+<script>
+
+    //this is single line comments 
+    /*this is the way of writing mutli line comments in js
+    dkajfafh df
+    */
+</script>
+
+'==========================================================================='
+
+
+<!-- this is the way to display a simple output-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+document.write("this is the way to display")
+</script>
+
+</body>
+</html>
+
+'=================================================================================='
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+document.write("this is the way to display")
+document.write("this is the second para")
+</script>
+
+</body>
+</html>
+
+<!-- here it will be displayed  in a single line -->
+'============================================================================'
+
+<!DOCTYPE html>
+<html>
+  <title>Javascript</title>
+<body>
+
+<script src="script.js" type="text/JavaScript"></script>
+</body>
+</html>
+
+<!-- script.js -->
+document.write("this is the output")
+
+<!-- this displays the output as 
+this is the output 
+
+this is the way of refering the js files  through html
+we can even remove type still it displays the same content 
+
+-->
+'=================================================================================='
+
+
+JavaScript Display Possibilities:
+
+
+JavaScript can "display" data in different ways:
+
+Writing into an HTML element, using innerHTML.
+Writing into the HTML output using document.write().
+Writing into an alert box, using window.alert().
+Writing into the browser console, using console.log().
+
+
+Using innerHTML
+To access an HTML element, JavaScript can use the document.getElementById(id) method.
+
+The id attribute defines the HTML element. The innerHTML property defines the HTML content:
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First Web Page</h2>
+<p>My First Paragraph.</p>
+
+<p id="demo"></p>     <!--11 
+                            we can see that it is called in the document
+                            and value is executed here 
+                        -->
+<p> hey hi </p>			<!--hey hi-->
+
+<script>
+document.getElementById("demo").innerHTML = 5 + 6;
+</script>
+
+</body>
+</html> 
+
+
+
+output:
+
+My First Web Page
+My First Paragraph.
+11
+hey hi
+
+
+
+Using document.write()
+For testing purposes, it is convenient to use document.write():
+
+Example:
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+document.write(5 + 6);
+</script>
+
+</body>
+</html>
+
+
+output:
+My first paragraph.
+Never call document.write after the document has finished loading.
+11
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First Web Page</h2>
+<p>My first paragraph.</p>
+<p> this is my content </p>
+
+<button  onclick="document.write(5 + 6)">Try it</button>
+
+<!-- when we click the try  it button then all the output will be replaced with 11 
+since we didnt call a paritucular para so it removes all the paras in it
+-->
+
+</body>
+</html> 
+
+
+Output:
+My First Web Page
+My first paragraph.
+this is my content
+Try it
+
+
+
+
+
+
+Using window.alert()
+You can use an alert box to display data:
+
+Example:
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+window.alert(5 + 6);
+</script>
+
+</body>
+</html>
+
+<!-- it will display a pop up window showing the output(11)-->
+
+
+
+
+In JavaScript, the window object is the global scope object, that means that variables, properties, and methods by default belong to the window object. This also means that specifying the
+ window keyword is optional:
+
+
+
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+alert(5 + 6);
+</script>
+
+</body>
+</html>
+
+-------------------------------------------------------
+
+JavaScript Print:
+
+JavaScript does not have any print object or print methods.
+
+You cannot access output devices from JavaScript.
+
+The only exception is that you can call the window.print() method in the browser to print the content of the current window.
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The window.print() Method</h2>
+
+<p>Click the button to print the current page.</p>
+
+<button onclick="window.print()">Print this page</button>
+
+</body>
+</html>
+
+
+
+output:
+The window.print() Method
+Click the button to print the current page.
+
+Print this page
+
+
+when we click on print the page , it will open the printing page and will start to print the Page
+
+
+
+
+-------------------------------------------------------
+
+
+
+
+'============================================================================'
+
+
+
+<!--
+  The <script> Tag
+  In HTML, JavaScript code is inserted between <script> and </script> tags.
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<p id='demo'> my goodness</p>
+
+<script>
+document.getElementById('demo')
+</script>
+
+<!--output :
+my goodness
+-->
+
+
+'=================================================================='
+
+<!DOCTYPE HTML>
+<html>
+<body>
+<p id="demo">My goodness </p>
+<script>
+    document.getElementById('demo')="this will correct it"
+</script>
+</body>
+</html>
+
+<!--output :
+my goodness
+-->
+
+
+'=================================================================='
+
+<!--
+  when we are using innerHTML the content that is in the id element gets removed 
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<p id='demo'> my goodness</p>
+
+<script>
+document.getElementById('demo').innerHTML= 'my first javascript'
+</script>
+
+<!--output:
+my first javascript
+-->
+
+
+'=================================================================='
+
+<!-- -->
+
+Old JavaScript examples may use a type attribute: <script type="text/javascript"></script>
+    The type attribute is not required. JavaScript is the default scripting 
+    language in HTML.
+
+
+JavaScript Functions and Events
+A JavaScript function is a block of JavaScript code, that can be executed 
+when "called" for.
+
+For example, a function can be called when an event occurs, like when 
+the user clicks a button.
+
+
+
+
+JavaScript in <head> or <body>
+You can place any number of scripts in an HTML document.
+
+Scripts can be placed in the <body>, or in the <head> section of an
+   HTML page, or in both.
+
+
+
+
+JavaScript in <head>
+In this example, a JavaScript function is placed in the <head> 
+  section of an HTML page.
+
+The function is invoked (called) when a button is clicked:
+
+
+'=================================================================='
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</head>
+
+<body>
+
+<p id="demo">A Paragraph.</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+</body>
+</html> 
+
+
+'=================================================================='
+
+<!--JavaScript in <body>
+In this example, a JavaScript function is placed in the <body> section of an HTML page.
+
+The function is invoked (called) when a button is clicked:
+
+u can write your function anywhere .either before the function call or after the function call
+-->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Demo JavaScript in Body</h2>
+
+<p id="demo">A Paragraph</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+
+</body>
+</html>
+
+
+'=================================================================='
+
+
+myScript.js  
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+
+
+<!--
+External scripts are practical when the same code is used in many different web pages.
+JavaScript files have the file extension .js.
+To use an external script, put the name of the script file in the src (source) attribute of a <script> tag:
+-->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Demo External JavaScript</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>This example links to "myScript.js".</p>
+<p>(myFunction is stored in "myScript.js")</p>
+
+<script src="myScript.js"></script>
+
+</body>
+</html>
+
+
+<!--output:
+A Paragraph.
+
+Try it
+This example links to "myScript.js".
+
+(myFunction is stored in "myScript.js")
+-->
+
+
+
+'=================================================================================='
+
+
+<!--
+    You can place an external script reference in <head> or <body> as you like.
+
+The script will behave as if it was located exactly where the <script> tag is located.
+
+External scripts cannot contain <script> tags.
+
+External JavaScript Advantages
+Placing scripts in external files has some advantages:
+
+It separates HTML and code
+It makes HTML and JavaScript easier to read and maintain
+Cached JavaScript files can speed up page loads
+-->
+
+
+<script src="myScript1.js"></script>
+<script src="myScript2.js"></script>
+
+
+
+'=================================================================================='
+
+<!--
+
+External References
+An external script can be referenced in 3 different ways:
+
+With a full URL (a full web address)
+With a file path (like /js/)
+Without any path
+This example uses a full URL to link to myScript.js:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>External JavaScript</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Click Me</button>
+
+<p>This example uses a full web URL to link to "myScript.js".</p>
+<p>(myFunction is stored in "myScript.js")</p>
+
+<script src="https://www.w3schools.com/js/myScript.js"></script>
+
+</body>
+</html>
+
+
+
+'=================================================================================='
+
+<!--
+    This example uses a file path to link to myScript.js:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>External JavaScript</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>This example uses a file path to link to "myScript.js".</p>
+<p>(myFunction is stored in "myScript.js")</p>
+
+<script src="/js/myScript.js"></script>
+
+</body>
+</html>
+
+
+
+'=================================================================================='
+
+
+<!-- 
+    This example uses no path to link to myScript.js:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Demo External JavaScript</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>This example links to "myScript.js".</p>
+<p>(myFunction is stored in "myScript.js")</p>
+
+<script src="myScript.js"></script>
+
+</body>
+</html>
+
+
+
+'==========================================================================='

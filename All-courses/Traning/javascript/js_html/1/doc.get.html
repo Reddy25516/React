@@ -1,0 +1,102 @@
+
+
+<!-- document.getElementById -->
+<div id="firstdiv"> 
+    hi i am here
+</div>
+<button id="firstbutton"> Click</button>
+<script src="practice.js"></script>
+
+
+<script>
+    var firstdiv= document.getElementById("firstdiv");
+    firstdiv.innerHTML = "we are in js onload file";
+</script>
+
+above is the way of using the document.getElementById 
+
+***************************************************
+
+
+<script>
+
+// this is the way of styling in js
+var firstdiv= document.getElementById("firstdiv");
+firstdiv.style.color="red";
+firstdiv.style.fontSize="40px"
+firstdiv.style.backgroundColor="green";
+</script>
+
+***************************************
+
+<!-- getElementsByclassName -->
+<div class="example" > 
+    hi i am here
+</div>
+<div class="example" > 
+    hi i am second
+</div>
+<div class="example" > 
+    hi i am third 
+</div>
+<div class="example" > 
+    hi i am fourth
+</div>
+
+
+<script>
+window.onload = function(){
+    var divs=document.getElementsByClassName("example");
+    for(var i=0;i<divs.length;i++){
+        divs[i].innerHTML="i got it";
+    }
+}
+</script>
+
+Output:
+all the divs with class example now will be changed i got it 
+
+If we have to change the data of more then one element then we have to use 
+document.getElementByclassName 
+
+**********************************************
+
+<!-- getElementByTagName  -->
+
+<div id="firstdiv"> hi i am here </div>
+<button id="firstbutton"> Click</button>
+
+<div class="example" > 
+    hi i am here
+</div>
+
+<script>
+window.onload = function(){
+    document.getElementsByTagName("div")[0].innerHTML = "Hello World!";
+}  
+</script> 
+
+here in the above we can see that we used tagName 
+first div data
+
+**************************************************
+
+<script>
+
+// this is the way of getting elements with the tag name 
+// and we are looping  through all of it
+window.onload = function(){
+    var divs=document.getElementsByTagName("div");
+    for(var i=0;i<divs.length;i++){
+        divs[i].innerHTML="i got it";
+    }
+}
+
+// this is the way of gettig eleme
+const collection = document.getElementsByTagName("*");
+
+</script>
+
+**************************************************
+
+

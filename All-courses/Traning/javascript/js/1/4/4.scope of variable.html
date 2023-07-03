@@ -1,0 +1,47 @@
+
+
+
+<html>
+    <head><title>functions</title></head>
+    <script >
+        function sample(){
+            var a=6         // local variable
+
+            document.write('inside',a)
+        }
+        sample()            // make sure u call the fun when u write u r code
+
+        document.write('outside',a)    // here it is not printed bcoz there is no value for a
+
+    </script>
+</html>
+
+'output 
+inside6
+'
+
+
+
+
+
+
+<html>
+    <head><title>j4 </title></head>
+    <script >
+        function sample(){
+            a=6             // global variable
+            // when we declare something without var keyword then it is  a global variable
+            document.write('in side',a);
+        }
+        sample()
+        document.write('outside',a)
+    </script>
+</html>
+
+'outupt:
+in side6outside6
+
+'
+
+
+

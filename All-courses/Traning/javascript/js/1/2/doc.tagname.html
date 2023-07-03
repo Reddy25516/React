@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>title</title>
+</head>
+<body>
+    <script src="index.js"></script>
+    <h1>Get element by tagname </h1>
+    <div>first div</div>
+    <div>second div</div>
+    <div>third div</div>
+    <input type="button" onClick="Fun()" value="Submit">
+</body>
+</html>
+
+''-----------------------'
+
+<!-- 
+// index.js 
+
+function Fun(){
+    var x=document.getElementsByTagName("div");
+    console.log(x[0])
+}
+
+ -->
+<script>
+    function Fun(){
+    var x=document.getElementsByTagName("div");
+    console.log(x[0])
+    }
+</script>
+
+when ever we click on sumbit submit the first div element will be printed
+in the console of the output 
+
+<!-- <div>first div</div> -->
+
+'========================================================='
+
+
+<script>
+    function Fun(){
+    var x=document.getElementsByTagName("div");
+    x[0].style.fontStyle="italic";
+    x[1].style.backgroundColor ="Red";
+    x[2].style.fontFamily="Courier New ";
+
+    // x[2].style.fontFamily="Courier New "
+    'but here it wont work bcoz becoz it applies to al l the div sections'
+
+    }
+</script>
+
+whenever we click on submit then the styles listed are affected 
+
+
+'======================================'
+// for to apply for all the div sections 
+// we have to use as 
+
+<script>
+    function Fun(){
+    var x=document.getElementsByTagName("div");
+    for(var i=0;i<x.length;i++){
+        x[i].style.fontFamily="Courier New ";
+    }
+    }
+</script>
+
+
+'=================================='
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>title</title>
+</head>
+<body>
+    <script src="index.js"></script>
+    <h1>Get element by tagname </h1>
+    <div>first div</div>
+    <form>
+        Name : <input type="text" name="name"><br>
+        
+        Age : <input type="text" name="age"><br>
+        <input type="button" value="submit"><br>
+    </form>
+    <div>second div</div>
+    <input type="radio" name="group1" value="A"><br>
+
+    <div>third div</div>
+    <input type="radio" name="group1" value="B"><br>
+    
+    <input type="button" onClick="Fun()" value="Submit">
+</body>
+</html>
+
+
+'---------------'
+
+<script>
+    function Fun(){
+        var x=document.getElementsByTagName("div");
+        for(var i=0;i<x.length;i++){
+            x[i].style.fontFamily="Courier New ";
+        }
+    }
+</script>
+
+'===================================================='
+
+Get Element by class name :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>title</title>
+</head>
+<body>
+    <script src="index.js"></script>
+    <h1>Get element by class name </h1>
+    <div class="cl1">first div</div>
+    <!-- here we given class name as same for 3 div sections -->
+    <div class="cl1">second div</div>
+    
+
+    <p>first para</p>
+    <p> second para  </p>
+    <div class="cl1"> third div </div>
+
+
+    <input type="button" onClick="Fun()" value="Submit">
+</body>
+</html>
+
+
+'-------------------------'
+
+<script>
+    function Fun(){
+        var x=document.getElementsByClassName("cl1");
+        // here class name is not the div section it is the defined class in the section either it may be paragraph or it may be div 
+
+        for(var i=0;i<x.length;i++){
+            x[i].style.backgroundColor ="Red";
+        }
+    }
+</script>
+
+
+'================================================'
+
+

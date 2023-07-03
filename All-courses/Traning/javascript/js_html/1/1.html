@@ -1,0 +1,115 @@
+
+<head>
+    <script src="practice.js"></script>
+    <link rel="stylesheet" href="practice.css">
+</head>
+
+<!-- 
+    this is the way of linking with the css and js in a html file 
+ -->
+
+
+*****************************************************
+<!-- innerHTML -->
+This is used with tags only 
+like div , h1 etc 
+
+<head>
+    <link rel="stylesheet" href="practice.css">
+    <script src="practice.js"></script>
+</head>
+
+<div id="firstdiv"> 
+    hi i am here
+</div>
+
+<!-- the below is an another file -->
+<script>
+    window.onload = function(){
+    console.log("hi");
+    var firstdiv= document.getElementById("firstdiv");
+
+    //innerHTML 
+    firstdiv.innerHTML = "we are in js onload file";
+    }
+</script>
+
+<!-- 
+    here in the above we can see that window.onload function is used here
+    we are setting the value of the div on js file load 
+-->
+*********************************************
+
+<!-- what if we didn't include window.onload in the above -->
+
+<head>
+    <link rel="stylesheet" href="practice.css">
+</head>
+
+<div id="firstdiv"> 
+    hi i am here
+</div>
+<button id="firstbutton"> Click</button>
+<script src="practice.js"></script>
+
+
+<script>
+    var firstdiv= document.getElementById("firstdiv");
+    firstdiv.innerHTML = "we are in js onload file";
+</script>
+
+If you didnt inlclue windows.onload 
+then the code will works only if we include the script tag 
+below the whole code in the html file you are using 
+
+************************************
+
+<!-- OnClick function  -->
+
+<div id="firstdiv"> 
+    hi i am here
+</div>
+<button id="firstbutton"> Click</button>
+
+<script>
+window.onload = function(){
+    var firstdiv= document.getElementById("firstdiv");
+    button1 = document.getElementById("firstbutton");
+    button1.onclick= function(){
+        console.log("button clicked");
+        firstdiv.innerHTML="hi";
+    }
+}
+</script>
+
+Here whenever we click on the button here 
+then the value will change from hi i am here to hi 
+
+
+********************************************
+
+<script>
+// it select the first p tag with class example
+document.querySelector("p.example");
+</script>
+
+********************************************
+
+<script>
+const showSuccess = (input) => {
+    // get the form-field element
+    const formField = input.parentElement;
+
+    // remove the error class
+    formField.classList.remove('error');
+    formField.classList.add('success');
+
+    // hide the error message
+    const error = formField.querySelector('small');
+    error.textContent = '';
+}
+</script>
+
+********************************************
+
+

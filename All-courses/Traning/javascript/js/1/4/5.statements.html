@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Statements</h2>
+
+<p>A <b>JavaScript program</b> is a list of <b>statements</b> to be executed by a computer.</p>
+
+<p id="demo"></p>
+
+<script>
+    // let x, y, z;  // Statement 1
+    x = 5;        // Statement 2
+    y = 6;        // Statement 3
+    z = x + y;    // Statement 4
+
+    document.getElementById("demo").innerHTML =
+    "The value of z is " + z + ".";  
+</script>
+
+</body>
+</html>
+
+
+
+
+JavaScript Programs
+A computer program is a list of "instructions" to be "executed" by a computer.
+
+In a programming language, these programming instructions are called statements.
+
+A JavaScript program is a list of programming statements.
+
+In HTML, JavaScript programs are executed by the web browser.
+
+
+
+
+
+JavaScript Statements
+JavaScript statements are composed of:
+
+Values, Operators, Expressions, Keywords, and Comments.
+
+This statement tells the browser to write "Hello Dolly." inside an HTML element with id="demo":
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Statements</h2>
+
+<p>In HTML, JavaScript statements are executed by the browser.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello Dolly.";
+</script>
+
+</body>
+</html>
+
+
+output:
+JavaScript Statements
+In HTML, JavaScript statements are executed by the browser.
+Hello Dolly.
+
+
+
+Most JavaScript programs contain many JavaScript statements.
+
+The statements are executed, one by one, in the same order as they are written.
+
+JavaScript programs (and JavaScript statements) are often called JavaScript code.
+
+
+
+
+Semicolons ;
+Semicolons separate JavaScript statements.
+
+Add a semicolon at the end of each executable statement:
+
+When separated by semicolons, multiple statements on one line are allowed:
+
+
+
+<p id="demo1"></p>
+
+<script>
+let a, b, c;
+a = 5; b = 6; c = a + b;
+document.getElementById("demo1").innerHTML = c;     // 11
+</script>
+
+
+
+-------
+
+
+JavaScript White Space:
+JavaScript ignores multiple spaces. You can add white space to your script to make it more readable.
+
+
+code:
+
+
+document.getElementById("demo").innerHTML =
+"Hello Dolly!";
+
+
+
+
+JavaScript Keywords
+JavaScript statements often start with a keyword to identify the JavaScript action to be performed.
+
+Our Reserved Words Reference lists all JavaScript keywords.
+
+Here is a list of some of the keywords you will learn about in this tutorial:
+
+Keyword	Description:
+
+var	Declares a variable
+
+let	Declares a block variable
+
+const	Declares a block constant
+
+if	Marks a block of statements to be executed on a condition
+
+switch	Marks a block of statements to be executed in different cases
+
+for	Marks a block of statements to be executed in a loop
+
+function	Declares a function
+
+return	Exits a function
+try	Implements error handling to a block of statements
+JavaScript keywords are reserved words. Reserved words cannot be used as names for variables.
+
+
+
+
+
+
+<!-- JAVASCRIPT SYNTAX: -->
+
+JavaScript syntax is the set of rules, how JavaScript programs are constructed:
+
+
+
+
+<!-- JavaScript Values -->
+The JavaScript syntax defines two types of values:
+
+    Fixed values
+    Variable values
+
+Fixed values are called Literals.
+Variable values are called Variables.
+
+
+<!-- JavaScript Literals -->
+The two most important syntax rules for fixed values are:
+
+1. Numbers are written with or without decimals:
+
+10.50
+1001
+
+
+
+
+2. Strings are text, written within double or single quotes:
+
+"John Doe"
+'John Doe'
+
+
+
+<!-- JavaScript Variables: -->
+
+In a programming language, variables are used to store data values.
+JavaScript uses the keywords var, let and const to declare variables.
+An equal sign is used to assign values to variables.
+
+In this example, x is defined as a variable. Then, x is assigned (given) the value 6:
+
+let x;
+x = 6;
+
+
+
+
+<!-- JavaScript Expressions: -->
+
+An expression is a combination of values, variables, and operators, which computes to a value.
+
+The computation is called an evaluation.
+
+For example, 5 * 10 evaluates to 50:
+5 * 10
+
+Expressions can also contain variable values:
+x * 10
+
+The values can be of various types, such as numbers and strings.
+
+For example, "John" + " " + "Doe", evaluates to "John Doe":
+"John" + " " + "Doe"
+
+
+
+
+<!-- JavaScript Keywords -->
+
+JavaScript keywords are used to identify actions to be performed.
+
+The let keyword tells the browser to create variables:
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The <b>let</b> Keyword Creates Variables</h2>
+
+<p id="demo"></p>
+
+<script>
+let x, y;
+x = 5 + 6;
+y = x * 10;
+document.getElementById("demo").innerHTML = y;
+</script>
+
+</body>
+</html>
+
+
+<!--
+output:
+The let Keyword Creates Variables
+110
+-->
+
+
+
+The var keyword also tells the browser to create variables:
+
+<script>
+    var x, y;
+    x = 5 + 6;
+    y = x * 10;
+</script>
+
+
+
+
+<!-- JavaScript Comments: -->
+
+Not all JavaScript statements are "executed".
+Code after double slashes // or between /* and */ is treated as a comment.
+Comments are ignored, and will not be executed:
+
+
+
+<!--JavaScript is Case Sensitive:-->
+
+All JavaScript identifiers are case sensitive. 
+
+The variables lastName and lastname, are two different variables:
+
+
+<script>
+    
+let lastname, lastName;
+lastName = "Doe";
+lastname = "Peterson";   // here both are different
+
+</script>
+
+
+
+
+<!-- JavaScript and Camel Case: -->
+
+Historically, programmers have used different ways of joining multiple words into one variable name:
+
+<!-- Hyphens: -->
+
+first-name, last-name, master-card, inter-city.
+
+Hyphens are not allowed in JavaScript. They are reserved for subtractions.
+
+<!-- Underscore: -->
+
+first_name, last_name, master_card, inter_city.
+
+<!-- Upper Camel Case (Pascal Case): -->
+
+FirstName, LastName, MasterCard, InterCity.
+
+<!-- Lower Camel Case: -->
+
+JavaScript programmers tend to use camel case that starts with a lowercase letter:
+
+firstName, lastName, masterCard, interCity.
+
+
+
+

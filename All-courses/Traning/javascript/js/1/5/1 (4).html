@@ -1,0 +1,240 @@
+
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              // here car variable is an object
+                
+                car_brand : 'telsa',
+                 car_model : 'model 3',
+                price : 35000,
+        }
+            // here car_brand , car_model and price are attributes of car or properties of car 
+
+        
+    </script>
+</html>
+
+
+' we can also have functions inside an object'
+the function which is created inside an object is called method
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000,
+                Auto_pilot : function(){
+                    document.write("this car has auto pilot")   // when we call auto_pilot we get that output
+                    
+                }
+        }
+
+        document.write('<h3>'+car.car_brand+'</h3>')
+        document.write(car.Auto_pilot)
+        /*
+        function(){
+                    document.write("this car has auto pilot")   // when we call auto_pilot we get that output
+                    
+                }
+        this is the output when we call the function in an object 
+        here in the below we also get undefined since there is no return value in the 
+        function 
+            */
+        document.write(car.Auto_pilot())//  this car has auto pilotundefined
+
+        
+    </script>
+</html>
+
+
+output:
+
+telsa
+function(){ document.write("this car has auto pilot") }
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+        var car ={              
+                car_brand : 'telsa',
+                car_model : 'model 3',
+                price : 35000,
+                Auto_pilot : function(a,b){       // here a,b are arguments or place holders
+                    c=a+b
+                    return c
+                }
+        }
+        document.write('<h3>'+car.car_brand+'</h3>')
+        // here h3 must be included in either single or double quotes 
+        // else we wont get any output
+        
+        document.write(car.Auto_pilot(3,6))
+    </script>
+</html>
+
+''
+
+
+
+// function constructor
+
+using constructor function we can create multiple objects
+this is like a class in python
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head><title>Objects</title></head>
+    <script >
+
+        function cars(car_brand,car_model,price){
+            this.car_brand= car_brand;
+            this.car_model=car_model;
+            this.price = price;
+            this.Auto_pilot = function(){
+                    document.write("this car has auto pilot")   
+                }
+        }
+        var c1= new cars('telsa','model 3',35000) 
+        var c2= new cars('tata','audi',373972)
+        document.write('<h3>'+c1.car_brand+'</h3>')
+        document.write('<h3>'+c2.car_brand+'</h3>')
+        document.write('<h3>'+c1.Auto_pilot()+'</h3>')
+    </script>
+</html>
+
+
+
+'
+output:
+telsa
+tata
+this car has auto pilot
+undefined
+'
+
+<!-- here we also get undefined bcoz the function didnt return any value so in that case
+we also get undefined as value
+-->
+
+'==============================================='
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        function cars(model,price) {
+            this.model = model;
+            this.price = price;
+            this.allwheel= function(){
+                document.write("<h2>this is all wheel<h2>");
+            }
+        }
+        var c1= new cars("audi",900000);
+        c1.allwheel();
+    </script>
+</body>
+</html>
+
+'================================'
+
+<script>
+var str = new String();
+document.write(typeof(str));
+</script>
+
+// object 
+
+
+'============================================='
+
+<script>
+    function cars(model,price) {
+        this.model = model;
+        this.price = price;
+        this.allwheel= function(){
+            document.write("this is all wheel");
+        }
+    }
+    var c1= new cars("audi",900000);
+    c1.color="red";
+    document.write(c1.color);  // red 
+</script>
+
+
+'================================================'
+
+<script>
+    function cars(model,price) {
+        this.model = model;
+        this.price = price;
+        this.allwheel= function(){
+            document.write("this is all wheel");
+        }
+    }
+    var c1= new cars("audi",900000);
+    c1.color="red";
+    document.write(cars.color);  // undefined 
+</script>
+
+
+'=========================='
+
+// adding a function to an object 
+
+<script>
+    function cars(model,price) {
+        this.model = model;
+        this.price = price;
+        this.allwheel= function(){
+            document.write("this is all wheel");
+        }
+    }
+    var c1= new cars("audi",900000);
+    c1.color= function(){
+        return "this is a red car"
+    }
+    document.write(c1.color());
+    delete car.model; // this deletes the model variable in the car 
+
+</script>
+
+// this is a red car 
+
+
+'====================================================='
+
+// creating an empty object 
+<script>
+    var cars=new Object();  // var cars= {}  
+    cars.color="red";
+    cars.model="suzuki";
+    document.write(cars.model)
+</script>
+
+
+
+'=========================================='
+

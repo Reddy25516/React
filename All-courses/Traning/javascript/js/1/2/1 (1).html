@@ -1,0 +1,100 @@
+
+
+
+<html>
+    <head><title>Arrays</title></head>
+    <script >
+        cars=['bmw','audi','suzuki']
+        document.write(cars[0])
+        document.write(cars[1])
+    </script>
+</html>
+
+
+'output:
+bmwaudi
+'
+
+
+<html>
+    <head><title>Arrays</title></head>
+    <script >
+        cars=['bmw','audi','suzuki']
+
+        for(var i=0;i<3;i++){
+            document.write(cars[i])
+        }
+    </script>
+</html>
+
+'output:
+bmwaudisuzuki'
+
+
+
+
+<html>
+    <head><title>Arrays</title></head>
+    <script >
+        cars=['bmw','audi','suzuki']
+
+        for(var i=0;i<3;i++){
+            document.write('<h2>',cars[i],'</h2>')
+            document.write('<h2>'+cars[i]+'</h2>')   // we can either use + or , operator
+        }
+    </script>
+</html>
+
+'output:
+bmw
+audi
+suzuki'
+
+
+
+
+
+// creating an array using Array keyword
+
+
+
+<html>
+    <head><title>Arrays</title></head>
+    <script >
+        cars=new Array('bmw','audi','suzuki')   // way of creating array using new array keyword
+
+        
+
+        for(var i=0;i<3;i++){
+            document.write('<h2>',cars[i],'</h2>')
+        }
+    </script>
+</html>
+
+
+
+
+
+// push and length in js
+
+<html>
+    <head><title>Arrays</title></head>
+    <script >
+        cars=new Array('bmw','audi','suzuki')
+        cars.push('volvo')          // this is the push operation where we used push keyword to insert an 
+                                    // element into the cars array
+
+        for(var i=0;i<cars.length;i++){ // here cars,length is used to find the length of the array cars
+                                            // using length keyword
+            document.write('<h2>',cars[i],'</h2>')
+        }
+    </script>
+</html>
+
+
+
+
+
+
+
+  

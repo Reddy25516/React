@@ -1,0 +1,104 @@
+
+<script>
+    function one(){
+        console.log("function 1");
+    }
+    function two(){
+        console.log("function 2");
+    }
+    function three(){
+        console.log("function 3");
+    }
+
+    setTimeout(one,2000);
+    'here it means that the function one will be executed after 2 seconds '
+    // 
+    two();
+    three();
+</script>
+
+<!-- 
+    output:
+function 2
+function 3
+function 1
+ -->
+ 'here in the output we can see that the function 1 executed after the function 2 and the function 3'
+
+ '================================================='
+
+ <script>
+    function one(){
+        setTimeout(function(){
+            console.log("function 1");
+        },2000);
+
+    }
+    function two(){
+        console.log("function 2");
+    }
+    function three(){
+        console.log("function 3");
+    }
+two();
+three();
+'this also works same as above the only change is that '
+'we written the setTimeout in the function itself '
+
+ </script>
+
+'======================================='
+
+ but we want function 2 to be executed only after the function one 
+ <!-- we have to use call back function in that case  -->
+
+
+ <script>
+    function one(){
+        setTimeout(function(){
+            console.log("function 1");two();
+        },
+        2000);
+
+    }
+    function two(){
+        console.log("function 2");
+    }
+    function three(){
+        console.log("function 3");
+    }
+    one();
+    three();
+ </script>
+
+here output is :
+function 3 
+function 1 
+function 2
+
+
+'============================================'
+
+<script>
+    'this works the same way as above '
+
+    function one(){
+        console.log("function 1");
+    }
+    function two(){
+        console.log("function 2");
+    }
+    function three(){
+        console.log("function 3");
+    }
+
+    setTimeout(function(){one();two()},2000);
+    three()
+</script>
+
+'======================================='
+
+a call back function is a function that asks another function as an argument 
+
+
+Promises in Js :
