@@ -1,0 +1,103 @@
+
+<!-- Handling events in jquery  -->
+
+
+<script>
+    
+    var div1= $('#div1');
+    div1.dblclick( function(){
+        div1.toggleClass('dbl');
+    });
+
+    //  dbclick
+    // blur()
+    // focus()
+    // dbclick()
+    // mousedown()
+    // mouseup()
+    //  mouseover()
+    // keydown()
+    // keyup()
+    //keypress()
+
+
+
+    $('#myId').click(function(){
+        console.log("event clicked");
+    })
+
+
+    $('#otherId').click =function(){
+        $('#myId').click(function(){
+            console.log("event clicked");
+        });
+    };
+
+
+    // **************************************************
+
+    $(document).ready(function(){
+        wireEvents();
+    })
+
+    function wireEvents(){
+        $('#submitBtn').click(function(){
+           var firstName= $('#firstName').val();
+           var lastName= $('#lastName').val();
+
+           $('#DivOutput').text(firstName+ " "+ lastName);
+        })
+    }
+
+
+    //  change event handler works with inputs and selects 
+
+
+    $('#div').mouseenter(function(){}).mouseout(function(){})
+    //  this is the way of writing two different events in one line 
+
+
+    //  binding multiple events with on ();
+
+    $('#myDiv').on('mouseenter mouseleave', function(){
+        $(this).toggleClass('Highlight');
+    })
+
+
+</script>
+
+
+<script>
+    //  on and off in jquery 
+
+    // live delegate and on in jquery 
+
+
+    $('#mytable tr').on({
+        mouseenter: function(){
+            $(this).addClass("over");
+        },
+        mouseleave: function(){
+            $(this).removeClass("over");
+        }
+    })
+
+
+    //  hover events in jquery 
+
+    $(selector).hover(handlerIn,handlerOut)
+    //  format of hover 
+
+
+    $('#target').hover(
+        function(){
+            $(this).css('background-color','blue');
+        },
+        function(){
+            $(this).css('background-color','white');
+        }
+    )
+
+
+
+</script>

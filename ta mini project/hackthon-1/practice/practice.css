@@ -1,0 +1,20 @@
+div{
+    /* background-color: red; */
+}
+.one .hi{
+    background-color: red;
+}
+.one .hello{
+    background-color: blue;
+}
+
+.para{
+    border: 1px solid black;
+    width: 50px;
+}
+.para::after{
+    
+    width: 20px;
+    background-color: yellow;
+    color: red;
+}

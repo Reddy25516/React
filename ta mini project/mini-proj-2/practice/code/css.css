@@ -1,0 +1,24 @@
+
+
+.{
+    visibility: visible;
+    visibility: hidden;
+    border-color: black transparent transparent transparent;
+
+
+
+
+
+}
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+/* content : attr(data-text); */
+
+
+.tooltip:hover:before, .tooltip:hover:after {
+    display:block;
+  }

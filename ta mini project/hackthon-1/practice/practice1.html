@@ -1,0 +1,188 @@
+
+
+<label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+
+<fieldset>
+       <legend></legend>
+       <input type="text">
+</fieldset>
+          
+
+
+The getDay() method returns the day of the week for the specified date according to local time,
+const day1 = birthday.getDay();
+const date1 = birthday.getDate();
+
+
+<script>
+       date="2022-10-01"
+       date= new Date();
+       console.log(date.getDay()) //6   // saturday 
+
+       let currentDate = new Date().toJSON().slice(0, 10);
+       console.log(currentDate); // "2022-06-17"
+
+
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+
+<!--  checking elements and adding data to it  -->
+
+<script>
+        // departure checked elements and then onclick function 
+
+
+    let time_checked_array=[];
+
+let a_array=[1,2,3,4,5,6];
+let b_array=[7,8,9,10,11];
+let c_array= [12,13,14,15,16,17];
+let d_array=[18,19,20,21,22,23];
+
+const time_check_elements= document.getElementsByClassName('time_check');
+
+for(let i=0;i<time_check_elements.length;i++){
+    time_check_elements[i].onclick= function(e){
+        if(i==0){
+            if(e.target.checked== true){
+                time_checked_array=[...time_checked_array,...a_array]
+            }
+            else{
+                time_checked_array = time_checked_array.filter(item => 
+                    a_array.indexOf(item)==-1);
+            }
+        }
+        else if(i==1){
+            if(e.target.checked== true){
+                time_checked_array=[...time_checked_array,...b_array]
+            }
+            else{
+                time_checked_array = time_checked_array.filter(item => 
+                    b_array.indexOf(item)==-1);
+            }
+        }
+
+        else if(i==2){
+            if(e.target.checked== true){
+                time_checked_array=[...time_checked_array,...c_array]
+            }
+            else{
+                time_checked_array = time_checked_array.filter(item => 
+                    c_array.indexOf(item)==-1);
+            }
+        }
+
+        else{
+            if(e.target.checked== true){
+                time_checked_array=[...time_checked_array,...d_array]
+            }
+            else{
+                time_checked_array = time_checked_array.filter(item => 
+                    d_array.indexOf(item)==-1);
+            }
+        }
+        overall_sorting();
+    }
+}
+
+       //  function to filter by departure
+
+    function filter_by_departure(data){
+        if(time_checked_array.length==0){
+            return data;
+        }
+
+        let new_array=[]
+
+        for(let i=0;i<data.length;i++){
+            let value= data[i].Arrival_time[0];
+            if(time_checked_array.indexOf(value)!=-1){
+                new_array.push(data[i]);
+            }
+        }
+        return new_array;
+    }
+
+
+
+    for(let i=0;i<airlines.length;i++){
+        
+        airlines[i].onclick= function(e){
+            if(e.target.checked== true){
+                airlines_data.push(e.target.value);
+                overall_sorting();
+            }
+            else{
+                e.target.checked=false;
+                airlines_data =airlines_data.filter(item => item !== e.target.value);
+                overall_sorting();
+            }
+        }
+    }
+
+
+
+
+//     clear function 
+
+
+       const clearall = document.getElementById('clear-all');
+       clearall.onclick= function(){
+
+              function clear_range(){
+              input1.value=1
+              input2.value=999
+              slider1.value=1
+              slider2.value=999;
+              fillColor();
+              }
+              clear_range();
+
+
+              function clearcheck(elements){
+              for(let i=0;i<elements.length;i++){
+                     if(elements[i].checked== true){
+                     elements[i].checked= false;
+                     }
+              }
+              }
+              search_value="";
+              time_checked_array=[];
+              airlines_data=[];
+              sort_type="sort";
+              clearcheck(time_check_elements);
+              clearcheck(airlines);
+
+
+              
+
+              overall_sorting();
+
+       }
+
+
+</script>
+
+
+
+
+
+<dialog >
+       this is a dialog box 
+</dialog>
+
+<script>
+       dialog.show();
+       dialog.close();
+</script>
+
+
+
+

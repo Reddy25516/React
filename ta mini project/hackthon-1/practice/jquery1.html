@@ -1,0 +1,347 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        this is the first content 
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    //  below line is same as window.onload function in js 
+
+    $(document).ready(function(){
+        $('#content').html("this is the edited content");
+    })
+
+    // this is the way of changing the content of html with jquery 
+
+
+
+    // **********************************************
+
+    $('p') 
+    //  this is get element by tag name 
+    // it selects all the p tags in the code 
+
+    $('p,a')
+    //  this will select all the p and the a tags in the code 
+
+
+    $('p a')
+    //  this selects all the a tags inside the p tags in the code 
+
+
+
+    var imgs= $('img');
+    alert(imgs.length)
+    // here it return all the img tags
+    // just like getElementsBytagname 
+    
+
+
+    $(document).ready(function(){
+        $('div').css('background-color','green');
+    })
+
+</script>
+</html>
+
+
+
+<script>
+    
+    $(document).ready(function(){
+        $('div').each(function(){ 
+            console.log($(this).html())
+        })
+    })
+
+    // this is similar like 
+    console.log("below is js content")
+    window.onload=()=>{
+        divs= document.getElementsByTagName('div');
+        for(let i=0;i<divs.length;i++){
+            console.log(divs[i].innerHTML);
+            //  here it is  .innerHTML  not .innerHTML()
+        }
+    }
+
+
+
+
+    $(document).ready(function(){
+        $('.btn')
+        //  this is the way of getting an element by class name 
+
+        $('#btn')
+        // this is the way of getting a
+
+        $('.blueDiv,.redDiv')
+        //  it selects all the elements containing  the class BlueDiv and RedDiv
+
+        $('a.myClass')
+        // select  a tags with class myClass 
+
+        
+
+        $('.Bluediv').css('border','1px solid black')
+        //  this will select the Bluediv tag and add the styling to it 
+
+        $('div.blueDiv')
+        //  it selects div tag that contains  blueDiv class 
+
+
+
+    })
+
+
+</script>
+
+<!-- selecting tag my attribute name  -->
+<script>
+    $(document).ready(function(){
+
+        $['a[title]']
+        //  this will select all the anchor tags  that constains title attribute
+
+        $['a[title="programming"]']
+        //  selects all the anchor tags that has title as programing
+
+
+        var divs= $['div[title="divTag"]'];
+        console.log(divs.length);
+        //  this will select all the divs with title divTag 
+
+
+        var checkboxes = $['input(type="checkbox")'];
+        checkboxes.css('background-color','yellow');
+        // this select input tag with type checkbox 
+
+
+        $(':input')
+        //  this selects all the inputs like 
+        // select (option), textarea , button image radio and more 
+
+
+
+
+
+
+
+    })
+
+</script>
+
+
+<div>Expert pluralsight</div>
+
+<script>
+     $(document).ready(function(){
+        $('div:contains("pluralsight")');
+
+        //  this selects divs that contains the text pluralsight 
+        // no matter whether it is upper case or lower case 
+    
+
+
+        $('tr:odd')
+        //  selects the tr tags with odd number (1,3,5,7...)
+        $('tr:even')
+        // selects the tr tags with even number (0,2,4)
+
+
+        $('span:first-child')
+
+
+
+        $('input[value^="events"]')
+        //  it selects the input that starts with event
+        //refer below for it 
+
+        $('input[value$="events"]')
+        // it selects the inputs those value ends with events 
+
+
+        $('input[value*="events"]')
+        // iit selects the inputs whose value contains the events in it 
+
+
+        $('div[title*="Title"]').html("updating the div value ")
+     })
+
+
+
+</script>
+<input type="button" name="" id="" value="events-local">
+
+
+<script>
+    $('div').each( function(index){
+        console.log(index+"="+$(this).text());
+
+    })
+
+
+    $('div').each( function(index,elem){
+        console.log(index+"="+$(elem).text());
+
+    })
+
+    $('div').each( function(index){
+        output.html( output.html()+ '<br/>'+ index +" "+ $(this.html()));
+    })
+</script>
+
+
+<script>
+
+$(document).ready(function(){
+    $('div').each(function(i){
+        this.title = "my index is "+i;
+    })
+})
+//  this above is used to replace the title property if exist 
+// else it adds that attriute and the property to it 
+
+
+    //  accessing the attribute value 
+
+    var value= $('#CusDiv').attr('title');
+    // retrives the value of the title attribute    
+
+    $('img').attr('alt',"image of the child");
+    // here we are seeting the image of the child  to the alt attribute 
+
+
+    
+</script>
+
+<!-- to change multiple attributes at the same time  -->
+
+<script>
+    $(document).ready(function(){
+        $('img').attr({
+            title: "my image book",
+            style: "border : 2px solid black;font-size: 20px",
+            style: `
+                background-color:red;
+                font-size: 30px;
+                color: green;
+                `
+        });
+
+        $('div').css('font-size','20px');
+
+
+        $('img').attr({
+            title: "my image book",
+        }).css('font-size','20px').css('font-size','20px');
+    })
+
+
+
+</script>
+
+
+<!--  Adding and removing nodes  -->
+
+Append 
+AppendTo 
+Prepend 
+PrependTo
+
+<script>
+
+    $(document).ready(function(){
+        $('.officePhone').append('newdiv1'); 
+
+        // prepend adds children at the begining where as append add at the end
+        $('.officePhone').prepend('newdiv1'); 
+
+
+        $('.state').wrap('<div> </div>');
+        //  here .state is added inside the div 
+
+
+        // .remove()
+        // will remove the dom tags from the code 
+
+        $('.phone,.location').remove();
+        //  it removes the element that contains the class phone or location in it 
+    })
+
+
+
+
+</script>
+
+
+<script>
+     $(document).ready(function(){
+        $('#myid').append('<span> appendded child 2</span>');
+
+        div1= document.createElement('div');
+        //  this is also working with jquery 
+
+
+        $('.foo').wrap("<div class='redBull'/>");
+        //  this div is created over the .foo element 
+
+
+        $(this).html();
+        //  this gives the whole tag element 
+     })
+
+</script>
+
+
+
+<!--  Modifying the Styles in jquery  -->
+
+.css() - this function is used to change the css styles 
+
+<script>
+    $(document).ready(function(){
+        $('div').css({
+            'color':"red",
+            'font-weight':"bold"
+        })
+    })
+</script>
+
+<!--  Modifying the class in jQuery  -->
+
+four methods to work with class 
+
+.addClass();
+.hasClass();
+.removeClass();
+.toggleClass();
+
+
+<script>
+    $('p').addClass('classOne classTwo');
+
+    if( $('p').hasClass('classTwo classOne')){
+        // perform work 
+
+    }
+
+    $('p').removeClass('classOne classTwo');
+
+
+    $('p').addClass('classOne classTwo'); 
+
+    $('#phoneDetails').toggleClass('highlight');
+
+    
+</script>

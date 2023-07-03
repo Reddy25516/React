@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        input{
+            border: none;
+            border-color: white;
+        }
+        input::placeholder{
+            border: none;
+        }
+        input::after{
+            content: "show";
+            width: 100px;
+            border: 1px solid green;
+        }
+
+        .input-box{
+            border: 1px solid black;
+            width: 250px;
+            display: flex;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+        .show{
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="input-box">
+        <input id="input1" type="password" placeholder="password" >
+    
+        
+    </div>
+</body>
+    <script>
+        input1= document.getElementById('input1');
+        show_hide= document.getElementById('show_hide');
+        show_hide.onclick= function(){
+            if(show_hide.classList.contains("show")){
+                input1.setAttrbute("type","text");
+                show_hide.innerHTML= "hide";
+            }
+            else{
+                input1.type="password";
+                show_hide.innerHTML= "show";
+            }
+            show_hide.classList.toggle("show");
+        }
+        
+    </script>
+</html>
+

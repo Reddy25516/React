@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="display.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+</head>
+<body>
+    <script src="display.js"></script>
+
+    <header>
+        <div class="header1">
+            <h2 id="logo" class="logo">Go Fly</h2>
+            <nav> 
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Services</a></li>
+                    <li> <a href="bookings.html">My bookings</a></li>
+                </ul>
+            </nav>
+
+            <input id="search-input" type="search" placeholder="Search...">
+            <i id="search-display" class="fa fa-search"></i>
+        </div>
+        
+
+
+        <div class="header_down">
+
+            <div> Showing <span id="max-flight" value=0></span> results</div>
+    
+            <!-- sort line in the header -->
+            <div class="ul">
+                <ul>
+                    <li id="sortby">Sort by</li>
+                    <li id="sortby-price">Price low-high</li>
+                    <li id="sortby-duration">Duration</li>
+                </ul>
+            </div>
+    
+        </div>
+
+    </header>
+
+    
+
+
+
+
+    <section class="display">
+        
+         <section id="filter" class="filter">
+
+            <!-- price section div  -->
+
+            <div class="price">
+                <div>FILTERS</div>
+                <div id="clear-all">CLEAR ALL</div>
+            </div>
+
+        <div> 
+            <div class="price">
+                <div>Price</div>
+            </div>
+
+            <!-- range Slider box  -->
+            <div id="priceshow">
+                
+                <div class="slider_track"></div>
+                <input class="slider" id="slider1" type="range" value="1" min="0" max="1000">   
+                <input class="slider" id="slider2" type="range" value="999" min="0" max="1000">
+                <br>
+
+                <div class="inputbar">
+                    <input id="input1"  min="0" max="1000" value="1">
+                    <input id="input2"  min="0" max="1000" value="999">
+                </div>
+
+            </div>
+        </div>
+
+
+            <!--  filters  brand section div  -->
+
+        <div>
+            <div class="price">
+                <div>Preferred Airlines</div>
+                <!-- <i id="brand-arrow" class="fa-solid fa-angle-down"></i> -->
+            </div>
+
+            <div  class="brand_data">
+                
+                    <div>
+                        <input class="airlines" value="spice jet" type="checkbox">
+                        <label >SpiceJet</label>
+                    </div>
+
+                    <div>
+                        <input class="airlines" value="air india" type="checkbox">
+                        <label >Air India</label>
+                    </div>
+                    
+                    <div>
+                        <input class="airlines" value="king fisher" type="checkbox">
+                        <label >Kingfisher</label>
+                    </div>
+
+                    <div>
+                        <input class="airlines" value="indigo" type="checkbox">
+                        <label >IndiGo</label>
+                    </div>
+                    <div>
+                        <input class="airlines" value="deccan" type="checkbox">
+                        <label >Deccan</label>
+                    </div>
+            </div>
+            
+        </div>
+
+
+        <div>
+            <div class="price">
+                <div>Departure</div>
+                <!-- <i id="brand-arrow" class="fa-solid fa-angle-down"></i> -->
+            </div>
+
+            <div  class="brand_data">
+
+                <div>
+                    <input class="time_check" value=[1,2,3,4,5,6] type="checkbox">
+                    <label >Before 7 AM</label>
+                </div>
+
+                <div>
+                    <input class="time_check" value=[7,8,9,10,11] type="checkbox">
+                    <label >7AM - 12PM</label>
+                </div>
+            
+
+                <div>
+                    <input class="time_check" value=[12,13,14,15,16,17] type="checkbox">
+                    <label >12PM - 6PM</label>
+                </div>
+
+                <div>
+                    <input class="time_check" value=[18,19,20,21,22,23] type="checkbox">
+                    <label >After 6PM</label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div class="price">
+                <div>No of Stops</div>
+            </div>
+
+            <div  class="brand_data">
+                <div>
+                    <input class="stops" value=0 type="checkbox">
+                    <label>0</label>
+                </div>
+
+                <div>
+                    <input class="stops" value=1 type="checkbox" >
+                    <label >1</label>
+                </div>
+
+                <div>
+                    <input class="stops" value=2 type="checkbox" >
+                    <label >2</label>
+                </div>
+            
+
+                <div>
+                    <input class="stops" value=3 type="checkbox" >
+                    <label >3</label>
+                </div>
+        
+                <div>
+                    <input class="stops" value=4 type="checkbox" >
+                    <label>3+</label>
+                </div>
+            </div>
+        </div>
+        
+           
+            
+        </section>
+
+         <section class="bars_slide">
+                <i id="slider_menu" class="fa-solid fa-bars slide_menu"></i>
+        </section>
+        
+
+        <section id="display-cards">
+
+        <!-- <div class="card">
+            <div id="flight-name">Air India</div>
+
+            <div class="card_details">
+                
+                <div>
+                    <div>
+                    <div class="card_div">
+                        <div>Mumbai,India</div>
+                        <div>11:00</div>
+                        
+                    </div>
+                    <div class="card_div">
+                        <div>Duration</div>
+                        <div>11 h:20m</div>
+
+                    </div>
+                    <div class="card_div">
+                        <div>Goa,India</div>
+                        <div>11:30</div>
+                    </div>
+                    </div>
+                    <div>
+                    <div id="flight-price">
+                        $9883
+                    </div>
+                    <button class="book">Book</button>
+                    </div>
+                </div>
+
+            </div>
+            <div>Flight Details</div>
+            
+        </div> -->
+    
+    
+        </section>
+    </section>
+
+
+
+
+    
+
+
+    
+    <footer class="main">
+
+        <!--  footer social media links bar   -->
+
+        <div class="footer1">
+            <div class="footerdiv">
+                <h4>LET'S STAY IN TOUCH</h4>
+                <p>Get Updates on sales specials and more</p>
+            </div>
+
+
+            <!-- email and the subscribe tag in the  -->
+
+            <input class="email_input" placeholder="Email Address" >
+            <button class="subscribe">SUBSCRIBE</button>
+
+
+            <div class="footerdiv2 footerdiv">
+                <h4>FOLLOW KRAYA</h4>
+                <p>we want to hear from you</p>
+            </div>
+
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-twitter-square"></i>
+                <i class="fa-brands fa-youtube-square"></i>
+                <i class="fa-brands fa-instagram-square"></i>
+            </div>
+
+    
+        </div>
+
+
+
+        <!--  footer body content body -->
+
+        <div class="footer2">
+
+            <div class="footer_details">
+                <div>
+                    <h3>ABOUT</h3>
+                    <p>About Us</p>
+                    <p>Carrers</p>
+                    <p>Blog</p>
+                    <p>News</p>
+                </div>
+                <div>
+                    <h3>SUPPORT</h3>
+                    <p>Payment</p>
+                    <p>Shipping</p>
+                    <p>Cancellation& Returns</p>
+                    <p>FAQs</p>
+                </div>
+
+                <div>
+                    <h3>POLICY</h3>
+                    <p>Terms to use</p>
+                    <p>Privacy Policy</p>
+                    <p>Intellecutal Property</p>
+                    <p>Site map</p>
+                    <p>Security</p>
+                </div>
+
+                <div class="mail_us">
+                    <h3>MAIL US</h3>
+                    <p>17187 N. Laurel Park Dr., Ste. 110 Livonia, MI 48152 USA</p>
+                </div>
+            </div>
+
+            <!--  footer support box -->
+            
+            <div class="footerLast">
+                <h1>1800 123 4567</h1>
+                <p>Service hours: 09:00-21:00</p>
+                <div class="chat_support">Chat support</div>
+                <div class="payment">Payment Methods</div>
+                <div class="icons">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-discover"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            Copyright © 2010 - 2018 commerce factory. All Rights Reserved
+        </div>
+    </footer>
+    
+</body>
+</html>

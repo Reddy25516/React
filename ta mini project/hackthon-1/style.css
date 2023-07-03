@@ -1,0 +1,520 @@
+
+
+
+
+/*  css part   */
+
+
+html{
+    font-size: 16px;
+    max-width: 1608px;
+    margin: 0 auto;
+}
+
+body{
+    margin: 0px;
+}
+
+
+
+/*  Header styling */
+
+header{
+    box-shadow: 0px 3px 59px #04C3FF29;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.1px;
+    background: transparent;
+    background-color: rgb(74, 184, 211);
+}
+
+.header{
+    display: flex;
+}
+
+
+.header nav{
+    display:flex;
+    align-items: center; 
+    justify-content:left;
+    width: 70%;
+}
+
+
+.header1{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo{  
+    height: 2%;
+    color:black;
+    font-size: 1.7rem;
+    /* border: 3px solid black; */
+    padding: 0.4em 0.8rem;
+    margin-left: 5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+
+.header1 nav{
+    display:flex;
+    align-items: center; 
+    justify-content:left;
+    width: 70%;
+}
+
+nav ul{
+    margin-left:12%;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    font-weight:BOLD;
+}
+
+
+nav ul li a:hover{
+    color:aqua;
+    text-decoration: none;
+    transition: 0.2s;
+    
+}
+
+header input{
+    height: 1.7rem;
+    width: 10%;
+    text-align: center;
+    margin-top: auto;
+    border-radius: 10px;
+    margin-bottom: auto;
+}
+
+
+#search-icon{
+    font-size: 1.5rem;
+    justify-content: center;
+    align-content: center;
+    margin-left: 10px;
+    margin-top: auto;
+    cursor: pointer;
+
+    margin-bottom: auto;
+}
+
+#dialog-box{
+    z-index: 2;
+    width: 100%;
+    min-height: 85vh;
+}
+
+
+.booking_div{
+    border: 1px solid black;
+}
+
+#details-div{
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    color: black;
+    margin-top: 10px;
+    margin-left: 3%;
+    font-style: italic;
+    width: 60%;
+    font-size: 1.2rem;
+    padding:20px;
+    font-weight: 550;
+}
+
+
+
+/*  form styling */
+
+.sec-1{
+
+    padding-top: 30px;
+    min-height: 90vh;
+    background-image: url("../images/flight.jpeg");
+    background-size:cover;
+}
+
+.sec-1 .para{
+    font-weight: bolder;
+    margin-left: 5%;
+    font-size: 2.5rem;
+    margin-bottom: 2vh;
+}
+
+#dialog{
+    position: absolute;
+    padding: 0px 20px;
+    top: 5px;
+    opacity: 0.8;
+    margin: 0 auto;
+    background: transparent;
+    background-color: black;
+    color: white;
+    border-radius: 5px ;
+    border: transparent 1px solid;
+
+}
+
+.form_div{
+    width: 50%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+
+.form{
+    
+    position: relative;
+    background: rgba(249, 250, 252, 0.6);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 40px 20px;
+    margin: 1px auto;
+    height: fit-content;
+    border: 1px solid transparent;
+}
+
+.form input{
+    background-color: black;
+    color: white;
+}
+
+.check{
+    display: flex;
+}
+
+.check input{
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    margin-top: 6px;
+    
+}
+.check label{
+    margin-right: 30px;
+    margin-left: 5px;
+    
+}
+
+.input{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.input input{
+    height: 30px;
+    width: 90%;
+    background: transparent;
+    color: black;
+    border-radius: 5px;
+    opacity: 1;
+    /* text-align: center; */
+    font-size: 1rem;
+}
+
+.input select{
+    height: 30px;
+    width: 90%;
+    background: transparent;
+    color: black;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.input select option {
+    background-color:rgb(197, 232, 243);
+    opacity: 0.9;
+    color: black
+}
+
+
+.input>div{
+    color: black;
+    width: 30%;
+    /* background-color: wheat; */
+    margin-bottom: 10px;
+}
+
+#return-date{
+    display: none;
+}
+
+.sec-1 form button{
+    height: 30px;
+    width: 30%;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-left: 20%;
+}
+
+
+
+
+
+/*  footer  */
+
+
+
+footer{
+    padding: 2% 5%;
+    background-color: black;
+
+}
+.footer1{
+    padding-bottom: 3%;
+    box-shadow: rgba(238, 241, 243, 0.3) 0px 1px 0px 0px, rgba(210, 217, 223, 0.15) 0px 1px 0px 0px;
+    display: flex;
+    height: 40%;
+    width: 100%;
+    background-color:black;
+}
+
+.footer1 i{
+    color:white;
+}
+
+.footer1 .icons{
+    margin-left:2rem ;
+    display: flex;
+    font-size: 2rem;
+    gap:2rem;
+}
+
+.icons{
+    /* margin-left:2rem ; */
+    display: flex;
+    font-size: 2rem;
+    gap:1rem;
+}
+
+.footerdiv{
+    width: 20%;
+    /* background-color: red; */
+    color: white;
+}
+
+
+
+.subscribe{
+    font-size: 1rem;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    border-left: 0px;
+    position: relative;
+    left: -6.6rem;
+    opacity: 0.5;
+}
+
+.email_input{
+    font-weight: 700;
+    font-size: 1rem;
+    padding-left: 2rem;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    border-style: wheat;
+}
+
+.footerdiv2{
+    margin-left: 13.%;
+    width: auto;
+}
+.chat_support{
+    border: 1px solid ;
+    text-align: center;
+    height: 2rem;
+    font-size: 1.3rem;
+    width: 15rem;
+    padding-top: 0.9rem;
+}
+
+.payment{
+    margin-top: 15%;
+    /* font-size: 1rem; */
+}
+footer img{
+    margin-top:6px;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    margin-left: 2%;
+}
+
+.footer1 h4{
+    margin: 0px;
+    opacity: 0.8;
+    font-weight: 400;
+    padding: 0px;
+    letter-spacing: 3px;
+}
+
+.footer1 p{
+    margin:0px;
+    opacity: 0.4;
+}
+
+.footer1 input{
+    width: 25%;
+}
+
+
+
+.footer2{
+
+    box-shadow: rgba(238, 241, 243, 0.3) 0px 1px 0px 0px, rgba(210, 217, 223, 0.15) 0px 1px 0px 0px;
+    
+    margin-top:2%;
+    display: flex;
+    gap: 6%;
+    color:white;
+    
+}
+
+.footer2 div h3{
+    opacity: 0.7;
+    color:white;
+    font-weight: 300;
+}
+
+.footer2 div p{
+    opacity:0.4;
+}
+
+.footer_details{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    /* border: 1px solid white; */
+}
+
+.footer_details div{
+    width: 20%;
+    font-size: 1.05rem;
+}
+
+.footer_details p{
+    font-size: 1.1rem;
+    color: white;
+}
+
+.footerLast h1{
+    margin:0px;
+}
+
+.footerLast p{
+    margin-top:0px ;
+}
+
+.footerdiv2{
+    margin-left: 13%;
+}
+
+.footerdiv h4{
+    font-size: 1rem;
+}
+
+.copyright{
+    padding-top: 2%;
+    color:white;
+    opacity: 0.6;
+    font-size: 1.1rem;
+}
+
+
+
+
+@media only screen and (max-device-width: 1200px) { 
+
+    .form_div{
+        margin: 0px auto;
+        width: 80%;
+        margin-top: 10vh;
+    }
+    footer{
+        display: none;
+    }
+
+    .sec-1{
+        max-height:300px;
+        background-image: url("../images/flight.jpeg");
+        background-size:cover;
+    }
+
+}
+
+
+@media only screen and (max-device-width: 700px) { 
+
+
+    html{
+        font-size: 12px;
+    }
+
+    .header{
+        display: block;
+    }
+    .logo{
+        text-align: left;
+    }
+    .check{
+        display: block;
+    }
+    .input{
+        display: block;
+    }
+    .input>div{
+        margin: 0 auto;
+        width: 250px;
+    }
+    .sec-1 form button{
+        width: 40%;
+        margin-left: 25%;
+    }
+    .sec-1 .para{
+        font-size: 1.5rem;
+    }
+    .form_div{
+        margin-top: 10vh;
+        min-height: 70vh;
+    }
+}
+
+
+
+@media only screen and (max-device-width: 400px) { 
+
+    .header nav ul li{
+        display: block;
+    }
+    .form_div{
+        margin-bottom: 10vh;
+    }
+    .sec-1{
+        height: fit-content;
+        margin-bottom: 10vh;
+    }
+    .input>div{
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+

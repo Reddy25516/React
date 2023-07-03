@@ -1,0 +1,334 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="dialog.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <title>Shopping Page</title>
+
+</head>
+
+<body>
+    <script src="script.js"></script>
+
+    
+        <!--  top most header bar  -->
+
+    <header class="main" >
+        <div class="header1">
+            <div class="cart_bar">
+                <div  class="wish_list">WISHLIST</div>
+                
+                <i id="wishlist-icon" class="fa-regular fa-heart count_wish_list"></i>
+                <div id="count-wish">0</div>
+            
+                <div class="cart" >CART</div>
+                <i id="cart-icon" class="fa-solid fa-bag-shopping icon1 "></i>
+                <div id="count-cart">0</div>
+            
+                <i class="fa-solid fa-user image_icon"></i>
+                <div class="cart">Narayana Reddy</div>
+                <i class="fa-solid fa-angle-down "></i>
+            </div>
+        </div>
+
+
+        <!-- Header middle bar  -->
+
+        <div class="header_middle">
+            <div id="myData"></div>
+            <h2 id="logo" class="logo">KRAYA.</h2>
+            <nav> 
+                <ul>
+                    <li><a href="">PHONE</a></li>
+                    <li><a href="">TELEVISION</a></li>
+                    <li><a href="">REFRIGERATOR</a></li>
+                    <li><a href="">LAPTOP</a></li>
+                    <li><a href="">WASHING MACHINE</a></li>
+                    <li><a href="">DOWNLOADS</a></li>
+                </ul>
+            </nav>
+            <input id="search-input" type="search" placeholder="Search...">
+            <i id="search-icon" class="fa fa-search"></i>
+
+        </div>
+
+
+        
+        <!--  header down  -->
+
+        <div class="header_down">
+
+            <div> HOME / MOBILES </div>
+            <div> Showing 1-<span id="cur-phone">40</span>  of <span id="max-phone">90</span>  results for "Phone"</div>
+
+            <!-- sort line in the header -->
+            <div class="ul">
+                <ul>
+                    <a href="#"><li id="sortby">Sort by</li></a>
+                    <a href="#"><li id="sortby-rating">Ratings</li></a>
+                    <a href="#"><li id="sortby-price">Price high-low</li></a>
+                    <a href="#"><li id="sortby-new">Newest First</li></a>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!--  Display Section  -->
+
+    <section class="displaybody">
+        
+        <div id="filter-slide"></div>
+        <!-- filters part  -->
+
+        <section id="filter" class="filter">
+
+            <!-- price section div  -->
+            <div class="price">
+                <div>FILTERS</div>
+                <div id="clear-all">CLEAR ALL</div>
+            </div>
+
+            <div> 
+                <div class="price">
+                    <div>Price</div>
+                    <i id="angle-down" class="fa-solid fa-angle-down angle_down" ></i>
+                </div>
+
+                <!-- range Slider box  -->
+                <div id="priceshow" class="angle_down_fn">
+                    
+                    <div class="slider_track"></div>
+                    <input class="slider" id="slider1" type="range" value="1" min="0" max="1000">   
+                    <input class="slider" id="slider2" type="range" value="999" min="0" max="1000">
+                    <br>
+
+                    <div class="inputbar">
+                        <input id="input1"  min="0" max="1000" value="1">
+                        <input id="input2"  min="0" max="1000" value="999">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--  filters  brand section div  -->
+
+            <div>
+                <div class="price">
+                    <div>Brand</div>
+                    <i id="brand-arrow" class="fa-solid fa-angle-down"></i>
+                </div>
+
+                <div id="brand-info" class="angle_down_fn">
+                <div  class="brand_data">
+                        <div>
+                            <input class="check_element" value="apple" type="checkbox">
+                            <label for="">Apple</label>
+                            
+                        </div>
+                        <div>
+                            <input class="check_element" value="samsung" type="checkbox">
+                            <label for="">Samsung</label>
+                        </div>
+                    
+
+                        <div>
+                            <input class="check_element" value="realme" type="checkbox">
+                            <label for="">Realme</label>
+                        </div>
+                        
+                        
+                        <div>
+                            <input class="check_element" value="one plus" type="checkbox">
+                            <label for="">One plus</label>
+                        </div>
+                </div>
+                </div>
+            </div>
+
+            <div>
+                <div  class="price">
+                    <div>Customer Rating</div>
+                    <i id="rating-arrow" class="fa-solid fa-angle-down angle_down" ></i>
+                </div>
+                <div id="rating-info" class="angle_down_fn">
+                    <div>
+                        <input type="checkbox" class="rating_check" value=5><label for="">5</label>
+                        <input type="checkbox" class="rating_check" value=4><label for="">4</label>
+                        <input type="checkbox" class="rating_check" value=3><label for="">3</label>
+                        <input type="checkbox" class="rating_check" value=2><label for="">2</label>
+                        <input type="checkbox" class="rating_check" value=1><label for="">1</label>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="price">
+                <div>Battery Capacity</div>
+                <!-- <i class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+
+            
+            <div class="price">
+                <div>RAM</div>
+                <!-- <i  class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+
+
+            <div class="price">
+                <div>Screen Size</div>
+                <!-- <i id="brand_arrow" class="fa-solid fa-angle-down"></i> -->
+            </div>
+
+            <div class="price">
+                <div>Camera</div>
+                <!-- <i class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+        
+
+            
+            <div class="price">
+                <div>Camera</div>
+                <!-- <i class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+
+            
+            <div class="price">
+                <div>Resolution Type</div>
+                <!-- <i class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+
+            
+            <div class="price">
+                <div>Operating System</div>
+                <!-- <i class="fa-solid fa-angle-down angle_down" ></i> -->
+            </div>
+
+        </section>
+
+
+        <!-- display section  -->
+
+        <!--  display whole display  -->
+        <section class="display1">
+            <dialog id="dialog">   
+            </dialog>
+
+            <!--  display cards part  -->
+            <div id="display" data-items="10">
+            </div>
+            <!--  load button  -->
+            <div id="load">
+                <i class="fa-solid fa-spinner loading"></i>
+                <button >LOAD MORE</button>
+            </div>
+        </section>
+
+    </section>
+
+
+
+        <!--footer section  -->
+
+    <footer class="main">
+
+        <!--  footer social media links bar   -->
+
+        <div class="footer1">
+            <div class="footerdiv">
+                <h4>LET'S STAY IN TOUCH</h4>
+                <p>Get Updates on sales specials and more</p>
+            </div>
+
+            <!-- email and the subscribe tag in the  -->
+
+            <input class="email_input" placeholder="Email Address" >
+            <button class="subscribe">SUBSCRIBE</button>
+
+
+            <div class="footerdiv2 footerdiv">
+                <h4>FOLLOW KRAYA</h4>
+                <p>we want to hear from you</p>
+            </div>
+
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-twitter-square"></i>
+                <i class="fa-brands fa-youtube-square"></i>
+                <i class="fa-brands fa-instagram-square"></i>
+            </div>
+
+    
+        </div>
+
+
+
+        <!--  footer body content body -->
+
+        <div class="footer2">
+
+            <div class="footer_details">
+                <div>
+                    <h3>ABOUT</h3>
+                    <p>About Us</p>
+                    <p>Carrers</p>
+                    <p>Blog</p>
+                    <p>News</p>
+                </div>
+                <div>
+                    <h3>SUPPORT</h3>
+                    <p>Payment</p>
+                    <p>Shipping</p>
+                    <p>Cancellation& Returns</p>
+                    <p>FAQs</p>
+                </div>
+
+                <div>
+                    <h3>POLICY</h3>
+                    <p>Terms to use</p>
+                    <p>Privacy Policy</p>
+                    <p>Intellecutal Property</p>
+                    <p>Site map</p>
+                    <p>Security</p>
+                </div>
+
+                <div class="mail_us">
+                    <h3>MAIL US</h3>
+                    <p>17187 N. Laurel Park Dr., Ste. 110 Livonia, MI 48152 USA</p>
+                </div>
+            </div>
+
+            <!--  footer support box -->
+            
+            <div class="footerLast">
+                <h1>1800 123 4567</h1>
+                <p>Service hours: 09:00-21:00</p>
+                <div class="chat_support">Chat support</div>
+                <div class="payment">Payment Methods</div>
+                <div class="icons">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-discover"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            Copyright © 2010 - 2018 commerce factory. All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+</html>
