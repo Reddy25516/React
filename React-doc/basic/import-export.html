@@ -1,0 +1,94 @@
+
+<!-- way of importing default and non default function -->
+difference between import { AUth } and import AUth 
+<!-- just go with more on it  -->
+<script>
+
+import React from 'react'
+
+const Auth = () => {
+  return (
+    <div>import-export</div>
+  )
+}
+
+export default Auth 
+
+________________________
+
+import Auth from './components/Auth'
+// this works, here we imported Auth wihtout the braces, it will work because it is the default auth 
+
+import {Auth} from './components/Auth'
+// this is an error, for a default one we can't able to import in this way 
+
+</script>
+
+
+************************************
+
+<script>
+    import React from 'react'
+    
+    export const AUth = () => {
+      return (
+        <div>AUth</div>
+      )
+    }
+    _________________
+    import {Auth1} from './components/Auth'
+    // this works, non non default function import we have to use curly braces 
+
+    // an error becuase , non default should have curly braces.
+    import Auth1 from './components/Auth'
+
+</script>
+
+
+***************************************
+***************************************
+
+<!-- import name for a default function  -->
+<script>
+
+  import React from 'react'
+  
+  const Auth = () => {
+    return (
+      <div>import-export</div>
+    )
+  }
+  
+  export default Auth
+
+  _________________
+
+  import React from 'react'
+  // here the name is different
+  import Auth1 from './components/Auth'
+  const App = () => {
+    return (
+      <div>
+        <Auth1 />
+      </div>
+    )
+  }
+
+  export default App
+
+</script>
+
+Note : 
+when we are importing a default function, we can have any name as we wish.
+
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************

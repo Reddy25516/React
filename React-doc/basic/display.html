@@ -1,0 +1,87 @@
+
+<!-- 
+    this below is the way of displaying a json in the browser 
+ -->
+<h2>the values are  {JSON.stringify(values)}</h2>
+
+'********************************'
+
+<!-- 
+    in the below displaying the array of values 
+    here items in an array of values.
+ -->
+<script>
+
+<ul>
+    {items.map(items=>(
+     <li key={items.id}>{items.name}</li>
+    ))}
+</ul>
+
+</script>
+
+
+'********************************'
+
+<script>
+
+//  this is the way of display an array of elements like li and ul in the output
+const App =() =>{
+  var elements = [];
+    for(let i = 0;i < 5;i++){
+        elements.push(<div key={i}>Hello</div>);
+    }
+  return(
+    <>
+      <div>
+        {elements}
+      </div>
+    </>
+  )
+}
+export default App;
+
+</script>
+'********************************'
+
+<script>
+
+// even this will get displayed in the output 
+
+const App =() =>{
+  var elements = <div>Hello</div>
+  return(
+    <>
+      <div>
+        {elements}
+      </div>
+    </>
+  )
+}
+export default App;
+
+</script>
+'********************************'
+
+<!-- 
+    to display a long list of elements
+ -->
+<script>
+
+const App =() =>{
+  var elements = <div>
+                  <li>Hello </li>
+                  <li>Hello </li>
+                  <li>Hell3 </li>
+                </div>
+  return(
+    <>
+      <div>
+        {elements}
+      </div>
+    </>
+  )
+}
+export default App;
+
+</script>

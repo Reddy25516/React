@@ -1,0 +1,320 @@
+
+<!-- way to add the user details while submitting the data in the fields -->
+suppose if someone enters the data, here we are even adding there userEmail and uid 
+to know who added the data in the fileds 
+
+files : 
+    components:
+        database 
+        auth 
+    App 
+    config:
+        firebase 
+
+<script>
+
+// app\src\Test\components\Database.jsx
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { db,auth} from '../config/firebase';
+import { getDocs, collection ,addDoc , deleteDoc, doc,updateDoc} from 'firebase/firestore';
+
+const Database = () => {
+
+    const [movielist,setMovieList] =useState([]);
+    const moviesCollectionRef = collection(db,"movies")
+
+    const [newMovieTitle,setNewMovieTitle] =useState("");
+    const [newReleaseDate,setNewReleaseDate]=useState(0);
+    const [isNewMovieGood,setIsNewMovieGood] =useState(false);
+
+    const [updatedTitle,setUpdatedTitle] = useState("");
+
+    const getMovieList= async ()=>{
+        try{
+            const data = await getDocs(moviesCollectionRef);
+            const filterdData= data.docs.map((doc)=>({
+                ...doc.data(),
+                id : doc.id
+            }))
+            setMovieList(filterdData);
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(()=>{
+        getMovieList();
+    },[])
+
+
+    const submitMovie= async ()=>{
+        try{
+            await addDoc(moviesCollectionRef,{
+                title: newMovieTitle,
+                releaseDate : newReleaseDate, 
+                isGood : isNewMovieGood,
+                // here we can see that we are specifying both userId and userEmail into the document(row) in firebase
+                userId : auth?.currentUser?.uid,
+                userEmail : auth?.currentUser?.email
+            })
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+
+    const deleteMovie = async (id)=>{
+        const movieDoc = doc (db,"movies",id)
+        try{
+            await deleteDoc(movieDoc)
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+    const updateMovie= async (id)=>{
+        const movieDoc = doc (db,"movies",id)
+        try{
+            await updateDoc(movieDoc, {title: updatedTitle});
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+    
+    return (
+        <>
+        <div>
+            <input 
+                placeholder='Movie Title' 
+                onChange={(e)=>setNewMovieTitle(e.target.value)}
+            />
+        
+            <input 
+                placeholder='Release Date'
+                onChange={(e)=>setNewReleaseDate(Number(e.target.value))}
+            ></input>
+            <input 
+                type="checkbox"
+                checked={isNewMovieGood} 
+                onChange={(e)=> setIsNewMovieGood(e.target.checked)}
+            />
+            <label >Is Good</label>
+            <button onClick={submitMovie}>Submit Movie</button>
+        </div>
+
+        <div>
+            {movielist.map( (movie)=>(
+                <div key={movie.id}>
+                    <h1 style={{color : movie.isGood ? "green" : "red"}}>{movie.title}</h1>
+                    <p>Date : {movie.releaseDate}</p>
+                    <input 
+                        placeholder='new movie title'
+                        onChange={(e)=> setUpdatedTitle(e.target.value)}
+                    ></input>
+
+                    <button onClick={()=>updateMovie(movie.id)}>Update movie title</button>
+                    <button onClick={()=>deleteMovie(movie.id)}> Delete Movie</button>
+                    
+                </div>
+            ))}
+        </div>
+        </>
+    )
+}
+
+export default Database
+
+</script>
+
+
+<script>
+// components /auth 
+import React, { useState } from 'react'
+import {auth} from "../config/firebase";
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+
+const Auth = () => {
+
+    const [email,setEmail] =useState("");
+    const [password,setPassword] = useState("");
+
+    console.log(auth?.currentUser?.email)
+
+     const signIn= async ()=>{
+        try{
+            await createUserWithEmailAndPassword(auth,email,password);
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    return (
+        <div>
+            <input 
+                type="text" placeholder='Email' 
+                onChange={(e)=>{setEmail(e.target.value)}}
+            />
+            <input 
+                type="password" placeholder='Password' 
+                onChange={(e)=>{setPassword(e.target.value)}}
+            />
+            <button onClick={signIn}>Sign In </button>
+        </div>
+    )
+}
+
+export default Auth
+
+</script>
+
+
+<script>
+
+// App.jsx 
+import React from 'react'
+import Auth from './components/Auth'
+import Database from './components/Database'
+const App = () => {
+  return (
+    <div>
+      <Auth />
+      <Database />
+    </div>
+  )
+}
+
+export default App
+
+
+</script>
+
+
+<script>
+// config/firebase.jsx
+
+import { initializeApp } from "firebase/app";
+import {getAuth, GoogleAuthProvider} from 'firebase/auth';
+
+import {getFirestore} from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdp9X2xW2mWA67zbF71ypEaDDWBy31wKE",
+  authDomain: "test-api-f3b07.firebaseapp.com",
+  databaseURL: "https://test-api-f3b07-default-rtdb.firebaseio.com",
+  projectId: "test-api-f3b07",
+  storageBucket: "test-api-f3b07.appspot.com",
+  messagingSenderId: "383421070481",
+  appId: "1:383421070481:web:bd50db0030f57863075330"
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+export const db = getFirestore(app);
+
+</script>
+
+<!-- firebase/database/rules -->
+<!-- here it means anyone can able to read and write  -->
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+       allow  read,write: if true;
+    }
+  }
+}
+
+<!-- 
+    it means everyone can able to read and write into the database 
+ -->
+<!-- it means allowing to read and write -->
+allow  read,write: if true;
+
+
+<!-- here in the below it mean, can able to read, but cannot able to add or write into the database -->
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+        allow  read: if true;
+        allow  write: if false;
+    }
+  }
+}
+
+*************************************
+
+<!-- 
+    here we can able to add,update or delete data only if you logged in or siggned in 
+    if you are not a user, you cannot able to add data
+ -->
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+       allow  write,delete,update: if request.auth!=null;
+       allow read : if true;
+    }
+  }
+}
+
+*************************************
+
+<!-- 
+    here it means that to write , update or delete 
+        you have to be a user at first, 
+    
+    in the below you can't able to write , because while creating there won't be any data that is present for you
+
+ -->
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+    	allow write : if request.auth!=null && request.auth.uid == request.resource.data.userId;
+       	allow read : if true;
+    }
+  }
+}
+
+__________________ 
+
+<!-- note -->
+write = create, update, delete 
+
+__________________
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+    	allow create : if request.auth!=null 
+        allow update,delete : if request.auth.uid == request.resource.data.userId;
+       	allow read : if true;
+    }
+  }
+}
+
+Here in the above, 
+you can able to create , if you are a user 
+you can able to delete and update the records, that you created 
+you can able to read, even you are not a user. 
+
+
+******************************************

@@ -1,0 +1,500 @@
+
+<!-- path to firebase / firestore -->
+https://console.firebase.google.com/project/test-api-f3b07/firestore/data/~2F
+
+
+
+https://www.youtube.com/watch?v=2hR-uWjBAgw
+
+Go through above tutorail for database creation in firebase tool 
+
+<!-- How to get data from the fireBase database -->
+
+go to firebase / firestore database / create firestore 
+
+creating a collection : 
+    its like a table 
+
+---------------
+
+document is an entry in a collection 
+it is like a row 
+    field, type, value 
+    name , string , reddy 
+
+    we can add any number of fields to us, 
+    at first we need to create a table with few fields in it (a single docuemnt/row)
+
+types of fields : 
+    string 
+    number 
+    boolean 
+    map  => it contains the collection of arrays 
+    array  => it contain collection of string or number or boolean 
+    null 
+
+    
+---------------
+
+<!-- firebase.js -->
+
+Below is the way of including firebase to the auth file
+
+<script>
+// app\src\Test\config\firebase.jsx
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import {getAuth, GoogleAuthProvider} from 'firebase/auth';
+
+import {getFirestore} from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdp9X2xW2mWA67zbF71ypEaDDWBy31wKE",
+  authDomain: "test-api-f3b07.firebaseapp.com",
+  databaseURL: "https://test-api-f3b07-default-rtdb.firebaseio.com",
+  projectId: "test-api-f3b07",
+  storageBucket: "test-api-f3b07.appspot.com",
+  messagingSenderId: "383421070481",
+  appId: "1:383421070481:web:bd50db0030f57863075330"
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+export const db = getFirestore(app);
+
+</script>
+
+
+
+below is the way of getting the firebase collection 
+
+<script>
+// app\src\Test\components\Database.jsx
+
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { db } from '../config/firebase';
+import { getDocs, collection } from 'firebase/firestore';
+
+const Database = () => {
+
+    const [movielist,setMovieList] =useState([]);
+    const moviesCollectionRef = collection(db,"movies")
+
+    useEffect(()=>{
+        const getMovieList= async ()=>{
+            try{
+                const data = await getDocs(moviesCollectionRef);
+                const filterdData= data.docs.map((doc)=>({
+                    ...doc.data(),
+                    id : doc.id
+                }))
+                setMovieList(filterdData);
+            }
+            catch(err){
+                console.error(err)
+            }
+        }
+        getMovieList();
+    })
+    
+    return (
+        <div>
+            {movielist.map( (movie)=>(
+                <div key={movie.id}>
+                    // if the movie is good we get the text in green else red.
+                    <h1 style={{color : movie.isGood ? "green" : "red"}}>{movie.title}</h1>
+                    <p>Date : {movie.releaseDate}</p>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default Database
+
+
+__________________________
+
+import React from 'react'
+import Database from './components/Database'
+const App = () => {
+  return (
+    <div>
+      <Database />
+    </div>
+  )
+}
+
+export default App
+
+
+</script>
+
+The output will be the array of data fields in the movie collection in the firebase database 
+ 
+
+<!-- note  -->
+you may not have permissions sometimes, you will get permission error in the console
+in that case go to firebase/firestore database /cloud firestore / rules 
+
+<!-- change the rules to below -->
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+       allow  read, write, update, delete: if true;
+    }
+  }
+}
+
+__________________________
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+       allow  write, update, delete: if request.auth !=null && request.auth.uid == request.resource.data.userId;
+      allow read : if request.auth !=null
+    }
+  }
+}
+
+<!-- note -->
+allow the rules to read and write 
+
+****************************************
+****************************************
+
+
+<!-- How to add a form values into a firebase database  -->
+
+<script>
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { db } from '../config/firebase';
+import { getDocs, collection ,addDoc} from 'firebase/firestore';
+export const Database = () => {
+
+    const [movielist,setMovieList] =useState([]);
+    const moviesCollectionRef = collection(db,"movies")
+
+    const [newMovieTitle,setNewMovieTitle] =useState("");
+    const [newReleaseDate,setNewReleaseDate]=useState(0);
+    const [isNewMovieGood,setIsNewMovieGood] =useState(false);
+
+    const getMovieList= async ()=>{
+        try{
+            const data = await getDocs(moviesCollectionRef);
+            const filterdData= data.docs.map((doc)=>({
+                ...doc.data(),
+                id : doc.id
+            }))
+            setMovieList(filterdData);
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(()=>{
+        getMovieList();
+    },[])
+
+
+    const submitMovie= async ()=>{
+        try{
+
+            await addDoc(moviesCollectionRef,{
+                title: newMovieTitle,
+                releaseDate : newReleaseDate, 
+                isGood : isNewMovieGood,
+            })
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+    return (
+        <>
+        <div>
+            <input 
+                placeholder='Movie Title' 
+                onChange={(e)=>setNewMovieTitle(e.target.value)}
+            />
+        
+            <input 
+                placeholder='Release Date'
+                onChange={(e)=>setNewReleaseDate(Number(e.target.value))}
+            ></input>
+
+            <input 
+                type="checkbox"
+                checked={isNewMovieGood} 
+                onChange={(e)=> setIsNewMovieGood(e.target.checked)}
+            />
+            <label >Is Good</label>
+
+            <button onClick={submitMovie}>Submit Movie</button>
+        </div>
+
+        <div>
+            {movielist.map( (movie)=>(
+                <div key={movie.id}>
+                    <h1 style={{color : movie.isGood ? "green" : "red"}}>{movie.title}</h1>
+                    <p>Date : {movie.releaseDate}</p>
+                </div>
+            ))}
+        </div>
+        </>
+    )
+}
+
+</script>
+
+ 
+Here when ever we submit the fields it will get stored in the firebase database 
+For the above data , Id will be automatically generated 
+
+******************************************************
+****************************************************
+
+
+<!-- Way to delete a movie from the database  -->
+
+<script>
+
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { db } from '../config/firebase';
+import { getDocs, collection ,addDoc , deleteDoc, doc} from 'firebase/firestore';
+export const Database = () => {
+
+    const [movielist,setMovieList] =useState([]);
+    const moviesCollectionRef = collection(db,"movies")
+
+    const [newMovieTitle,setNewMovieTitle] =useState("");
+    const [newReleaseDate,setNewReleaseDate]=useState(0);
+    const [isNewMovieGood,setIsNewMovieGood] =useState(false);
+
+    const getMovieList= async ()=>{
+        try{
+            const data = await getDocs(moviesCollectionRef);
+            const filterdData= data.docs.map((doc)=>({
+                ...doc.data(),
+                id : doc.id
+            }))
+            setMovieList(filterdData);
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(()=>{
+        getMovieList();
+    },[])
+
+
+    const submitMovie= async ()=>{
+        try{
+            await addDoc(moviesCollectionRef,{
+                title: newMovieTitle,
+                releaseDate : newReleaseDate, 
+                isGood : isNewMovieGood,
+            })
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+
+    //  this is the way to delete a movie from the database 
+    const deleteMovie = async (id)=>{
+        const movieDoc = doc (db,"movies",id)
+        try{
+            await deleteDoc(movieDoc)
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+    return (
+        <>
+        <div>
+            <input 
+                placeholder='Movie Title' 
+                onChange={(e)=>setNewMovieTitle(e.target.value)}
+            />
+        
+            <input 
+                placeholder='Release Date'
+                onChange={(e)=>setNewReleaseDate(Number(e.target.value))}
+            ></input>
+            <input 
+                type="checkbox"
+                checked={isNewMovieGood} 
+                onChange={(e)=> setIsNewMovieGood(e.target.checked)}
+            />
+            <label >Is Good</label>
+            <button onClick={submitMovie}>Submit Movie</button>
+            
+        </div>
+
+        <div>
+            {movielist.map( (movie)=>(
+                <div key={movie.id}>
+                    <h1 style={{color : movie.isGood ? "green" : "red"}}>{movie.title}</h1>
+                    <p>Date : {movie.releaseDate}</p>
+
+                    // so whenever we just want to pass an argument we have to use below way 
+                    <button onClick={()=>deleteMovie(movie.id)}> Delete Movie</button>
+                </div>
+            ))}
+        </div>
+        </>
+    )
+}
+
+
+</script>
+
+
+**************************************************
+**************************************************
+
+
+<!-- How to update a data in the firebase tool database  -->
+
+Below we written the code to update a firebase data
+
+<script>
+
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { db } from '../config/firebase';
+import { getDocs, collection ,addDoc , deleteDoc, doc,updateDoc} from 'firebase/firestore';
+export const Database = () => {
+
+    const [movielist,setMovieList] =useState([]);
+    const moviesCollectionRef = collection(db,"movies")
+
+    const [newMovieTitle,setNewMovieTitle] =useState("");
+    const [newReleaseDate,setNewReleaseDate]=useState(0);
+    const [isNewMovieGood,setIsNewMovieGood] =useState(false);
+
+    const [updatedTitle,setUpdatedTitle] = useState("");
+
+    const getMovieList= async ()=>{
+        try{
+            const data = await getDocs(moviesCollectionRef);
+            const filterdData= data.docs.map((doc)=>({
+                ...doc.data(),
+                id : doc.id
+            }))
+            setMovieList(filterdData);
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(()=>{
+        getMovieList();
+    },[])
+
+
+    const submitMovie= async ()=>{
+        try{
+            await addDoc(moviesCollectionRef,{
+                title: newMovieTitle,
+                releaseDate : newReleaseDate, 
+                isGood : isNewMovieGood,
+            })
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+
+    const deleteMovie = async (id)=>{
+        const movieDoc = doc (db,"movies",id)
+        try{
+            await deleteDoc(movieDoc)
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+
+    const updateMovie= async (id)=>{
+        const movieDoc = doc (db,"movies",id)
+        try{
+            await updateDoc(movieDoc, {title: updatedTitle});
+        }
+        catch(err){
+            console.error(err);
+        }
+        getMovieList();
+    }
+    
+    return (
+        <>
+        <div>
+            <input 
+                placeholder='Movie Title' 
+                onChange={(e)=>setNewMovieTitle(e.target.value)}
+            />
+        
+            <input 
+                placeholder='Release Date'
+                onChange={(e)=>setNewReleaseDate(Number(e.target.value))}
+            ></input>
+            <input 
+                type="checkbox"
+                checked={isNewMovieGood} 
+                onChange={(e)=> setIsNewMovieGood(e.target.checked)}
+            />
+            <label >Is Good</label>
+            <button onClick={submitMovie}>Submit Movie</button>
+        </div>
+
+        <div>
+            {movielist.map( (movie)=>(
+                <div key={movie.id}>
+                    <h1 style={{color : movie.isGood ? "green" : "red"}}>{movie.title}</h1>
+                    <p>Date : {movie.releaseDate}</p>
+                    <input 
+                        placeholder='new movie title'
+                        onChange={(e)=> setUpdatedTitle(e.target.value)}
+                    ></input>
+
+                    <button onClick={()=>updateMovie(movie.id)}>Update movie title</button>
+                    <button onClick={()=>deleteMovie(movie.id)}> Delete Movie</button>
+                    
+                </div>
+            ))}
+        </div>
+        </>
+    )
+}
+
+</script>
+
+
+*************************************************
+
