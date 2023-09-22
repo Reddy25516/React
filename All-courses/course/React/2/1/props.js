@@ -1,43 +1,5 @@
 
-
-// props 
-
-//app.js 
-import './App.css';
-import React ,{Component} from 'react'
-import Greet from './Components/Greet'
-
-function App() {
-  return (
-    <div className="App">
-      <Greet name='REDDY'/>
-    </div>
-  );
-}
-export default App;
-
-
-'------------------'
-
-import React from 'react'
-
-function Greet(props){
-    return <h1> hello {props.name}</h1>
-}
-export default Greet 
-
-//we get an output Hello REDDY
-
-'--------------------------------'
-// using const function of above 
-
-const Greet=(props)=> {
-  console.log(props)
-  return <h1>Hello {props.name}</h1>
-}
-
 '================================'
-
 
 // app.js
 function App() {
