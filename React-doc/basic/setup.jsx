@@ -1,5 +1,8 @@
 
 
+// download node at first 
+// restart vs code 
+// cross check node version 
 
 'npm install npm -g'
 'go to cmd'
