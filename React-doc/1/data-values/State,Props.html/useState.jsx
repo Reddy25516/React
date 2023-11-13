@@ -30,7 +30,7 @@ is not const  function while using the inine function
 _____________________________
 
 
-`calling the const function with onclick , this is same above above`
+`calling the const function with onclick , this is same as above`
 
 import React from 'react'
 import { useState } from 'react';
@@ -57,8 +57,6 @@ const App = () => {
   )
 }
 export default App;
-
-_____________________________
 
 
 '**************************************'
