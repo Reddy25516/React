@@ -1,0 +1,93 @@
+
+
+
+<!-- 
+    after hovering on the div block 
+    the p element inside the div block will get displayed 
+-->
+
+div:hover p {
+    display: block;
+}
+
+https://www.w3schools.com/css/css_pseudo_classes.asp
+
+
+****************************
+
+
+p:first-child {
+    color: blue;
+}
+
+p i:first-child {
+    color: blue;
+  }
+  
+
+<!-- match all the i in the first p element -->
+
+<p>
+    <i></i>
+    <i></i>
+    <i></i>
+</p>
+
+p:first-child i {
+    color: blue;
+}
+
+
+
+*****************************
+
+<!-- pseudo elements -->
+
+https://www.w3schools.com/css/css_pseudo_elements.asp
+
+
+
+<!-- first line in the p paragraph -->
+p::first-line {
+    color: #ff0000;
+    font-variant: small-caps;
+}
+
+<!-- first letter -->
+p::first-letter {
+    color: #ff0000;
+    font-size: xx-large;
+  }
+
+
+<!-- p with class intro -->
+p.intro::first-letter {
+    color: #ff0000;
+    font-size: 200%;
+}
+
+
+<!-- how to insert some conent before the heading -->
+h1::before {
+    content: url(smiley.gif);
+}
+  
+
+
+
+h1::after {
+    content: url(smiley.gif);
+}
+
+<!-- The ::marker pseudo-element selects the markers of list items. -->
+::marker {
+    color: red;
+    font-size: 23px;
+}
+
+
+<!-- applying css to the  portion of an element that is selected by a user. -->
+::selection {
+    color: red;
+    background: yellow;
+}
